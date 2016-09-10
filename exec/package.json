@@ -36,15 +36,16 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rimraf lib/ && buba -i src -o lib"
+    "test": "../node_modules/.bin/mocha -r buba/register",
+    "build": "rimraf lib/ && buba src -o lib"
   },
   "dependencies": {
     "@northbrook/util": "1.0.0",
-    "most": "^1.0.1"
+    "most": "^1.0.3"
   },
   "devDependencies": {
     "babel-preset-power-assert": "^1.0.0",
-    "buba": "^2.0.4",
+    "buba": "^3.0.1",
     "power-assert": "^1.4.1",
     "rimraf": "latest"
   }

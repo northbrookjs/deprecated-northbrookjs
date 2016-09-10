@@ -61,12 +61,8 @@ describe('@northbrook/exec', () => {
   })
 
   describe('run', () => {
-    it('should run a command', (done) => {
-      run('echo hello', joinc(__dirname)('../'))
-        .observe(({ stdout }) => {
-          assert(stdout === 'hello')
-          done()
-        })
+    it('should run a command', () => {
+      return run('echo hello', joinc(__dirname)('../'))
     })
   })
 
