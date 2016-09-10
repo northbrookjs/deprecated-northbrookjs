@@ -35,6 +35,7 @@
     "commit": "northbrook commit",
     "release": "northbrook release",
     "report": "northbrook exec -- ../node_modules/.bin/nyc report --reporter html --reporter text",
-    "test": "northbrook eslint && northbrook exec -- northbrook run coverage"
+    "test": "northbrook eslint && northbrook exec -- northbrook run coverage",
+    "postinstall": "northbrook exec -- npm install"
   }
 }
