@@ -11,9 +11,6 @@ if [[ $TRAVIS_BRANCH == "master" ]]; then
 
   bash .scripts/npm-login.sh;
 
-  # build library
-  npm run build;
-
   # run deployment
   node ./node_modules/.bin/northbrook release --skip-login;
 fi
