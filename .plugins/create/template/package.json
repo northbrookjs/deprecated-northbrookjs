@@ -1,0 +1,43 @@
+{
+  "private": {{ private }},
+  "name": "{{ packageName }}",
+  "version": "0.0.0",
+  "description": "{{ description }}",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
+  "license": "MIT",
+  "keywords": [
+  ],
+  "author": "{{ author }}",
+  "repository": {
+    "type": "git",
+    "url": "{{ gitUrl }}"
+  },
+  "bugs": {
+    "url": "{{ bugsUrl }}"
+  },
+  "homepage": "{{ homepage }}",
+  "config": {
+  },
+  "nyc": {
+    "inlcude": ["src/"],
+    "exclude": ["node_modules", "lib/", "test/"]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rimraf lib/ && buba -i src -o lib"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "northbrook": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-preset-power-assert": "latest",
+    "buba": "latest",
+    "commander": "latest",
+    "power-assert": "latest",
+    "rimraf": "latest"
+  }
+}

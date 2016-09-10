@@ -1,0 +1,6 @@
+coverage
+.nyc_output
+.plugins
+.scripts
+northbrook.json
+.plugins

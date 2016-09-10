@@ -1,0 +1,7 @@
+{
+  "extends": "mocha",
+  "plugins": [ "eslint", ".plugins/create" ],
+  "packages": [ "util" ],
+  "eslint": {},
+  "mocha": { "require": [ "buba/register" ] }
+}

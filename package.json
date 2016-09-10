@@ -1,0 +1,40 @@
+{
+  "name": "northbrookjs",
+  "description": "Monorepo for Northbrook Core and Default plugins",
+  "version": "1.0.0",
+  "author": "Tylor Steinberger <tlsteinberger167@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/northbrookjs/northbrookjs/issues"
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "node ./node_modules/.bin/validate-commit-msg"
+    },
+    "validate-commit-msg": {
+      "types": "@northbrook/commit-types"
+    }
+  },
+  "devDependencies": {
+    "@northbrook/eslint": "^1.2.1",
+    "@northbrook/mocha": "^1.0.0",
+    "buba": "^2.0.4",
+    "ghooks": "^1.3.2",
+    "khaos": "^0.9.3",
+    "northbrook": "^3.1.0",
+    "validate-commit-msg": "^2.8.0"
+  },
+  "homepage": "https://github.com/northbrookjs/northbrookjs#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/northbrookjs/northbrookjs.git"
+  },
+  "scripts": {
+    "build": "northbrook exec -- npm run build",
+    "commit": "northbrook commit",
+    "release": "northbrook release",
+    "report": "northbrook exec -- ../node_modules/.bin/nyc report --reporter html --reporter text",
+    "test": "northbrook eslint && northbrook exec -- northbrook run coverage"
+  }
+}
