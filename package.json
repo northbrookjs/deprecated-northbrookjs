@@ -31,11 +31,11 @@
     "url": "git+https://github.com/northbrookjs/northbrookjs.git"
   },
   "scripts": {
-    "build": "northbrook exec -- npm run build",
+    "build": "bash ./.scripts/pretest.sh",
     "commit": "northbrook commit",
     "release": "northbrook release",
     "report": "northbrook exec -- ../node_modules/.bin/nyc report --reporter html --reporter text",
-    "test": "northbrook eslint && northbrook exec -- northbrook run coverage",
-    "postinstall": "northbrook exec -- npm install"
+    "pretest": "bash ./.scripts/pretest.sh",
+    "test": "northbrook eslint && northbrook exec -- npm test"
   }
 }
