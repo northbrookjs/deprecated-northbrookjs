@@ -1,0 +1,50 @@
+{
+  "private": false,
+  "name": "@northbrook/exec",
+  "version": "0.0.0",
+  "description": "Execute commands in your Northbrook managed packages",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
+  "license": "MIT",
+  "keywords": [],
+  "author": "Tylor Steinberger &lt;tlsteinberger167@gmail.com&gt;",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/northbrookjs/northbrookjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/northbrookjs/northbrookjs/issues"
+  },
+  "homepage": "https://github.com/northbrookjs/northbrookjs#readme",
+  "config": {
+    "ghooks": {
+      "commit-msg": "node ./node_modules/.bin/validate-commit-msg"
+    },
+    "validate-commit-msg": {
+      "types": "@northbrook/commit-types"
+    }
+  },
+  "nyc": {
+    "exclude": [
+      "node_modules",
+      "lib/",
+      "test/"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rimraf lib/ && buba -i src -o lib"
+  },
+  "dependencies": {
+    "@northbrook/util": "1.0.0",
+    "most": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-preset-power-assert": "^1.0.0",
+    "buba": "^2.0.4",
+    "power-assert": "^1.4.1",
+    "rimraf": "latest"
+  }
+}
