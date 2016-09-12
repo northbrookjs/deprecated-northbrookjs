@@ -34,6 +34,7 @@
   "scripts": {
     "build": "bash ./.scripts/pretest.sh",
     "commit": "northbrook commit",
+    "documentation": "northbrook documentation",
     "release": "northbrook release",
     "report": "northbrook exec -- ../node_modules/.bin/nyc report --reporter html --reporter text",
     "pretest": "bash ./.scripts/pretest.sh",
