@@ -1,0 +1,54 @@
+# @northbrook/util
+
+> Utilities for Northbrook (or any node.js application)
+
+# Get it
+
+```sh
+npm install @northbrook/util
+```
+
+# Documentation
+
+<? docfiles
+  .filter(doc => doc.filename.indexOf('index.js') === -1)
+  .map(doc => doc.javadoc)
+  .reduce((comments, doc) => comments.concat(doc), [])
+  .sortAlpha().forEach(function (comment) { ?>
+  <? if (!comment.ignore) { ?>
+    <? if (comment.description && typeof comment.description === 'string') { ?>
+      <? comment.description.replace(new RegExp('<!--[^>]*-->'), '').split('\n').filter(Boolean).forEach((str, i) => { ?>
+        <? if (str.indexOf('::') > -1) { ?>
+          <? if (i === 0) { ?>
+            ## <a style="font-size: 80%; background-color: #5A2199 !important; padding: 6px; border-radius: 10px; color: #fff;" id="<?= comment.name?>"><?= str.trim().replace('<', '&lt;').replace('>', '&gt;').replace('-', '<p style="background-color: #BBB; font-size: 80%; float: right; padding: 6px; border-radius: 10px; max-width: 180px">') ?></p></a>
+          <? } else { ?>
+            ## <a id="<?= comment.name- + (i + '')?>" style="font-size: 80%; background-color: #5A2199 !important; padding: 6px; border-radius: 10px; color: #fff;"><?= str.trim().replace('<', '&lt;').replace('>', '&gt;') ?> </a>
+          <? } ?> <? } else if (str !== '\n') { ?> <?= str ?> <? } ?>
+      <? }, '') ?>
+    <? } ?>
+
+    <? if (comment.deprecated) { ?>
+      **Deprecated**
+    <? } ?>
+
+    <? if (comment.see) { ?>
+      See: <?= comment.see ?>
+    <? } ?>
+    ---
+  <? } ?>
+<? }) ?>
+
+### Notes about function signatures
+
+- All functions with `⭑` preceding their name are curried by default. It will
+always be curried by its function length, unless it has an optional argument.
+In which case a function has an optional argument, it will be curried to `n - 1`
+meaning that if you need to use the optional argument it *must* be passed in as
+as second argument to the last function call.
+
+- All functions that have optional arugments are displayed with 2 function
+signatures.
+
+- All overloaded functions will display multiple function signatures as needed.
+
+- `[...*]` is a representation of a spread operator that takes any type.
