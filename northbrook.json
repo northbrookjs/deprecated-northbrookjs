@@ -1,7 +1,11 @@
 {
   "extends": "mocha",
   "ignoreDefaults": [ "exec" ],
-  "plugins": [ "eslint", ".plugins/create", "./exec" ],
+  "plugins": [
+    "eslint",
+    ".plugins/create",
+    ".plugins/documentation",
+    "./exec" ],
   "packages": [ "exec", "util" ],
   "eslint": {},
   "mocha": { "require": [ "buba/register" ] }
