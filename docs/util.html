@@ -91,7 +91,7 @@ const always3 = always(3)
 always3(999) // 3 
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L288">click here to see the implementation</a></p>
+<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L285">click here to see the implementation</a></p>
 </section>
 <section id="and">
 <h2><a href="#and" >and :: [...(a ➞ boolean)] ➞ a ➞ boolean </a></h2>
@@ -112,7 +112,7 @@ isOddBy5(10) // true
 isOddBy5(13) // false 
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L439">click here to see the implementation</a></p>
+<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L436">click here to see the implementation</a></p>
 </section>
 <section id="append">
 <h2><a href="#append" >* append :: a ➞ [a] ➞ [a] </a></h2>
@@ -212,7 +212,7 @@ import { compose } from '@northbrook/util'
 compose(f, g)  // x =&gt; f(g(x)) 
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L267">click here to see the implementation</a></p>
+<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L264">click here to see the implementation</a></p>
 </section>
 <section id="concat">
 <h2><a href="#concat" >* concat :: [a] ➞ [b] ➞ [a | b] </a></h2>
@@ -252,7 +252,7 @@ num(1) // 'Value is one'
 num(99) // 'Value is nothing interesting' 
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L337">click here to see the implementation</a></p>
+<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L334">click here to see the implementation</a></p>
 </section>
 <section id="cons">
 <h2><a href="#cons" >* cons :: a ➞ [a] ➞ [a] </a></h2>
@@ -498,7 +498,7 @@ flatten([[1], [[2]], 3])  // [1, 2, 3]
 <h2><a href="#flip" >flip :: (a ➞ b ➞ c ➞ d) ➞ (c ➞ b ➞ a ➞ d) </a></h2>
 <p>Function</p>
 <p>Flips your argument order</p>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L217">click here to see the implementation</a></p>
+<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L214">click here to see the implementation</a></p>
 </section>
 <section id="getAllInDirectory">
 <h2><a href="#getAllInDirectory" >* getAllInDirectory :: string ➞ [string] </a></h2>
@@ -568,7 +568,7 @@ const makeEvens = ifElse(isEven, id, sub1)
 map(makeEvens, [1, 2, 3, 4]) // [0, 2, 2, 4] 
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L368">click here to see the implementation</a></p>
+<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L365">click here to see the implementation</a></p>
 </section>
 <section id="is">
 <h2><a href="#is" >* is :: string ➞ ⭑ ➞ boolean </a></h2>
@@ -592,7 +592,7 @@ is(3, 3) // true
 is(x =&gt; x === 2, 2) // true 
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L400">click here to see the implementation</a></p>
+<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L397">click here to see the implementation</a></p>
 </section>
 <section id="isArrayLike">
 <h2><a href="#isArrayLike" >isArrayLike :: ⭑ ➞ boolean </a></h2>
@@ -655,9 +655,6 @@ isLink('path/to/link').map(pathname ⇒ { ... }) // do something knowing it is a
 
 </code></pre>
 <p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L118">click here to see the implementation</a></p>
-</section>
-<section id="isPlaceholder">
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L205">click here to see the implementation</a></p>
 </section>
 <section id="isPlugin">
 <h2><a href="#isPlugin" >isPlugin :: ⭑ ➞ boolean </a></h2>
@@ -829,7 +826,7 @@ import { negate, alwayas } from '@northbrook/util'
 negate(always(true))(9) // false 
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L307">click here to see the implementation</a></p>
+<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L304">click here to see the implementation</a></p>
 </section>
 <section id="onlyPackage">
 <h2><a href="#onlyPackage" >* onlyPackage :: string ➞ [string] ➞ [string] </a></h2>
@@ -860,7 +857,7 @@ or(isOdd, isEven)(3) // true
 or(isOdd, isEven)(NaN) // false 
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L471">click here to see the implementation</a></p>
+<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L468">click here to see the implementation</a></p>
 </section>
 <section id="partial">
 <h2><a href="#partial" >partial :: (a, b ➞ c) ➞ [a] ➞ (b ➞ c) </a></h2>
@@ -890,7 +887,7 @@ import { pipe } from '@northbrook/util'
 pipe(f, g)  // x =&gt; g(f(x)) 
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L240">click here to see the implementation</a></p>
+<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L237">click here to see the implementation</a></p>
 </section>
 <section id="pluck">
 <h2><a href="#pluck" >* pluck :: string ➞ object ➞ ⭑ </a></h2>

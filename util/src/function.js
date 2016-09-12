@@ -199,9 +199,6 @@ export function partial (fn, partialArgs) {
   }, numberRemaining)
 }
 
-/**
- * @ignore
- */
 const isPlaceholder = x => x === PLACEHOLDER
 
 /**

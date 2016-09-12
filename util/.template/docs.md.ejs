@@ -31,27 +31,28 @@
         .map(doc => { doc.javadoc.forEach(comment => commentMap.set(comment.name, doc.filename)); return doc.javadoc })
         .reduce((comments, doc) => comments.concat(doc), [])
         .sortAlpha().forEach(function (comment, index) { ?>
-        <section id="<?= comment.name ?>">
         <? if (!comment.ignore) { ?>
-          <? if (comment.description && typeof comment.description === 'string') { ?>
-            <? comment.description.slice().replace(new RegExp('<!--[^>]*-->'), '').split('\n').filter(Boolean).forEach((str, i) => { ?>
-              <? if (str.indexOf('::') > -1) { ?>
-                  ## <a href="#<?= comment.name ?>" ><?= str.slice().trim().replace('<', '&lt;').replace('>', '&gt;') ?> </a>
-              <? } else { ?> <?= str ?> <? } ?>
-            <? }, '') ?>
-          <? } ?>
+          <section id="<?= comment.name ?>">
+            <? console.log(comment) ?>
+            <? if (comment.description && typeof comment.description === 'string') { ?>
+              <? comment.description.slice().replace(new RegExp('<!--[^>]*-->'), '').split('\n').filter(Boolean).forEach((str, i) => { ?>
+                <? if (str.indexOf('::') > -1) { ?>
+                    ## <a href="#<?= comment.name ?>" ><?= str.slice().trim().replace('<', '&lt;').replace('>', '&gt;') ?> </a>
+                <? } else { ?> <?= str ?> <? } ?>
+              <? }, '') ?>
+            <? } ?>
 
 
-          <? if (comment.deprecated) { ?>
-            **Deprecated**
-          <? } ?>
+            <? if (comment.deprecated) { ?>
+              **Deprecated**
+            <? } ?>
 
-          <? if (comment.see) { ?>
-            See: <?= comment.see ?>
-          <? } ?>
+            <? if (comment.see) { ?>
+              See: <?= comment.see ?>
+            <? } ?>
 
-          <a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/<?= commentMap.get(comment.name) ?>#L<?= comment.raw.codeStart?>">click here to see the implementation</a>
-        </section>
+            <a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/<?= commentMap.get(comment.name) ?>#L<?= comment.raw.codeStart?>">click here to see the implementation</a>
+          </section>
         <? } ?>
       <? }) ?>
 
