@@ -8,7 +8,9 @@ import { reduce, map, filter, concat, append } from '../array'
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * resolvePackages :: string ➞ object ➞ Stream<Object> - Northbrook
+ * * resolvePackages :: string ➞ object ➞ Stream<Object>
+ *
+ * Northbrook
  *
  * Taking a directory to work from and a northbrook config object returns a new config file with `packages: ["."]` if no packages are present in the config, or finds all packages that are in the config object if there is a `/**` wildcard folder present. Retuns a stream of the new config object.
  *
@@ -43,7 +45,9 @@ export function resolvePackages (directory, config) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * onlyPackage :: string ➞ [string] ➞ [string] - Northbrook
+ * * onlyPackage :: string ➞ [string] ➞ [string]
+ *
+ * Northbrook
  *
  * Filters out a package for when only 1 package should be matched.
  * Very useful with command that have an `--only <packageName>` option.

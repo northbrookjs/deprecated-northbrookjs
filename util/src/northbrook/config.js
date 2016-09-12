@@ -14,8 +14,10 @@ const NBSCOPEPREFIX = '@northbrook/'
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * resolvePackage :: string ➞ Stream<Object> - Northbrook
+ * resolvePackage :: string ➞ Stream<Object>
  * resolvePackage :: string ➞ (object ➞ boolean) ➞ Stream<Object>
+ *
+ * Northbrook
  *
  * Trys to require a package that is related to northbrook. First trying to require the package prefixed by `@nortbrook`, secondly by requiring the package prefixed by `northbrook-` and, lastly by requiring the package name directory. This will return a stream of the required package if it is found.
  *
@@ -45,7 +47,9 @@ export function resolvePackage (directory, predicate) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * resolveExtends :: string ➞ object ➞ Stream<object> - Northbrook
+ * * resolveExtends :: string ➞ object ➞ Stream<object>
+ *
+ * Northbrook
  *
  * Taking the directory in which to look from, and an existing northbrook.json object, it will find any packages from the `extends` field, if it exists.
  * If it exists, it then return a Stream of the merged configurations, with the user defined configuration overriding an overlapping declarations.
@@ -86,7 +90,9 @@ const isConfig = x => x && x.config || false
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * modifyConfig :: string ➞ object ➞ (object ➞ object) ➞ Stream<string> - Northbrook
+ * * modifyConfig :: string ➞ object ➞ (object ➞ object) ➞ Stream<string>
+ *
+ * Northbrook
  *
  * Finds and modifies a configuration file.
  *
@@ -117,7 +123,9 @@ export function modifyConfig (configFile, options, callback) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * addPlugin :: string ➞ object ➞ Stream<object> - Northbrook
+ * * addPlugin :: string ➞ object ➞ Stream<object>
+ *
+ * Northbrook
  *
  * Adds a plugin to a northbrook.json.
  *
@@ -127,7 +135,7 @@ export function modifyConfig (configFile, options, callback) {
  *
  * addPlugin('pluginName', {}).map(newConfigContents => {...})
  * ```
- * @name addPlugin ::
+ * @name addPlugin
  */
 export function addPlugin (pluginName, options) {
   return modifyConfig(NBCONFIG, options, function (config) {
@@ -154,7 +162,9 @@ export function addPlugin (pluginName, options) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * addPackage :: string ➞ object ➞ Stream<object> - Northbrook
+ * * addPackage :: string ➞ object ➞ Stream<object>
+ *
+ * Northbrook
  *
  * Adds a package to a northbrook.json.
  *
@@ -172,16 +182,16 @@ export function addPackage (pathToPackage, options) {
       throw new Error('Cannot find a ' + NBCONFIG + ' to append to')
     }
 
-    if (!pathToPackage) return config
+    if (!pathToPackage) { return config }
 
-    if (!Array.isArray(config.packages)) config.packages = []
+    if (!Array.isArray(config.packages)) { config.packages = [] }
 
     const packages = config.packages
 
     if (packages.indexOf(pathToPackage) > -1) return config
 
     return Object.assign({}, config, {
-      packages: [...packages, pathToPackage]
+      packages: packages.concat([pathToPackage])
     })
   })
 }

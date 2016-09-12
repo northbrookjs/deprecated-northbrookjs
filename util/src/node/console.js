@@ -4,7 +4,8 @@ import chalk from 'chalk'
 import figures from 'figures'
 
 /**
- * figures :: Object - Console
+ * * figures :: Object
+ * Console
  *
  * An object containing unicode charaters for common symbols.
  * Visit [figures github page](https://github.com/sindresorhus/figures#figures) to see what figures are present
@@ -14,7 +15,8 @@ import figures from 'figures'
 export { figures }
 
 /**
- * colors :: Object - Console
+ * colors :: Object
+ * Console
  *
  * An object containing many funtions to create colors inside of the console.
  * Visit [chalk's github for more info](https://github.com/chalk/chalk) on what is present.
@@ -24,7 +26,8 @@ export { figures }
 export { chalk as colors }
 
 /**
- * log :: [...string] ➞ void - Console
+ * Console
+ * log :: [...string] ➞ void
  *
  * Prints to stdout with UTF-8 encoding and adds 4 space indentation to all newlines
  *
@@ -44,7 +47,8 @@ export function log (...args) {
 }
 
 /**
- * modOutput :: string ➞ string - String / Console
+ * modOutput :: string ➞ string
+ * String / Console
  *
  * Adds an indent of 4 spaces to all new lines
  *
@@ -61,7 +65,8 @@ export function modOutput (output) {
 }
 
 /**
- * separator :: () ➞ string - String / Console
+ * separator :: () ➞ string
+ * String / Console
  * separator :: string ➞ string
  *
  * Returns 80 character wide string used to log a separation between outputs
@@ -95,7 +100,8 @@ export function separator (packageName) {
 }
 
 /**
- * clear :: () ➞ void - Console
+ * clear :: () ➞ void
+ * Console
  *
  * Clears the console
  *

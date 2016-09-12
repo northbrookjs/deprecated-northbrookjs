@@ -1,8 +1,11 @@
 'use strict'
 const { join } = require('path')
 const fs = require('fs')
-const markdox = require('markdox')
 const { execSync } = require('child_process')
+const markdox = require('markdox')
+const ejs = require('ejs')
+const mkdirp = require('mkdirp')
+const rimraf = require('rimraf')
 
 String.prototype.toCamelCase = function () { // eslint-disable-line no-extend-native
   return this.replace(/[a-z]/g, function (letter, index) {
@@ -58,25 +61,66 @@ exports.plugin = function (program, config, directory) {
     .description('Generate a README for your packages')
     .action(() => {
       const packages = config && config.packages
+      const p = new Promise((resolve) => {
+        let listeners = packages.length
 
-      packages.forEach(name => {
-        const dir = join(directory, name)
-
-        const output = join(dir, 'README.md')
-        const template = join(dir, '.template/README.md.ejs')
-
-        if (!isFile(template)) return
-
-        if (!isFile(output)) {
-          execSync('touch ' + output)
+        function finished () {
+          if (--listeners === 0) {
+            resolve(null)
+          }
         }
 
-        console.log('Generating documentation for ' + name + '...')
+        packages.forEach(name => {
+          const dir = join(directory, name)
 
-        const srcFiles = getAllInDirectory(join(dir, 'src'))
+          const outDir = join(directory, '.tmp')
 
-        markdox.process(srcFiles, { output, template }, function () {
-          console.log('Finished generating documentation for ' + name + '!')
+          mkdirp(outDir, function (err) {
+            if (err) throw err
+
+            const output = join(directory, '.tmp/' + name + '.md')
+            const template = join(dir, '.template/docs.md.ejs')
+
+            if (!isFile(template)) {
+              return finished()
+            }
+
+            if (!isFile(output)) {
+              execSync('touch ' + output)
+            }
+
+            console.log('Generating documentation for ' + name + '...')
+
+            const srcFiles = getAllInDirectory(join(dir, 'src'))
+
+            markdox.process(srcFiles, { output, template }, function () {
+              console.log('Finished generating documentation for ' + name + '!')
+              finished()
+            })
+          })
+        })
+      })
+
+      p.then(() => {
+        mkdirp(join(directory, '.tmp'), (err) => {
+          if (err) throw err
+          packages.forEach(name => {
+            const input = join(directory, '.tmp/' + name + '.md')
+
+            if (!isFile(input)) return
+
+            return execSync(join(directory, './node_modules/.bin/markdown-it') + ' ' + input + ' > ' + join('docs', name + '.html'))
+          })
+        })
+      }).then(() => {
+        return rimraf(join(directory, '.tmp'), (err) => {
+          if (err) throw err
+
+          const template = ejs.compile(fs.readFileSync(join(__dirname, 'index.html.ejs'), 'utf8'))
+
+          const packagesWithDocs = packages.filter(name => isFile(join(directory, name, '.template/docs.md.ejs')))
+
+          fs.writeFileSync(join(directory, 'docs/index.html'), template({ packages: packagesWithDocs }), 'utf8')
         })
       })
     })

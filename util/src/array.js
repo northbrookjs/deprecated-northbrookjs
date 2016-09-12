@@ -1,7 +1,9 @@
 // Non-mutating array an arrayLike operations
 
 /**
- * * cons :: a ➞ [a] ➞ [a] - Array
+ * * cons :: a ➞ [a] ➞ [a]
+ *
+ * Array
  *
  * Creates an array prepended by a value
  *
@@ -24,7 +26,9 @@ export function cons (x, a) {
 }
 
 /**
- * * append :: a ➞ [a] ➞ [a] - Array
+ * * append :: a ➞ [a] ➞ [a]
+ *
+ * Array
  *
  * Creates an array appended by a value
  *
@@ -48,7 +52,9 @@ export function append (x, a) {
 }
 
 /**
- * * drop :: number ➞ [a] ➞ [a] - Array
+ * * drop :: number ➞ [a] ➞ [a]
+ *
+ * Array
  *
  * Drops the first `n` number of values from an array
  *
@@ -90,7 +96,9 @@ function unsafeDrop (n, a, l) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * tail :: [a] ➞ [a] - Array
+ * tail :: [a] ➞ [a]
+ *
+ * Array
  *
  * Retuns an array without it's first item
  *
@@ -107,7 +115,9 @@ export function tail (a) {
 }
 
 /**
- * copy :: [a] ➞ [a] - Array
+ * copy :: [a] ➞ [a]
+ *
+ * Array
  *
  * Creates an identical copy of an array without mutating the original
  *
@@ -129,7 +139,9 @@ export function copy (a) {
 }
 
 /**
- * * map :: (a ➞ b) ➞ [a] ➞ [b] - Array
+ * * map :: (a ➞ b) ➞ [a] ➞ [b]
+ *
+ * Array
  *
  * Creates a new array based on a previous
  *
@@ -151,7 +163,9 @@ export function map (f, a) {
 }
 
 /**
- * * reduce :: (b ➞ a ➞ b) ➞ b ➞ [a] - Array
+ * * reduce :: (b ➞ a ➞ b) ➞ b ➞ [a]
+ *
+ * Array
  *
  * Creates a value by iterating over the values of an array
  *
@@ -175,7 +189,9 @@ export function reduce (f, z, a) {
 }
 
 /**
- * * replace :: a ➞ number ➞ [a] - Array / String
+ * * replace :: a ➞ number ➞ [a]
+ *
+ * Array / String
  *
  * Replace an element at a given index
  *
@@ -205,7 +221,9 @@ export function replace (x, i, a) { // eslint-disable-line complexity
 }
 
 /**
- * * remove :: number ➞ [a] ➞ [a] - Array
+ * * remove :: number ➞ [a] ➞ [a]
+ *
+ * Array
  *
  * Remove an element at a given index
  *
@@ -250,7 +268,9 @@ function unsafeRemove (i, a, l) {
 }
 
 /**
- * * removeAll :: (a ➞ boolean) ➞ [a] ➞ [a] - Array
+ * * removeAll :: (a ➞ boolean) ➞ [a] ➞ [a]
+ *
+ * Array
  *
  * Removes all elements matching a predicate
  *
@@ -279,7 +299,9 @@ export function removeAll (f, a) {
 }
 
 /**
- * * findIndex :: a ➞ [a] ➞ number - Array
+ * * findIndex :: a ➞ [a] ➞ number
+ *
+ * Array
  *
  * Finds the index of `x` inside of array
  *
@@ -303,7 +325,9 @@ export function findIndex (x, a) {
 }
 
 /**
- * isArrayLike :: ⭑ ➞ boolean - any
+ * isArrayLike :: ⭑ ➞ boolean
+ *
+ * any
  *
  * Returns true if an only if given value is array-like
  *
@@ -323,7 +347,9 @@ export function isArrayLike (x) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * * each :: (a, number ➞ ⭑) ➞ [a] ➞ [a] - Array
+ * * each :: (a, number ➞ ⭑) ➞ [a] ➞ [a]
+ *
+ * Array
  *
  * Calls a function with each item in an array and returns the array it started with.
  *
@@ -349,7 +375,9 @@ export function each (f, a) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * * filter :: (a ➞ boolean) ➞ [a] ➞ [a] - Array
+ * * filter :: (a ➞ boolean) ➞ [a] ➞ [a]
+ *
+ * Array
  *
  * Filters the array based on a given predicate
  *
@@ -379,7 +407,9 @@ export function filter (f, a) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * reverse :: [a] ➞ [a] - Array
+ * reverse :: [a] ➞ [a]
+ *
+ * Array
  *
  * Returns an array in the opposite order of which it was given
  *
@@ -408,7 +438,9 @@ export function reverse (a) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * * concat :: [a] ➞ [b] ➞ [a | b] - Array
+ * * concat :: [a] ➞ [b] ➞ [a | b]
+ *
+ * Array
  *
  * Concatenates together 2 arrays
  *
@@ -447,7 +479,9 @@ export function concat (a, b) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * flatten :: [[a] | a] ➞ [a] - Array
+ * flatten :: [[a] | a] ➞ [a]
+ *
+ * Array
  *
  * Creates a 1 dimensional array from a multi-dimensional array
  *
@@ -477,7 +511,9 @@ export function flatten (array) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * * some :: (a ➞ boolean) ➞ [a] ➞ boolean - Array
+ * * some :: (a ➞ boolean) ➞ [a] ➞ boolean
+ *
+ * Array
  *
  * Checks the values of an array and returns true if at least 1 item matches the given predicate
  *
@@ -498,7 +534,9 @@ export function some (f, array) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * * all :: (a ➞ boolean) ➞ [a] ➞ boolean - Array
+ * * all :: (a ➞ boolean) ➞ [a] ➞ boolean
+ *
+ * Array
  *
  * Checks the values of an array returning true if all items match a predicate
  *
@@ -520,7 +558,9 @@ export function all (f, array) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * * contains :: a ➞ [a] ➞ boolean - Array
+ * * contains :: a ➞ [a] ➞ boolean
+ *
+ * Array
  *
  * Returns true if an array contains a value `x`
  *
@@ -540,7 +580,9 @@ export function contains (x, arr) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * uniq :: [a] ➞ [a] - Array
+ * uniq :: [a] ➞ [a]
+ *
+ * Array
  *
  * Removes repeated values from an array using a basic `===` equality check.
  *
@@ -569,7 +611,9 @@ export function uniq (a) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * * uniqWith :: (a ➞ ⭑) ➞ [a] ➞ [a] - Array
+ * * uniqWith :: (a ➞ ⭑) ➞ [a] ➞ [a]
+ *
+ * Array
  *
  * Removes a repeated value using a user-defined equality check
  *
@@ -612,7 +656,9 @@ export function uniqWith (f, a) {
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * length :: [a] ➞ number - Array / String
+ * length :: [a] ➞ number
+ *
+ * Array / String
  *
  * Returns the length of an array
  *

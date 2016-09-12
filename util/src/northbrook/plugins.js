@@ -7,7 +7,9 @@ import { pluck, merge } from '../object'
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * isPlugin :: ⭑ ➞ boolean - Northbrook
+ * isPlugin :: ⭑ ➞ boolean
+ *
+ * Northbrook
  *
  * Given an object it tells you whether or not it is a northbrook plugin object.
  *
@@ -26,7 +28,9 @@ export function isPlugin (x) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * filterDefaultPlugins :: [string] ➞ object ➞ object - Northbrook
+ * * filterDefaultPlugins :: [string] ➞ object ➞ object
+ *
+ * Northbrook
  *
  * Given an array of defaults and a configuration object it
  * will filter any default object that should be ignored returning
@@ -49,7 +53,9 @@ export function filterDefaultPlugins (defaults, config) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * resolvePlugins :: string ➞ object ➞ Stream<Object> - Northbrook
+ * * resolvePlugins :: string ➞ object ➞ Stream<Object>
+ *
+ * Northbrook
  *
  * Taking a directory to work from and a northbrook config object returning a new config file with all the plugins it could find.
  *

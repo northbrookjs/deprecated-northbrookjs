@@ -8,7 +8,9 @@ import { isFile } from './fs'
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * filterScopes :: string ➞ string - Node Packages
+ * filterScopes :: string ➞ string
+ *
+ * Node Packages
  *
  * Removes a scope name from package name
  *
@@ -25,7 +27,9 @@ export const filterScopes = name => replace(/@[a-z]+\//g, '', name)
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * hasPkg :: string ➞ Stream<string> - Node Packages
+ * hasPkg :: string ➞ Stream<string>
+ *
+ * Node Packages
  *
  * Returns a stream of the location to the package.json if it exists, or an errored stream if not.
  *
@@ -42,7 +46,9 @@ export const hasPkg = dir => isFile(join(dir, 'package.json'))
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * getPkg :: string ➞ Object - Node Packages
+ * getPkg :: string ➞ Object
+ *
+ * Node Packages
  *
  * Requires a package.json from a given directory.
  *
@@ -57,7 +63,9 @@ export const hasPkg = dir => isFile(join(dir, 'package.json'))
 export const getPkg = dir => require(join(dir, 'package.json'))
 
 /**
- * splitVersion ➞ string ➞ [number] - Node Packages
+ * splitVersion ➞ string ➞ [number]
+ *
+ * Node Packages
  *
  * Splits a semvar number in an array of 3 parts
  *
@@ -84,8 +92,10 @@ const toNum = x => isX(x) && x || parseInt(x)
 const isNum = x => isX(x) || !Number.isNaN(x)
 
 /**
- * tryRequire :: string ➞ Stream<Object> - Node Packages
+ * tryRequire :: string ➞ Stream<Object>
  * tryRequire :: string ➞ (object ➞ boolean) ➞ Stream<Object>
+ *
+ * Node Packages
  *
  * Trys to require a package returning a stream of the required package. Optionally taking a predicate function to check if a property matches what you need to require.
  *

@@ -1,7 +1,9 @@
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * split :: string ➞ string ➞ [string] - String
+ * * split :: string ➞ string ➞ [string]
+ *
+ * String
  *
  * Splits a string at a given point
  *
@@ -18,7 +20,9 @@ export function split (where, str) {
 }
 
 /**
- * trim :: string ➞ string - string
+ * trim :: string ➞ string
+ *
+ * String
  *
  * Trims any trailing whitespaces of a string
  *

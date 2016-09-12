@@ -6,9 +6,11 @@ import { is } from './function'
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * beautify :: object ➞ string - Object
+ * beautify :: object ➞ string
  *
- * Taks a JavaScript Object and returns a beautified string representation.
+ * Object
+ *
+ * Takes a JavaScript Object and returns a beautified string representation.
  *
  * #### Example
  * ```js
@@ -21,8 +23,10 @@ import { is } from './function'
 export const beautify = obj => jsonbeautify(obj, null, 2, 80)
 
 /**
- * * pluck :: string ➞ object ➞ ⭑ - Object
+ * * pluck :: string ➞ object ➞ ⭑
  * * pluck :: [string] ➞ object ➞ ⭑
+ *
+ * Object
  *
  * Find a property in an object
  *
@@ -55,8 +59,10 @@ export function pluck (props, obj) {
 }
 
 /**
- * * propEq :: string ➞ a ➞ object ➞ boolean - Object
+ * * propEq :: string ➞ a ➞ object ➞ boolean
  * * propEq :: [string] ➞ a ➞ object ➞ boolean
+ *
+ *  Object
  *
  * Checks equality of a object property and x
  *
@@ -75,8 +81,10 @@ export function propEq (props, x, obj) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * propOr :: string ➞ ⭑ ➞ ⭑ - Object
+ * * propOr :: string ➞ ⭑ ➞ ⭑
  * * propOr :: [string] ➞ ⭑ ➞ ⭑
+ *
+ * Object
  *
  * Finds a property on an object or returns a defined value.
  *
@@ -111,8 +119,10 @@ export function propOr (props, or, obj) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * set :: string ➞ ⭑ ➞ object ➞ object - Object
+ * * set :: string ➞ ⭑ ➞ object ➞ object
  * * set :: [string] ➞ ⭑ ➞ object ➞ object
+ *
+ * Object
  *
  * Sets a property on an object
  *
@@ -153,7 +163,9 @@ export function set (props, value, obj) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * merge :: object ➞ object ➞ object - Object
+ * * merge :: object ➞ object ➞ object
+ *
+ * Object
  *
  * Performs a deep merge of 2 objects
  *
@@ -211,7 +223,9 @@ export function merge (target, src) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * mergeMany :: [...object] ➞ object - Object
+ * mergeMany :: [...object] ➞ object
+ *
+ * Object
  *
  * Performs a deep merge of `n` number of objects
  *
@@ -230,7 +244,9 @@ export function mergeMany (...objects) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * keys :: object ➞ [string] - Object
+ * keys :: object ➞ [string]
+ *
+ * Object
  *
  * Returns an array of keys from a given object
  *
@@ -249,7 +265,9 @@ export function keys (object) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * values :: object ➞ [string] - Object
+ * values :: object ➞ [string]
+ *
+ * Object
  *
  * Returns an array of values from a given object
  *

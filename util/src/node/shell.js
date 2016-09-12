@@ -10,8 +10,10 @@ import { tail, map } from '../array'
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * exec :: string ➞ Stream<string> - Shell
+ * exec :: string ➞ Stream<string>
  * exec :: string ➞ Object ➞ Stream<string>
+ *
+ * Shell
  *
  * Executes a command returning a stream of the result.
  *
@@ -44,7 +46,9 @@ function exec (cmd, options) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * exec.many :: [string] ➞ Stream<string> - Shell
+ * exec.many :: [string] ➞ Stream<string>
+ *
+ * Shell
  *
  * Executes many commands in succession to each other returning a Stream of the last commands output.
  *
@@ -66,8 +70,10 @@ export { exec }
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
  *
- * list :: [Object] ➞ TaskList - Shell
+ * list :: [Object] ➞ TaskList
  * list :: [Object] ➞ object -> TaskList
+ *
+ * Shell
  *
  * Creates a task list used for showing progress of tasks for the user.
  *
@@ -89,8 +95,10 @@ export function list (items, options) {
 }
 
 /**
- * * listItem :: string ➞ (() ➞ Stream<⭑> | Promise<⭑>) ➞ object - Shell
+ * * listItem :: string ➞ (() ➞ Stream<⭑> | Promise<⭑>) ➞ object
  * * listItem :: string ➞ (() ➞ Stream<⭑> | Promise<⭑>) ➞ (() ➞ boolean) ➞ object
+ *
+ * Shell
  *
  * Creates a listItem to be used inside of a list.
  *

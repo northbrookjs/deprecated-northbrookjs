@@ -11,7 +11,8 @@ import { reduce, concat, append } from '../array'
 // Creates most.js streams from many useful node.js fs functions
 
 /**
- * exists :: string ➞ Stream<Stats> - Node FS
+ * exists :: string ➞ Stream<Stats>
+ * Node FS
  *
  * Creates a Stream containing the output of fs.stat(pathname)
  *
@@ -47,7 +48,8 @@ export function exists (pathname) {
 }
 
 /**
- * isDirectory :: string ➞ Stream<string> - Node FS
+ * isDirectory :: string ➞ Stream<string>
+ * Node FS
  *
  * Tests if an absolute path is a directory, returning the given pathname if it exists, erroring if it does not.
  *
@@ -75,7 +77,8 @@ export function isDirectory (pathname) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * isFile :: string ➞ Stream<string> - Node FS
+ * isFile :: string ➞ Stream<string>
+ * Node FS
  *
  * Returns a stream of the pathname, or an errored stream if it is not a file.
  *
@@ -99,7 +102,8 @@ export function isFile (pathname) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * isLink :: string ➞ Stream<string> - Node FS
+ * isLink :: string ➞ Stream<string>
+ * Node FS
  *
  * Returns a stream of the pathname provided if the path is to a symbolic link.
  *
@@ -128,7 +132,8 @@ export function isLink (pathname) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * readFile :: string ➞ Stream<string> - Node FS
+ * readFile :: string ➞ Stream<string>
+ * Node FS
  *
  * Reads a file if it exists and returns the contents inside of a Stream
  *
@@ -156,7 +161,8 @@ export function readFile (file) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * writeFile :: string ➞ string ➞ Stream<string> - Node FS
+ * * writeFile :: string ➞ string ➞ Stream<string>
+ * Node FS
  *
  * Write contents to a file returning a stream of the written contents if successful.
  *
@@ -180,7 +186,8 @@ export function writeFile (file, contents) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * symlink :: string ➞ string ➞ Stream<Object> - Node FS
+ * * symlink :: string ➞ string ➞ Stream<Object>
+ * Node FS
  *
  * Creates a symlink from a given source to a given destination
  *
@@ -207,8 +214,9 @@ export function symlink (src, dest) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * findConfig :: string ➞ Stream<Object> - Node FS
+ * findConfig :: string ➞ Stream<Object>
  * findConfig :: string ➞ Object ➞ Stream<Object>
+ * Node FS
  *
  * Finds a configuration file
  *
@@ -241,8 +249,10 @@ export function findConfig (file, options) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * getAllInDirectory :: string ➞ [string] - Node FS
+ * * getAllInDirectory :: string ➞ [string]
  * * getAllInDirectory :: string ➞ boolean ➞ [string]
+ *
+ * Node FS
  *
  * Gets all of the files in a given directory recursively checking inside of the subdirectories.
  *

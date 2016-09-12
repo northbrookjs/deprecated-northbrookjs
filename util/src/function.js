@@ -3,7 +3,9 @@ import { reverse, concat, reduce, tail, filter } from './array'
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * id :: a ➞ a - Function
+ * id :: a ➞ a
+ *
+ * Function
  *
  * Returns the value it is given
  *
@@ -21,8 +23,10 @@ export const id = x => x
 /** <!--
  * small arrow ➞ fat arrow ⇒
  * -->
- * * bind :: ⭑ ➞ ([...⭑] ➞ ⭑) ➞ ⭑ - Function
+ * * bind :: ⭑ ➞ ([...⭑] ➞ ⭑) ➞ ⭑
  * * bind :: ⭑ ➞ ([...⭑] ➞ ⭑) ➞ [⭑] ➞ ⭑
+ *
+ * Function
  *
  * Binds a function to `this` value. Optionally binding arguments to the function for partial application
  *
@@ -51,7 +55,9 @@ export function bind (that, f, prevArgs = []) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * apply :: ([...⭑] ➞ ⭑) ➞ [⭑] ➞ ⭑ - Function
+ * * apply :: ([...⭑] ➞ ⭑) ➞ [⭑] ➞ ⭑
+ *
+ * Function
  *
  * Applys an array of arguments to a function
  *
@@ -80,8 +86,10 @@ export function apply (f, args) {
 }
 
 /**
- * curry :: (a ➞ b ➞ c) ➞ a ➞ b ➞ c - Function
+ * curry :: (a ➞ b ➞ c) ➞ a ➞ b ➞ c
  * curry :: (a ➞ b ➞ c) ➞ int ➞ a ➞ b ➞ c
+ *
+ * Function
  *
  * Curries your functions - optionally taking a arity parameter
  *
@@ -119,7 +127,9 @@ const PLACEHOLDER = {}
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * __ :: Object - Function
+ * __ :: Object
+ *
+ * Function
  *
  * A placeholder to be used inside of `partial()`
  *
@@ -127,22 +137,22 @@ const PLACEHOLDER = {}
  * ```js
  * import { __, partial }from '@northbrook/util'
  *
- * const f = partial(sumOf3, [_, 2, _])
+ * const f = partial(sumOf3, [__, 2, __])
  * f(1, 3) // 6
  * ```
  * @name __
  */
 export const __ = PLACEHOLDER
 
-// internal function to determine if a value is a placeholder
-const isPlaceholder = x => x === PLACEHOLDER
 
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * partial :: (a, b ➞ c) ➞ [a] ➞ (b ➞ c) - Function
+ * partial :: (a, b ➞ c) ➞ [a] ➞ (b ➞ c)
  * partial :: (a, b ➞ c) ➞ [ __, b] ➞ (a ➞ c)
  * partial :: ([...⭑] ➞ ⭑) ➞ [⭑] ➞ ([...⭑] ➞ ⭑)
+ *
+ * Function
  *
  * Partially applies a function, currying it in the process.
  *
@@ -190,8 +200,15 @@ export function partial (fn, partialArgs) {
 }
 
 /**
- * flip :: (a ➞ b ➞ c) ➞ (b ➞ a ➞ c) - Function
+ * @ignore
+ */
+const isPlaceholder = x => x === PLACEHOLDER
+
+/**
+ * flip :: (a ➞ b ➞ c) ➞ (b ➞ a ➞ c)
  * flip :: (a ➞ b ➞ c ➞ d) ➞ (c ➞ b ➞ a ➞ d)
+ *
+ * Function
  *
  * Flips your argument order
  *
@@ -206,7 +223,9 @@ export function flip (fn) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * pipe :: [...(⭑ ➞ ⭑)] ➞ (⭑ ➞ ⭑) - Function
+ * pipe :: [...(⭑ ➞ ⭑)] ➞ (⭑ ➞ ⭑)
+ *
+ * Function
  *
  * Pipes many functions together into a single pipeline
  *
@@ -231,7 +250,9 @@ export function pipe (...fns) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * compose :: [...(⭑ ➞ ⭑)] ➞ (⭑ ➞ ⭑) - Function
+ * compose :: [...(⭑ ➞ ⭑)] ➞ (⭑ ➞ ⭑)
+ *
+ * Function
  *
  * Composes many functions togther to form a pipeline
  *
@@ -248,7 +269,9 @@ export const compose = (...fns) => apply(pipe, reverse(fns))
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * always :: a ➞ () ➞ a - Function
+ * always :: a ➞ () ➞ a
+ *
+ * Function
  *
  * Returns a function that will always return a given value
  *
@@ -267,7 +290,9 @@ export const always = x => () => x
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * negate :: (a ➞ b) ➞ (a ➞ !b) - Function
+ * negate :: (a ➞ b) ➞ (a ➞ !b)
+ *
+ * Function
  *
  * Returns the oppostive value of a give function
  *
@@ -286,7 +311,9 @@ export function negate (f) {
 }
 
 /**
- * cond :: [ [ (...a ➞ boolean), b ] ] ➞ (...a ➞ b) - Function
+ * cond :: [ [ (...a ➞ boolean), b ] ] ➞ (...a ➞ b)
+ *
+ * Function
  *
  * Given a sequence of conditions it returns a match
  *
@@ -321,7 +348,9 @@ export function cond (conditions) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * ifElse :: (a ➞ boolean) ➞ (a ➞ b) ➞ (a ➞ b) ➞ a ➞ b - Function
+ * * ifElse :: (a ➞ boolean) ➞ (a ➞ b) ➞ (a ➞ b) ➞ a ➞ b
+ *
+ * Function
  *
  * Declaratively define if else statements
  *
@@ -346,9 +375,11 @@ export function ifElse (_if, _then, _else, value) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * * is :: string ➞ ⭑ ➞ boolean  - Function
+ * * is :: string ➞ ⭑ ➞ boolean
  * * is :: (⭑ ➞ ⭑) ➞ ⭑ ➞ boolean
  * * is :: ⭑ ➞ ⭑ ➞ boolean
+ *
+ * Function
  *
  * Checks the equality of a value to different types.
  * When given a string as the first argument it will do a `typeof` check then equality if that fails.
@@ -384,7 +415,9 @@ function isFunction (type, instance) {
 }
 
 /**
- * and :: [...(a ➞ boolean)] ➞ a ➞ boolean - Function
+ * and :: [...(a ➞ boolean)] ➞ a ➞ boolean
+ *
+ * Function
  *
  * Checks values against many predicates returning true if *all* predicates return a truthy value
  *
@@ -419,7 +452,9 @@ export function and (...predicates) {
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
- * or :: ([...(⭑ ➞ boolean)]) ➞ ⭑ ➞ boolean - Function
+ * or :: ([...(⭑ ➞ boolean)]) ➞ ⭑ ➞ boolean
+ *
+ * Function
  *
  * Takes `n` number of predicates and returns true if any of the predicate return true.
  *

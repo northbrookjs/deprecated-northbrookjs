@@ -1,0 +1,235 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Northbrook</title>
+    <link href="./fira_code/fira_code.css" rel="stylesheet" />
+    <link href="./styles/style.css" rel="stylesheet"/>
+    <link href="./styles/atom-one-dark.css" rel="stylesheet" />
+    <script src="./js/highlight.pack.js"></script>
+    <script src="./js/startup.js"></script>
+    <style>
+      h2 {
+        text-align: center;
+      }
+
+      * {
+        font-family: "Fira Code" !important;
+      }
+
+      .container {
+        max-width: 50vw;
+        margin: 0 auto;
+        padding-left: 10em;
+        padding-right: 10em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .container .small {
+        justify-content: space-around;
+        max-width: 40vw !important;
+      }
+
+      #logo {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      #logo img {
+        width: 20vw;
+        padding-left: 10em;
+        margin: 0 auto;
+      }
+
+      #description {
+        max-width: 600px;
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      #packages {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      #packages span {
+        height: auto;
+        text-align: center;
+        line-height: 3em;
+      }
+
+      #packages span a {
+        height: auto;
+        max-width: 500px;
+      }
+
+      #packages img {
+        display: inline-block;
+        max-width: 24px;
+      }
+
+      #features {
+        width: 50%;
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      #features h3 {
+        margin 0 auto;
+      }
+
+      #features ul {
+        margin: 0 auto;
+        padding-left: 2vw;
+        list-style: upper-roman;
+      }
+
+      #features li {
+        margin: 0 auto;
+        text-align: justify;
+      }
+
+      @media screen and (max-width: 1100px) {
+        #features {
+          text-align: center;
+
+          max-width: 500px;
+        }
+
+        #features li {
+          # text-align: center;
+        }
+
+        #logo {
+          text-align: center;
+          margin-left: 0;
+        }
+
+        #logo img {
+          paddind-left: 8em;
+        }
+      }
+
+      @media screen and (max-width: 860px) {
+        h1 {
+          visibility: visible;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        h5 {
+          font-size: 80%;
+        }
+      }
+
+      h4 {
+        text-align: center;
+        width: 150px;
+        margin: 0 auto;
+        border-bottom: 1px solid #eeeeee;
+      }
+
+      h5 {
+        text-align: center;
+      }
+
+      footer {
+        height: 3em;
+      }
+
+      .break {
+        height: 5px;
+        margin: 2em auto;
+        max-width: 55vw ;
+        border-bottom: 1px solid #eeeeee;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <h1>Northbrook</h1>
+
+    <br />
+    <br />
+    <br />
+    <h5>Manage your projects with all the power of NPM</h5>
+
+    <div class="container small">
+
+      <div id="logo container">
+        <img src="./images/northbrook.svg" />
+      </div>
+
+      <div id="features">
+        <h3>Core Features</h3>
+        <ul>
+          <li>Manage project with ease</li>
+          <li>Useful out-of-box</li>
+          <li>Create meaningful commits</li>
+          <li>Automatic Semantic Versioning</li>
+          <li>Automated Changelog Generation</li>
+          <li>Simple Automated Deployment</li>
+          <li>Powerful plugin system</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="break"></div>
+
+    <div class="container">
+      <div id="description">
+        <p>Northbrook is designed to ease javascript fatigue,
+        reduce the time needed for new project setup,
+        and introduce a means of creating reproducible, shareable and <b>versionable</b> configurations.
+        Promoting best-practices along the way.
+        </p>
+      </div>
+
+      <div></div>
+    </div>
+
+    <div class="break"></div>
+
+    <div class="container">
+      <div></div>
+
+      <div id="packages">
+        <h4>Packages</h4>
+        <% packages.forEach(name => { %>
+          <span id="<%=name%>"><a href="/<%= name %>.html">@northbrook/<%= name %></a></span>
+          <span class="github">
+            <a href="https://github.com/northbrookjs/northbrookjs/tree/master/<%= name %>">
+              <img src="./images/github.png" />
+            </a>
+          </span>
+        <% }) %>
+      </div>
+    </div>
+
+    <footer></footer>
+
+  </body>
+</html>
