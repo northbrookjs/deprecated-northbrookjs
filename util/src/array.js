@@ -523,7 +523,7 @@ export function flatten (array) {
  *
  * some(isEven, [1, 3, 5, 6])  // true
  * ```
- * @name some - Array
+ * @name some
  */
 export function some (f, array) {
   return Array.isArray(array)

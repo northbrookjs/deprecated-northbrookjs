@@ -63,7 +63,7 @@ export const hasPkg = dir => isFile(join(dir, 'package.json'))
 export const getPkg = dir => require(join(dir, 'package.json'))
 
 /**
- * splitVersion ➞ string ➞ [number]
+ * splitVersion :: string ➞ [number]
  *
  * Node Packages
  *

@@ -1,579 +1,1087 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <title>@northbrook/util</title>
-<link href="./fira_code/fira_code.css" rel="stylesheet" />
+<link href="./fira_code/fira_code.css" rel="stylesheet"/>
 <link href="./styles/style.css" rel="stylesheet"/>
-<link href="./styles/atom-one-dark.css" rel="stylesheet" />
+<link href="./styles/atom-one-dark.css" rel="stylesheet"/>
 <script src="./js/highlight.pack.js"></script>
 <script src="./js/startup.js"></script>
 </head>
-<body>
-<h5><a id="northbrook" href="./">Northbrook</a></h5>
+<body >
+<div class="container">
+<div class="left">
+<a id="northbrook" href="./">Northbrook</a>
+<div class="search">
+<input id="search" type="input" placeholder="filter"/>
+</div>
+<ul>
+<li>
+<a href="#__">
+<p class="non-curried">__</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#addPackage">
+<p class="curried">addPackage</p>
+<p>Northbrook</p>
+</a>
+</li>
+<li>
+<a href="#addPlugin">
+<p class="curried">addPlugin</p>
+<p>Northbrook</p>
+</a>
+</li>
+<li>
+<a href="#all">
+<p class="curried">all</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#always">
+<p class="non-curried">always</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#and">
+<p class="non-curried">and</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#append">
+<p class="curried">append</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#apply">
+<p class="curried">apply</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#beautify">
+<p class="non-curried">beautify</p>
+<p>Object</p>
+</a>
+</li>
+<li>
+<a href="#bind">
+<p class="curried">bind</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#clear">
+<p class="non-curried">clear</p>
+<p>Console</p>
+</a>
+</li>
+<li>
+<a href="#colors">
+<p class="non-curried">colors</p>
+<p>Console</p>
+</a>
+</li>
+<li>
+<a href="#compose">
+<p class="non-curried">compose</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#concat">
+<p class="curried">concat</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#cond">
+<p class="non-curried">cond</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#cons">
+<p class="curried">cons</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#contains">
+<p class="curried">contains</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#copy">
+<p class="non-curried">copy</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#curry">
+<p class="non-curried">curry</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#drop">
+<p class="curried">drop</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#each">
+<p class="curried">each</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#exec">
+<p class="non-curried">exec</p>
+<p>Shell</p>
+</a>
+</li>
+<li>
+<a href="#exec.many">
+<p class="non-curried">exec.many</p>
+<p>Shell</p>
+</a>
+</li>
+<li>
+<a href="#exists">
+<p class="non-curried">exists</p>
+<p>Node FS</p>
+</a>
+</li>
+<li>
+<a href="#figures">
+<p class="curried">figures</p>
+<p>Console</p>
+</a>
+</li>
+<li>
+<a href="#filter">
+<p class="curried">filter</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#filterDefaultPlugins">
+<p class="curried">filterDefaultPlugins</p>
+<p>Northbrook</p>
+</a>
+</li>
+<li>
+<a href="#filterScopes">
+<p class="non-curried">filterScopes</p>
+<p>Node Packages</p>
+</a>
+</li>
+<li>
+<a href="#findConfig">
+<p class="non-curried">findConfig</p>
+<p>Node FS</p>
+</a>
+</li>
+<li>
+<a href="#findIndex">
+<p class="curried">findIndex</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#flatten">
+<p class="non-curried">flatten</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#flip">
+<p class="non-curried">flip</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#getAllInDirectory">
+<p class="curried">getAllInDirectory</p>
+<p>Node FS</p>
+</a>
+</li>
+<li>
+<a href="#getPkg">
+<p class="non-curried">getPkg</p>
+<p>Node Packages</p>
+</a>
+</li>
+<li>
+<a href="#hasPkg">
+<p class="non-curried">hasPkg</p>
+<p>Node Packages</p>
+</a>
+</li>
+<li>
+<a href="#id">
+<p class="non-curried">id</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#ifElse">
+<p class="curried">ifElse</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#is">
+<p class="curried">is</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#isArrayLike">
+<p class="non-curried">isArrayLike</p>
+<p>any</p>
+</a>
+</li>
+<li>
+<a href="#isDirectory">
+<p class="non-curried">isDirectory</p>
+<p>Node FS</p>
+</a>
+</li>
+<li>
+<a href="#isFile">
+<p class="non-curried">isFile</p>
+<p>Node FS</p>
+</a>
+</li>
+<li>
+<a href="#isLink">
+<p class="non-curried">isLink</p>
+<p>Node FS</p>
+</a>
+</li>
+<li>
+<a href="#isPlugin">
+<p class="non-curried">isPlugin</p>
+<p>Northbrook</p>
+</a>
+</li>
+<li>
+<a href="#keys">
+<p class="non-curried">keys</p>
+<p>Object</p>
+</a>
+</li>
+<li>
+<a href="#length">
+<p class="non-curried">length</p>
+<p>Array / String</p>
+</a>
+</li>
+<li>
+<a href="#list">
+<p class="non-curried">list</p>
+<p>Shell</p>
+</a>
+</li>
+<li>
+<a href="#listItem">
+<p class="curried">listItem</p>
+<p>Shell</p>
+</a>
+</li>
+<li>
+<a href="#map">
+<p class="curried">map</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#merge">
+<p class="curried">merge</p>
+<p>Object</p>
+</a>
+</li>
+<li>
+<a href="#mergeMany">
+<p class="non-curried">mergeMany</p>
+<p>Object</p>
+</a>
+</li>
+<li>
+<a href="#modOutput">
+<p class="non-curried">modOutput</p>
+<p>String / Console</p>
+</a>
+</li>
+<li>
+<a href="#modifyConfig">
+<p class="curried">modifyConfig</p>
+<p>Northbrook</p>
+</a>
+</li>
+<li>
+<a href="#negate">
+<p class="non-curried">negate</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#onlyPackage">
+<p class="curried">onlyPackage</p>
+<p>Northbrook</p>
+</a>
+</li>
+<li>
+<a href="#or">
+<p class="non-curried">or</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#partial">
+<p class="non-curried">partial</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#pipe">
+<p class="non-curried">pipe</p>
+<p>Function</p>
+</a>
+</li>
+<li>
+<a href="#pluck">
+<p class="curried">pluck</p>
+<p>Object</p>
+</a>
+</li>
+<li>
+<a href="#propEq">
+<p class="curried">propEq</p>
+<p> Object</p>
+</a>
+</li>
+<li>
+<a href="#propOr">
+<p class="curried">propOr</p>
+<p>Object</p>
+</a>
+</li>
+<li>
+<a href="#readFile">
+<p class="non-curried">readFile</p>
+<p>Node FS</p>
+</a>
+</li>
+<li>
+<a href="#reduce">
+<p class="curried">reduce</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#remove">
+<p class="curried">remove</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#removeAll">
+<p class="curried">removeAll</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#replace">
+<p class="curried">replace</p>
+<p>Array / String</p>
+</a>
+</li>
+<li>
+<a href="#resolveExtends">
+<p class="curried">resolveExtends</p>
+<p>Northbrook</p>
+</a>
+</li>
+<li>
+<a href="#resolvePackage">
+<p class="non-curried">resolvePackage</p>
+<p>Northbrook</p>
+</a>
+</li>
+<li>
+<a href="#resolvePackages ::">
+<p class="curried">resolvePackages</p>
+<p>Northbrook</p>
+</a>
+</li>
+<li>
+<a href="#resolvePlugins ::">
+<p class="curried">resolvePlugins</p>
+<p>Northbrook</p>
+</a>
+</li>
+<li>
+<a href="#reverse">
+<p class="non-curried">reverse</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#separator">
+<p class="non-curried">separator</p>
+<p>String / Console</p>
+</a>
+</li>
+<li>
+<a href="#set">
+<p class="curried">set</p>
+<p>Object</p>
+</a>
+</li>
+<li>
+<a href="#some">
+<p class="curried">some</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#split">
+<p class="curried">split</p>
+<p>String</p>
+</a>
+</li>
+<li>
+<a href="#splitVersion">
+<p class="non-curried">splitVersion</p>
+<p>Node Packages</p>
+</a>
+</li>
+<li>
+<a href="#symlink">
+<p class="curried">symlink</p>
+<p>Node FS</p>
+</a>
+</li>
+<li>
+<a href="#tail">
+<p class="non-curried">tail</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#trim">
+<p class="non-curried">trim</p>
+<p>String</p>
+</a>
+</li>
+<li>
+<a href="#tryRequire">
+<p class="non-curried">tryRequire</p>
+<p>Node Packages</p>
+</a>
+</li>
+<li>
+<a href="#uniq">
+<p class="non-curried">uniq</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#uniqWith">
+<p class="curried">uniqWith</p>
+<p>Array</p>
+</a>
+</li>
+<li>
+<a href="#values">
+<p class="non-curried">values</p>
+<p>Object</p>
+</a>
+</li>
+<li>
+<a href="#writeFile">
+<p class="curried">writeFile</p>
+<p>Node FS</p>
+</a>
+</li>
+</ul>
+</div>
+<div class="right">
+<div class="topbar">
 <h1>@northbrook/util</h1>
+</div>
 <div id="docs">
-<div style="text-align: center;">
-<br />
-<p>This is a library full of utility functions designed, but not limited for, use with Nortbrook.
-The library is functional in nature, borrowing many ideas from ramda.
-Where possible, and makes sense, functions are curried.
-Where it makes sense, <a href="https://github.com/cujojs/most">most.js</a> is used to make things declarative and reactive.
+<div class="description" style="text-align: center;">
+<br/>
+<p>This is a library full of utility functions designed, but not limited for, use with Nortbrook. The library is functional in nature, borrowing many ideas from ramda. Where possible, and makes sense, functions are curried. Where it makes sense,
+<a href="https://github.com/cujojs/most">most.js</a>
+is used to make things declarative and reactive.
 </p>
-<br />
+<br/>
 </div>
 <section id="__">
-<h2><a href="#__" >__ :: Object </a></h2>
+<h2><a href="#__">__ :: Object </a></h2>
 <p>Function</p>
 <p>A placeholder to be used inside of <code>partial()</code></p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { __, partial }from '@northbrook/util' 
+import { __, partial }from '@northbrook/util'
 
-const f = partial(sumOf3, [__, 2, __]) 
+const f = partial(sumOf3, [__, 2, __])
 
-f(1, 3) // 6 
+f(1, 3) // 6
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L145">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L145"><img src="./images/external.png" /></a></p>
 </section>
 <section id="addPackage">
-<h2><a href="#addPackage" >* addPackage :: string ➞ object ➞ Stream&lt;object&gt; </a></h2>
+<h2><a href="#addPackage">* addPackage :: string ➞ object ➞ Stream&lt;object&gt; </a></h2>
 <p>Northbrook</p>
 <p>Adds a package to a northbrook.json.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { addPackage } from '@northbrook/util' 
+import { addPackage } from '@northbrook/util'
 
-addPackage('packageName', {}).map(newConfigContents =&gt; {...}) 
+addPackage('packageName', {}).map(newConfigContents =&gt; {...})
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/config.js#L179">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/config.js#L179"><img src="./images/external.png" /></a></p>
 </section>
 <section id="addPlugin">
-<h2><a href="#addPlugin" >* addPlugin :: string ➞ object ➞ Stream&lt;object&gt; </a></h2>
+<h2><a href="#addPlugin">* addPlugin :: string ➞ object ➞ Stream&lt;object&gt; </a></h2>
 <p>Northbrook</p>
 <p>Adds a plugin to a northbrook.json.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { addPlugin } from '@northbrook/util' 
+import { addPlugin } from '@northbrook/util'
 
-addPlugin('pluginName', {}).map(newConfigContents =&gt; {...}) 
+addPlugin('pluginName', {}).map(newConfigContents =&gt; {...})
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/config.js#L140">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/config.js#L140"><img src="./images/external.png" /></a></p>
 </section>
 <section id="all">
-<h2><a href="#all" >* all :: (a ➞ boolean) ➞ [a] ➞ boolean </a></h2>
+<h2><a href="#all">* all :: (a ➞ boolean) ➞ [a] ➞ boolean </a></h2>
 <p>Array</p>
 <p>Checks the values of an array returning true if all items match a predicate</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { all } from '@northbrook/util' 
+import { all } from '@northbrook/util'
 
-all(isEven, [2, 4, 6, 8])  // true 
+all(isEven, [2, 4, 6, 8])  // true
 
-all(isEven, [2, 4, 6, 9]) // false 
+all(isEven, [2, 4, 6, 9]) // false
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L552">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L552"><img src="./images/external.png" /></a></p>
 </section>
 <section id="always">
-<h2><a href="#always" >always :: a ➞ () ➞ a </a></h2>
+<h2><a href="#always">always :: a ➞ () ➞ a </a></h2>
 <p>Function</p>
 <p>Returns a function that will always return a given value</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { always } from '@northbrook/util' 
+import { always } from '@northbrook/util'
 
-const always3 = always(3) 
+const always3 = always(3)
 
-always3(999) // 3 
+always3(999) // 3
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L285">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L285"><img src="./images/external.png" /></a></p>
 </section>
 <section id="and">
-<h2><a href="#and" >and :: [...(a ➞ boolean)] ➞ a ➞ boolean </a></h2>
+<h2><a href="#and">and :: [...(a ➞ boolean)] ➞ a ➞ boolean </a></h2>
 <p>Function</p>
 <p>Checks values against many predicates returning true if <em>all</em> predicates return a truthy value</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { and } from '@northbrook/util' 
+import { and } from '@northbrook/util'
 
-isOdd = x =&gt; x % 2 !== 0 
+isOdd = x =&gt; x % 2 !== 0
 
-isDivsibleBy5 = x =&gt; x % 5 === 0 
+isDivsibleBy5 = x =&gt; x % 5 === 0
 
-const isOddBy5 = add(isOdd, isDivsible) 
+const isOddBy5 = add(isOdd, isDivsible)
 
-isOddBy5(10) // true 
+isOddBy5(10) // true
 
-isOddBy5(13) // false 
+isOddBy5(13) // false
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L436">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L436"><img src="./images/external.png" /></a></p>
 </section>
 <section id="append">
-<h2><a href="#append" >* append :: a ➞ [a] ➞ [a] </a></h2>
+<h2><a href="#append">* append :: a ➞ [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Creates an array appended by a value</p>
 <h4>Example:</h4>
 <pre><code class="language-js">
-import { append } from '@northbrook/util' 
+import { append } from '@northbrook/util'
 
-append(3, [1, 2]) // [1, 2, 3] 
+append(3, [1, 2]) // [1, 2, 3]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L43">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L43"><img src="./images/external.png" /></a></p>
 </section>
 <section id="apply">
-<h2><a href="#apply" >* apply :: ([...⭑] ➞ ⭑) ➞ [⭑] ➞ ⭑ </a></h2>
+<h2><a href="#apply">* apply :: ([...⭑] ➞ ⭑) ➞ [⭑] ➞ ⭑ </a></h2>
 <p>Function</p>
 <p>Applys an array of arguments to a function</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { apply } from '@northbrook/util' 
+import { apply } from '@northbrook/util'
 
-apply(add, [1, 2])  // 3 
+apply(add, [1, 2])  // 3
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L72">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L72"><img src="./images/external.png" /></a></p>
 </section>
 <section id="beautify">
-<h2><a href="#beautify" >beautify :: object ➞ string </a></h2>
+<h2><a href="#beautify">beautify :: object ➞ string </a></h2>
 <p>Object</p>
 <p>Takes a JavaScript Object and returns a beautified string representation.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { beautify } from '@northbrook/util' 
+import { beautify } from '@northbrook/util'
 
-beautify({ a: 1}) // '{ &quot;a&quot;: &quot;1&quot;}' 
+beautify({ a: 1}) // '{ &quot;a&quot;: &quot;1&quot;}'
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L23">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L23"><img src="./images/external.png" /></a></p>
 </section>
 <section id="bind">
-<h2><a href="#bind" >* bind :: ⭑ ➞ ([...⭑] ➞ ⭑) ➞ ⭑ </a></h2>
-<h2><a href="#bind" >* bind :: ⭑ ➞ ([...⭑] ➞ ⭑) ➞ [⭑] ➞ ⭑ </a></h2>
+<h2><a href="#bind">* bind :: ⭑ ➞ ([...⭑] ➞ ⭑) ➞ ⭑ </a></h2>
+<h2><a href="#bind">* bind :: ⭑ ➞ ([...⭑] ➞ ⭑) ➞ [⭑] ➞ ⭑ </a></h2>
 <p>Function</p>
 <p>Binds a function to <code>this</code> value. Optionally binding arguments to the function for partial application</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { bind } from '@northbrook/util' 
+import { bind } from '@northbrook/util'
 
-const z = {} 
+const z = {}
 
-const f = (x, y) ⇒ { 
+const f = (x, y) ⇒ {
 
-  if(this === z) { // true 
+  if(this === z) { // true
 
-    return x + y 
+    return x + y
 
-  } 
+  }
 
-} 
+}
 
-const x = bind(z, f, [1]) 
+const x = bind(z, f, [1])
 
-x(2) // 3 
+x(2) // 3
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L49">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L49"><img src="./images/external.png" /></a></p>
 </section>
 <section id="clear">
-<h2><a href="#clear" >clear :: () ➞ void </a></h2>
+<h2><a href="#clear">clear :: () ➞ void </a></h2>
 <p>Console</p>
 <p>Clears the console</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { clear } from '@northbrook/util' 
+import { clear } from '@northbrook/util'
 
-clear() 
+clear()
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L115">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L115"><img src="./images/external.png" /></a></p>
 </section>
 <section id="colors">
-<h2><a href="#colors" >colors :: Object </a></h2>
+<h2><a href="#colors">colors :: Object </a></h2>
 <p>Console</p>
 <p>An object containing many funtions to create colors inside of the console.</p>
 <p>Visit <a href="https://github.com/chalk/chalk">chalk's github for more info</a> on what is present.</p>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L26">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L26"><img src="./images/external.png" /></a></p>
 </section>
 <section id="compose">
-<h2><a href="#compose" >compose :: [...(⭑ ➞ ⭑)] ➞ (⭑ ➞ ⭑) </a></h2>
+<h2><a href="#compose">compose :: [...(⭑ ➞ ⭑)] ➞ (⭑ ➞ ⭑) </a></h2>
 <p>Function</p>
 <p>Composes many functions togther to form a pipeline</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { compose } from '@northbrook/util' 
+import { compose } from '@northbrook/util'
 
-compose(f, g)  // x =&gt; f(g(x)) 
+compose(f, g)  // x =&gt; f(g(x))
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L264">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L264"><img src="./images/external.png" /></a></p>
 </section>
 <section id="concat">
-<h2><a href="#concat" >* concat :: [a] ➞ [b] ➞ [a | b] </a></h2>
+<h2><a href="#concat">* concat :: [a] ➞ [b] ➞ [a | b] </a></h2>
 <p>Array</p>
 <p>Concatenates together 2 arrays</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { concat } from '@northbrook/util' 
+import { concat } from '@northbrook/util'
 
-concat([1, 2], [3, 4])  // [1, 2, 3, 4] 
+concat([1, 2], [3, 4])  // [1, 2, 3, 4]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L455">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L455"><img src="./images/external.png" /></a></p>
 </section>
 <section id="cond">
-<h2><a href="#cond" >cond :: [ [ (...a ➞ boolean), b ] ] ➞ (...a ➞ b) </a></h2>
+<h2><a href="#cond">cond :: [ [ (...a ➞ boolean), b ] ] ➞ (...a ➞ b) </a></h2>
 <p>Function</p>
 <p>Given a sequence of conditions it returns a match</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { cond, always } from '@northbrook/util' 
+import { cond, always } from '@northbrook/util'
 
-const num = cond([ 
+const num = cond([
 
- [(x) =&gt; x === 0, 'Value is zero'], 
+ [(x) =&gt; x === 0, 'Value is zero'],
 
- [(x) =&gt; x === 1, 'Value is one'], 
+ [(x) =&gt; x === 1, 'Value is one'],
 
- [always(true), 'Value is nothing interesting'] 
+ [always(true), 'Value is nothing interesting']
 
-]) 
+])
 
-num(0) // 'Value is zero' 
+num(0) // 'Value is zero'
 
-num(1) // 'Value is one' 
+num(1) // 'Value is one'
 
-num(99) // 'Value is nothing interesting' 
+num(99) // 'Value is nothing interesting'
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L334">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L334"><img src="./images/external.png" /></a></p>
 </section>
 <section id="cons">
-<h2><a href="#cons" >* cons :: a ➞ [a] ➞ [a] </a></h2>
+<h2><a href="#cons">* cons :: a ➞ [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Creates an array prepended by a value</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { cons } from '@northbrook/util' 
+import { cons } from '@northbrook/util'
 
-cons(1, [2, 3]) // [1, 2, 3] 
+cons(1, [2, 3]) // [1, 2, 3]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L18">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L18"><img src="./images/external.png" /></a></p>
 </section>
 <section id="contains">
-<h2><a href="#contains" >* contains :: a ➞ [a] ➞ boolean </a></h2>
+<h2><a href="#contains">* contains :: a ➞ [a] ➞ boolean </a></h2>
 <p>Array</p>
 <p>Returns true if an array contains a value <code>x</code></p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { contains } from '@northbrook/util' 
+import { contains } from '@northbrook/util'
 
-contains(3, [1, 2, 3])  // true 
+contains(3, [1, 2, 3])  // true
 
-contains(4, [1, 2, 3]) // false 
+contains(4, [1, 2, 3]) // false
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L576">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L576"><img src="./images/external.png" /></a></p>
 </section>
 <section id="copy">
-<h2><a href="#copy" >copy :: [a] ➞ [a] </a></h2>
+<h2><a href="#copy">copy :: [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Creates an identical copy of an array without mutating the original</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { copy } from '@northbrook/util' 
+import { copy } from '@northbrook/util'
 
-copy([2, 3]) // [2, 3] 
+copy([2, 3]) // [2, 3]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L132">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L132"><img src="./images/external.png" /></a></p>
 </section>
 <section id="curry">
-<h2><a href="#curry" >curry :: (a ➞ b ➞ c) ➞ a ➞ b ➞ c </a></h2>
-<h2><a href="#curry" >curry :: (a ➞ b ➞ c) ➞ int ➞ a ➞ b ➞ c </a></h2>
+<h2><a href="#curry">curry :: (a ➞ b ➞ c) ➞ a ➞ b ➞ c </a></h2>
+<h2><a href="#curry">curry :: (a ➞ b ➞ c) ➞ int ➞ a ➞ b ➞ c </a></h2>
 <p>Function</p>
 <p>Curries your functions - optionally taking a arity parameter</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { curry } from '@northbrook/util' 
+import { curry } from '@northbrook/util'
 
-const add = (x, y) =&gt; x + y 
+const add = (x, y) =&gt; x + y
 
-const addc = curry(add) 
+const addc = curry(add)
 
-const add1 = addc(1) 
+const add1 = addc(1)
 
-add1(2) // 3 
+add1(2) // 3
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L110">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L110"><img src="./images/external.png" /></a></p>
 </section>
 <section id="drop">
-<h2><a href="#drop" >* drop :: number ➞ [a] ➞ [a] </a></h2>
+<h2><a href="#drop">* drop :: number ➞ [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Drops the first <code>n</code> number of values from an array</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { drop } from '@northbrook/util' 
+import { drop } from '@northbrook/util'
 
-drop(2, [1, 1, 2, 3]) // [2, 3] 
+drop(2, [1, 1, 2, 3]) // [2, 3]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L69">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L69"><img src="./images/external.png" /></a></p>
 </section>
 <section id="each">
-<h2><a href="#each" >* each :: (a, number ➞ ⭑) ➞ [a] ➞ [a] </a></h2>
+<h2><a href="#each">* each :: (a, number ➞ ⭑) ➞ [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Calls a function with each item in an array and returns the array it started with.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { each } from '@northbrook/util' 
+import { each } from '@northbrook/util'
 
-each((x, i) =&gt; console.log(x, i), [1, 2, 3]) 
+each((x, i) =&gt; console.log(x, i), [1, 2, 3])
 
-//  logs (1, 0), (2, 1), (3, 2) 
+//  logs (1, 0), (2, 1), (3, 2)
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L365">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L365"><img src="./images/external.png" /></a></p>
 </section>
 <section id="exec">
-<h2><a href="#exec" >exec :: string ➞ Stream&lt;string&gt; </a></h2>
-<h2><a href="#exec" >exec :: string ➞ Object ➞ Stream&lt;string&gt; </a></h2>
+<h2><a href="#exec">exec :: string ➞ Stream&lt;string&gt; </a></h2>
+<h2><a href="#exec">exec :: string ➞ Object ➞ Stream&lt;string&gt; </a></h2>
 <p>Shell</p>
 <p>Executes a command returning a stream of the result.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { exec } from '@northbrook/util' 
+import { exec } from '@northbrook/util'
 
-exec('echo hello').map(result ⇒ {...}) 
+exec('echo hello').map(result ⇒ {...})
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/shell.js#L28">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/shell.js#L28"><img src="./images/external.png" /></a></p>
 </section>
 <section id="exec.many">
-<h2><a href="#exec.many" >exec.many :: [string] ➞ Stream&lt;string&gt; </a></h2>
+<h2><a href="#exec.many">exec.many :: [string] ➞ Stream&lt;string&gt; </a></h2>
 <p>Shell</p>
 <p>Executes many commands in succession to each other returning a Stream of the last commands output.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { exec } from '@northbrook/util' 
+import { exec } from '@northbrook/util'
 
-exec.many(cmd1, cmd2).map(cmd2Result ⇒ {...}) 
+exec.many(cmd1, cmd2).map(cmd2Result ⇒ {...})
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/shell.js#L63">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/shell.js#L63"><img src="./images/external.png" /></a></p>
 </section>
 <section id="exists">
-<h2><a href="#exists" >exists :: string ➞ Stream&lt;Stats&gt; </a></h2>
+<h2><a href="#exists">exists :: string ➞ Stream&lt;Stats&gt; </a></h2>
 <p>Node FS</p>
 <p>Creates a Stream containing the output of fs.stat(pathname)</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-// The path exists 
+// The path exists
 
-exists('/home/user/file.js').observe((pathname) ⇒ { 
+exists('/home/user/file.js').observe((pathname) ⇒ {
 
-  console.log(pathname, ' exists!') 
+  console.log(pathname, ' exists!')
 
-}) 
+})
 
-// the path does not exists 
+// the path does not exists
 
-exists('/home/user/someNonExistentFile.js').observe(f) 
+exists('/home/user/someNonExistentFile.js').observe(f)
 
-  .catch(err ⇒ { console.error(err) }) 
+  .catch(err ⇒ { console.error(err) })
 
-// recovering from an error 
+// recovering from an error
 
-exists('/home/user/someNonExistentFile.js') 
+exists('/home/user/someNonExistentFile.js')
 
-  .recoverWith(err ⇒ { 
+  .recoverWith(err ⇒ {
 
-    // replace the error with a new stream 
+    // replace the error with a new stream
 
-    return just({ err }) 
+    return just({ err })
 
-  }) 
+  })
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L39">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L39"><img src="./images/external.png" /></a></p>
 </section>
 <section id="figures">
-<h2><a href="#figures" >* figures :: Object </a></h2>
+<h2><a href="#figures">* figures :: Object </a></h2>
 <p>Console</p>
 <p>An object containing unicode charaters for common symbols.</p>
 <p>Visit <a href="https://github.com/sindresorhus/figures#figures">figures github page</a> to see what figures are present</p>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L15">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L15"><img src="./images/external.png" /></a></p>
 </section>
 <section id="filter">
-<h2><a href="#filter" >* filter :: (a ➞ boolean) ➞ [a] ➞ [a] </a></h2>
+<h2><a href="#filter">* filter :: (a ➞ boolean) ➞ [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Filters the array based on a given predicate</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { filter } from '@northbrook/util' 
+import { filter } from '@northbrook/util'
 
-filter(isEven, [1, 2, 3, 4])  // [2, 4] 
+filter(isEven, [1, 2, 3, 4])  // [2, 4]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L392">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L392"><img src="./images/external.png" /></a></p>
 </section>
 <section id="filterDefaultPlugins">
-<h2><a href="#filterDefaultPlugins" >* filterDefaultPlugins :: [string] ➞ object ➞ object </a></h2>
+<h2><a href="#filterDefaultPlugins">* filterDefaultPlugins :: [string] ➞ object ➞ object </a></h2>
 <p>Northbrook</p>
 <p>Given an array of defaults and a configuration object it</p>
 <p>will filter any default object that should be ignored returning</p>
 <p>a new configuration object without those defaults.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { filterDefaultPlugins } from '@northbrook/util' 
+import { filterDefaultPlugins } from '@northbrook/util'
 
-filterDefaultPlugins(defaults, config)  // newConfig 
+filterDefaultPlugins(defaults, config)  // newConfig
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/plugins.js#L47">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/plugins.js#L47"><img src="./images/external.png" /></a></p>
 </section>
 <section id="filterScopes">
-<h2><a href="#filterScopes" >filterScopes :: string ➞ string </a></h2>
+<h2><a href="#filterScopes">filterScopes :: string ➞ string </a></h2>
 <p>Node Packages</p>
 <p>Removes a scope name from package name</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { filterScopes } from '@northbrook/util' 
+import { filterScopes } from '@northbrook/util'
 
-filterScopes('@northbrook/util')  // 'util' 
+filterScopes('@northbrook/util')  // 'util'
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/packages.js#L25">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/packages.js#L25"><img src="./images/external.png" /></a></p>
 </section>
 <section id="findConfig">
-<h2><a href="#findConfig" >findConfig :: string ➞ Stream&lt;Object&gt; </a></h2>
-<h2><a href="#findConfig" >findConfig :: string ➞ Object ➞ Stream&lt;Object&gt; </a></h2>
+<h2><a href="#findConfig">findConfig :: string ➞ Stream&lt;Object&gt; </a></h2>
+<h2><a href="#findConfig">findConfig :: string ➞ Object ➞ Stream&lt;Object&gt; </a></h2>
 <p>Node FS</p>
 <p>Finds a configuration file</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { findConfig } from '@northbrook/util' 
+import { findConfig } from '@northbrook/util'
 
-findConfig('package.json').map(({ path, directory, config }) ⇒ { ... }) 
+findConfig('package.json').map(({ path, directory, config }) ⇒ { ... })
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L231">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L231"><img src="./images/external.png" /></a></p>
 </section>
 <section id="findIndex">
-<h2><a href="#findIndex" >* findIndex :: a ➞ [a] ➞ number </a></h2>
+<h2><a href="#findIndex">* findIndex :: a ➞ [a] ➞ number </a></h2>
 <p>Array</p>
 <p>Finds the index of <code>x</code> inside of array</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { findIndex } from '@northbrook/util' 
+import { findIndex } from '@northbrook/util'
 
-findIndex(1, [1, 2, 3]) // 0 
+findIndex(1, [1, 2, 3]) // 0
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L316">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L316"><img src="./images/external.png" /></a></p>
 </section>
 <section id="flatten">
-<h2><a href="#flatten" >flatten :: [[a] | a] ➞ [a] </a></h2>
+<h2><a href="#flatten">flatten :: [[a] | a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Creates a 1 dimensional array from a multi-dimensional array</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { flatten } from '@northbrook/util' 
+import { flatten } from '@northbrook/util'
 
-flatten([[1], [[2]], 3])  // [1, 2, 3] 
+flatten([[1], [[2]], 3])  // [1, 2, 3]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L496">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L496"><img src="./images/external.png" /></a></p>
 </section>
 <section id="flip">
-<h2><a href="#flip" >flip :: (a ➞ b ➞ c) ➞ (b ➞ a ➞ c) </a></h2>
-<h2><a href="#flip" >flip :: (a ➞ b ➞ c ➞ d) ➞ (c ➞ b ➞ a ➞ d) </a></h2>
+<h2><a href="#flip">flip :: (a ➞ b ➞ c) ➞ (b ➞ a ➞ c) </a></h2>
+<h2><a href="#flip">flip :: (a ➞ b ➞ c ➞ d) ➞ (c ➞ b ➞ a ➞ d) </a></h2>
 <p>Function</p>
 <p>Flips your argument order</p>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L214">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L214"><img src="./images/external.png" /></a></p>
 </section>
 <section id="getAllInDirectory">
-<h2><a href="#getAllInDirectory" >* getAllInDirectory :: string ➞ [string] </a></h2>
-<h2><a href="#getAllInDirectory" >* getAllInDirectory :: string ➞ boolean ➞ [string] </a></h2>
+<h2><a href="#getAllInDirectory">* getAllInDirectory :: string ➞ [string] </a></h2>
+<h2><a href="#getAllInDirectory">* getAllInDirectory :: string ➞ boolean ➞ [string] </a></h2>
 <p>Node FS</p>
 <p>Gets all of the files in a given directory recursively checking inside of the subdirectories.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { getAllInDirectory } from '@northbrook/util' 
+import { getAllInDirectory } from '@northbrook/util'
 
-getAllInDirectory('/home/user', false)  // ['file1', 'file2'] 
+getAllInDirectory('/home/user', false)  // ['file1', 'file2']
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L267">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L267"><img src="./images/external.png" /></a></p>
 </section>
 <section id="getPkg">
-<h2><a href="#getPkg" >getPkg :: string ➞ Object </a></h2>
+<h2><a href="#getPkg">getPkg :: string ➞ Object </a></h2>
 <p>Node Packages</p>
 <p>Requires a package.json from a given directory.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { getPkg } from '@northbrook/util' 
+import { getPkg } from '@northbrook/util'
 
-getPkg('/path/to/directory containing package.json')  // { name: 'package', ...} 
+getPkg('/path/to/directory containing package.json')  // { name: 'package', ...}
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/packages.js#L63">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/packages.js#L63"><img src="./images/external.png" /></a></p>
 </section>
 <section id="hasPkg">
-<h2><a href="#hasPkg" >hasPkg :: string ➞ Stream&lt;string&gt; </a></h2>
+<h2><a href="#hasPkg">hasPkg :: string ➞ Stream&lt;string&gt; </a></h2>
 <p>Node Packages</p>
 <p>Returns a stream of the location to the package.json if it exists, or an errored stream if not.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { hasPkg } from '@northbrook/util' 
+import { hasPkg } from '@northbrook/util'
 
-hasPkg('/home/user/somePackage').map(pathToPackage ⇒ {...}) 
+hasPkg('/home/user/somePackage').map(pathToPackage ⇒ {...})
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/packages.js#L44">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/packages.js#L44"><img src="./images/external.png" /></a></p>
 </section>
 <section id="id">
-<h2><a href="#id" >id :: a ➞ a </a></h2>
+<h2><a href="#id">id :: a ➞ a </a></h2>
 <p>Function</p>
 <p>Returns the value it is given</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { id } from '@northbrook/util' 
+import { id } from '@northbrook/util'
 
-id(1)  // 1 
+id(1)  // 1
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L21">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L21"><img src="./images/external.png" /></a></p>
 </section>
 <section id="ifElse">
-<h2><a href="#ifElse" >* ifElse :: (a ➞ boolean) ➞ (a ➞ b) ➞ (a ➞ b) ➞ a ➞ b </a></h2>
+<h2><a href="#ifElse">* ifElse :: (a ➞ boolean) ➞ (a ➞ b) ➞ (a ➞ b) ➞ a ➞ b </a></h2>
 <p>Function</p>
 <p>Declaratively define if else statements</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { ifElse, id, map } from '@northbrook/util' 
+import { ifElse, id, map } from '@northbrook/util'
 
-const sub1 = x =&gt; x - 1 
+const sub1 = x =&gt; x - 1
 
-const makeEvens = ifElse(isEven, id, sub1) 
+const makeEvens = ifElse(isEven, id, sub1)
 
-map(makeEvens, [1, 2, 3, 4]) // [0, 2, 2, 4] 
+map(makeEvens, [1, 2, 3, 4]) // [0, 2, 2, 4]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L365">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L365"><img src="./images/external.png" /></a></p>
 </section>
 <section id="is">
-<h2><a href="#is" >* is :: string ➞ ⭑ ➞ boolean </a></h2>
-<h2><a href="#is" >* is :: (⭑ ➞ ⭑) ➞ ⭑ ➞ boolean </a></h2>
-<h2><a href="#is" >* is :: ⭑ ➞ ⭑ ➞ boolean </a></h2>
+<h2><a href="#is">* is :: string ➞ ⭑ ➞ boolean </a></h2>
+<h2><a href="#is">* is :: (⭑ ➞ ⭑) ➞ ⭑ ➞ boolean </a></h2>
+<h2><a href="#is">* is :: ⭑ ➞ ⭑ ➞ boolean </a></h2>
 <p>Function</p>
 <p>Checks the equality of a value to different types.</p>
 <p>When given a string as the first argument it will do a <code>typeof</code> check then equality if that fails.</p>
@@ -581,690 +1089,680 @@ map(makeEvens, [1, 2, 3, 4]) // [0, 2, 2, 4]
 <p>Lastly it will attempt to do an equality check.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { is } from '@northbrook/util' 
+import { is } from '@northbrook/util'
 
-is('string', 'hello')  // true 
+is('string', 'hello')  // true
 
-is(Class, new Class()) // true 
+is(Class, new Class()) // true
 
-is(3, 3) // true 
+is(3, 3) // true
 
-is(x =&gt; x === 2, 2) // true 
+is(x =&gt; x === 2, 2) // true
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L397">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L397"><img src="./images/external.png" /></a></p>
 </section>
 <section id="isArrayLike">
-<h2><a href="#isArrayLike" >isArrayLike :: ⭑ ➞ boolean </a></h2>
+<h2><a href="#isArrayLike">isArrayLike :: ⭑ ➞ boolean </a></h2>
 <p>any</p>
 <p>Returns true if an only if given value is array-like</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { isArrayLike } from '@northbrook/util' 
+import { isArrayLike } from '@northbrook/util'
 
-isArrayLike(document.querySelectorAll('div')) // true 
+isArrayLike(document.querySelectorAll('div')) // true
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L343">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L343"><img src="./images/external.png" /></a></p>
 </section>
 <section id="isDirectory">
-<h2><a href="#isDirectory" >isDirectory :: string ➞ Stream&lt;string&gt; </a></h2>
+<h2><a href="#isDirectory">isDirectory :: string ➞ Stream&lt;string&gt; </a></h2>
 <p>Node FS</p>
 <p>Tests if an absolute path is a directory, returning the given pathname if it exists, erroring if it does not.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { isDirectory } from '@northbrook/util' 
+import { isDirectory } from '@northbrook/util'
 
-isDirectory('/home/usr/dir').observe(pathname ⇒ { 
+isDirectory('/home/usr/dir').observe(pathname ⇒ {
 
-  console.log(pathname + ' is a directory') 
+  console.log(pathname + ' is a directory')
 
-}) 
+})
 
-isDirectory('/somewhere/nonexistent').observe(neverCalled) 
+isDirectory('/somewhere/nonexistent').observe(neverCalled)
 
- .catch(err =&gt; { ... }) // do something with the error 
+ .catch(err =&gt; { ... }) // do something with the error
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L70">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L70"><img src="./images/external.png" /></a></p>
 </section>
 <section id="isFile">
-<h2><a href="#isFile" >isFile :: string ➞ Stream&lt;string&gt; </a></h2>
+<h2><a href="#isFile">isFile :: string ➞ Stream&lt;string&gt; </a></h2>
 <p>Node FS</p>
 <p>Returns a stream of the pathname, or an errored stream if it is not a file.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { isFile } from '@northbrook/util' 
+import { isFile } from '@northbrook/util'
 
-isFile('/path/to/package.json').map(pathname ⇒ { ... }) // do something knowing it is a file 
+isFile('/path/to/package.json').map(pathname ⇒ { ... }) // do something knowing it is a file
 
-isFile('/path/to/nowhere').recoverWith(err ⇒ { ... }) // do something with errror 
+isFile('/path/to/nowhere').recoverWith(err ⇒ { ... }) // do something with errror
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L95">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L95"><img src="./images/external.png" /></a></p>
 </section>
 <section id="isLink">
-<h2><a href="#isLink" >isLink :: string ➞ Stream&lt;string&gt; </a></h2>
+<h2><a href="#isLink">isLink :: string ➞ Stream&lt;string&gt; </a></h2>
 <p>Node FS</p>
 <p>Returns a stream of the pathname provided if the path is to a symbolic link.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { isLink } from '@northbrook/util' 
+import { isLink } from '@northbrook/util'
 
-isLink('path/to/link').map(pathname ⇒ { ... }) // do something knowing it is a link 
+isLink('path/to/link').map(pathname ⇒ { ... }) // do something knowing it is a link
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L118">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L118"><img src="./images/external.png" /></a></p>
 </section>
 <section id="isPlugin">
-<h2><a href="#isPlugin" >isPlugin :: ⭑ ➞ boolean </a></h2>
+<h2><a href="#isPlugin">isPlugin :: ⭑ ➞ boolean </a></h2>
 <p>Northbrook</p>
 <p>Given an object it tells you whether or not it is a northbrook plugin object.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { isPlugin } from '@northbrook/util' 
+import { isPlugin } from '@northbrook/util'
 
-isPlugin({ plugin: (program, config, dir) =&gt; {...} })  // true 
+isPlugin({ plugin: (program, config, dir) =&gt; {...} })  // true
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/plugins.js#L24">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/plugins.js#L24"><img src="./images/external.png" /></a></p>
 </section>
 <section id="keys">
-<h2><a href="#keys" >keys :: object ➞ [string] </a></h2>
+<h2><a href="#keys">keys :: object ➞ [string] </a></h2>
 <p>Object</p>
 <p>Returns an array of keys from a given object</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { keys } from '@northbrook/util' 
+import { keys } from '@northbrook/util'
 
-keys({ x: 1, y: 2 })  // ['x', 'y'] 
+keys({ x: 1, y: 2 })  // ['x', 'y']
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L261">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L261"><img src="./images/external.png" /></a></p>
 </section>
 <section id="length">
-<h2><a href="#length" >length :: [a] ➞ number </a></h2>
+<h2><a href="#length">length :: [a] ➞ number </a></h2>
 <p>Array / String</p>
 <p>Returns the length of an array</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { length } from '@northbrook/util' 
+import { length } from '@northbrook/util'
 
-length([1, 2, 3])  // 3 
+length([1, 2, 3])  // 3
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L673">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L673"><img src="./images/external.png" /></a></p>
 </section>
 <section id="list">
-<h2><a href="#list" >list :: [Object] ➞ TaskList </a></h2>
-<h2><a href="#list" >list :: [Object] ➞ object -&gt; TaskList </a></h2>
+<h2><a href="#list">list :: [Object] ➞ TaskList </a></h2>
+<h2><a href="#list">list :: [Object] ➞ object -&gt; TaskList </a></h2>
 <p>Shell</p>
 <p>Creates a task list used for showing progress of tasks for the user.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { list, exec } from '@northbrook/util' 
+import { list, exec } from '@northbrook/util'
 
-const tasks = list([{ 
+const tasks = list([{
 
-  title: 'Foo', 
+  title: 'Foo',
 
-  task: () =&gt; exec('echo &quot;foo&quot;') 
+  task: () =&gt; exec('echo &quot;foo&quot;')
 
-}]) 
+}])
 
-tasks.run() 
+tasks.run()
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/shell.js#L93">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/shell.js#L93"><img src="./images/external.png" /></a></p>
 </section>
 <section id="listItem">
-<h2><a href="#listItem" >* listItem :: string ➞ (() ➞ Stream&lt;⭑&gt; | Promise&lt;⭑&gt;) ➞ object </a></h2>
-<h2><a href="#listItem" >* listItem :: string ➞ (() ➞ Stream&lt;⭑&gt; | Promise&lt;⭑&gt;) ➞ (() ➞ boolean) ➞ object </a></h2>
+<h2><a href="#listItem">* listItem :: string ➞ (() ➞ Stream&lt;⭑&gt; | Promise&lt;⭑&gt;) ➞ object </a></h2>
+<h2><a href="#listItem">* listItem :: string ➞ (() ➞ Stream&lt;⭑&gt; | Promise&lt;⭑&gt;) ➞ (() ➞ boolean) ➞ object </a></h2>
 <p>Shell</p>
 <p>Creates a listItem to be used inside of a list.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { listItem } from '@northbrook/util' 
+import { listItem } from '@northbrook/util'
 
-listItem('Foo', () =&gt; exec('echo &quot;foo&quot;')) // { title: 'Foo', task: () =&gt; exec('echo &quot;foo&quot;'), skip: () =&gt; false } 
+listItem('Foo', () =&gt; exec('echo &quot;foo&quot;')) // { title: 'Foo', task: () =&gt; exec('echo &quot;foo&quot;'), skip: () =&gt; false }
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/shell.js#L113">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/shell.js#L113"><img src="./images/external.png" /></a></p>
 </section>
 <section id="log">
 <p>Console</p>
-<h2><a href="#log" >log :: [...string] ➞ void </a></h2>
+<h2><a href="#log">log :: [...string] ➞ void </a></h2>
 <p>Prints to stdout with UTF-8 encoding and adds 4 space indentation to all newlines</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-log('Hello', 'world') 
+log('Hello', 'world')
 
-// console will output 'Hello world' 
+// console will output 'Hello world'
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L41">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L41"><img src="./images/external.png" /></a></p>
 </section>
 <section id="map">
-<h2><a href="#map" >* map :: (a ➞ b) ➞ [a] ➞ [b] </a></h2>
+<h2><a href="#map">* map :: (a ➞ b) ➞ [a] ➞ [b] </a></h2>
 <p>Array</p>
 <p>Creates a new array based on a previous</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { map } from '@northbrook/util' 
+import { map } from '@northbrook/util'
 
-map((x) ⇒ x + 1, [1, 2, 3]) // [2, 3, 4] 
+map((x) ⇒ x + 1, [1, 2, 3]) // [2, 3, 4]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L156">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L156"><img src="./images/external.png" /></a></p>
 </section>
 <section id="merge">
-<h2><a href="#merge" >* merge :: object ➞ object ➞ object </a></h2>
+<h2><a href="#merge">* merge :: object ➞ object ➞ object </a></h2>
 <p>Object</p>
 <p>Performs a deep merge of 2 objects</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { merge } from '@northbrook/util' 
+import { merge } from '@northbrook/util'
 
-merge({ x: 1 }, { y: 2 })  // { x: 1, y: 2 } 
+merge({ x: 1 }, { y: 2 })  // { x: 1, y: 2 }
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L180">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L180"><img src="./images/external.png" /></a></p>
 </section>
 <section id="mergeMany">
-<h2><a href="#mergeMany" >mergeMany :: [...object] ➞ object </a></h2>
+<h2><a href="#mergeMany">mergeMany :: [...object] ➞ object </a></h2>
 <p>Object</p>
 <p>Performs a deep merge of <code>n</code> number of objects</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { merge } from '@northbrook/util' 
+import { merge } from '@northbrook/util'
 
-merge({ x: 1 }, { y: 2 })  // { x: 1, y: 2 } 
+merge({ x: 1 }, { y: 2 })  // { x: 1, y: 2 }
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L240">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L240"><img src="./images/external.png" /></a></p>
 </section>
 <section id="modOutput">
-<h2><a href="#modOutput" >modOutput :: string ➞ string </a></h2>
+<h2><a href="#modOutput">modOutput :: string ➞ string </a></h2>
 <p>String / Console</p>
 <p>Adds an indent of 4 spaces to all new lines</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-const x = modOutput('\nhi') 
+const x = modOutput('\nhi')
 
-// x = '\n    hi' 
+// x = '\n    hi'
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L63">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L63"><img src="./images/external.png" /></a></p>
 </section>
 <section id="modifyConfig">
-<h2><a href="#modifyConfig" >* modifyConfig :: string ➞ object ➞ (object ➞ object) ➞ Stream&lt;string&gt; </a></h2>
+<h2><a href="#modifyConfig">* modifyConfig :: string ➞ object ➞ (object ➞ object) ➞ Stream&lt;string&gt; </a></h2>
 <p>Northbrook</p>
 <p>Finds and modifies a configuration file.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { modifyConfig } from '@northbrook/util' 
+import { modifyConfig } from '@northbrook/util'
 
-modifyConfig('northbrook.json', {}, (config =&gt; { 
+modifyConfig('northbrook.json', {}, (config =&gt; {
 
-  ... 
+  ...
 
-  return newConfig 
+  return newConfig
 
-})).map(newConfigContent =&gt; { ... }) 
+})).map(newConfigContent =&gt; { ... })
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/config.js#L110">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/config.js#L110"><img src="./images/external.png" /></a></p>
 </section>
 <section id="negate">
-<h2><a href="#negate" >negate :: (a ➞ b) ➞ (a ➞ !b) </a></h2>
+<h2><a href="#negate">negate :: (a ➞ b) ➞ (a ➞ !b) </a></h2>
 <p>Function</p>
 <p>Returns the oppostive value of a give function</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { negate, alwayas } from '@northbrook/util' 
+import { negate, alwayas } from '@northbrook/util'
 
-negate(always(true))(9) // false 
+negate(always(true))(9) // false
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L304">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L304"><img src="./images/external.png" /></a></p>
 </section>
 <section id="onlyPackage">
-<h2><a href="#onlyPackage" >* onlyPackage :: string ➞ [string] ➞ [string] </a></h2>
+<h2><a href="#onlyPackage">* onlyPackage :: string ➞ [string] ➞ [string] </a></h2>
 <p>Northbrook</p>
 <p>Filters out a package for when only 1 package should be matched.</p>
 <p>Very useful with command that have an <code>--only &lt;packageName&gt;</code> option.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { onlyPackage } from '@northbrook/util' 
+import { onlyPackage } from '@northbrook/util'
 
-onlyPackage('packageToMatchName', config.packages) 
+onlyPackage('packageToMatchName', config.packages)
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/packages.js#L63">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/packages.js#L63"><img src="./images/external.png" /></a></p>
 </section>
 <section id="or">
-<h2><a href="#or" >or :: ([...(⭑ ➞ boolean)]) ➞ ⭑ ➞ boolean </a></h2>
+<h2><a href="#or">or :: ([...(⭑ ➞ boolean)]) ➞ ⭑ ➞ boolean </a></h2>
 <p>Function</p>
 <p>Takes <code>n</code> number of predicates and returns true if any of the predicate return true.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { or } from '@northbrook/util' 
+import { or } from '@northbrook/util'
 
-or(isOdd, isEven)(2)  // true 
+or(isOdd, isEven)(2)  // true
 
-or(isOdd, isEven)(3) // true 
+or(isOdd, isEven)(3) // true
 
-or(isOdd, isEven)(NaN) // false 
+or(isOdd, isEven)(NaN) // false
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L468">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L468"><img src="./images/external.png" /></a></p>
 </section>
 <section id="partial">
-<h2><a href="#partial" >partial :: (a, b ➞ c) ➞ [a] ➞ (b ➞ c) </a></h2>
-<h2><a href="#partial" >partial :: (a, b ➞ c) ➞ [ __, b] ➞ (a ➞ c) </a></h2>
-<h2><a href="#partial" >partial :: ([...⭑] ➞ ⭑) ➞ [⭑] ➞ ([...⭑] ➞ ⭑) </a></h2>
+<h2><a href="#partial">partial :: (a, b ➞ c) ➞ [a] ➞ (b ➞ c) </a></h2>
+<h2><a href="#partial">partial :: (a, b ➞ c) ➞ [ __, b] ➞ (a ➞ c) </a></h2>
+<h2><a href="#partial">partial :: ([...⭑] ➞ ⭑) ➞ [⭑] ➞ ([...⭑] ➞ ⭑) </a></h2>
 <p>Function</p>
 <p>Partially applies a function, currying it in the process.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { partial } from '@northbrook/util' 
+import { partial } from '@northbrook/util'
 
-const f = partial(add, [1]) 
+const f = partial(add, [1])
 
-f(2) // 3 
+f(2) // 3
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L168">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L168"><img src="./images/external.png" /></a></p>
 </section>
 <section id="pipe">
-<h2><a href="#pipe" >pipe :: [...(⭑ ➞ ⭑)] ➞ (⭑ ➞ ⭑) </a></h2>
+<h2><a href="#pipe">pipe :: [...(⭑ ➞ ⭑)] ➞ (⭑ ➞ ⭑) </a></h2>
 <p>Function</p>
 <p>Pipes many functions together into a single pipeline</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { pipe } from '@northbrook/util' 
+import { pipe } from '@northbrook/util'
 
-pipe(f, g)  // x =&gt; g(f(x)) 
+pipe(f, g)  // x =&gt; g(f(x))
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L237">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/function.js#L237"><img src="./images/external.png" /></a></p>
 </section>
 <section id="pluck">
-<h2><a href="#pluck" >* pluck :: string ➞ object ➞ ⭑ </a></h2>
-<h2><a href="#pluck" >* pluck :: [string] ➞ object ➞ ⭑ </a></h2>
+<h2><a href="#pluck">* pluck :: string ➞ object ➞ ⭑ </a></h2>
+<h2><a href="#pluck">* pluck :: [string] ➞ object ➞ ⭑ </a></h2>
 <p>Object</p>
 <p>Find a property in an object</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { pluck } from '@nortbrook/util' 
+import { pluck } from '@nortbrook/util'
 
-pluck('foo', { foo: 'bar' }) // 'bar' 
+pluck('foo', { foo: 'bar' }) // 'bar'
 
-pluck(['foo', 'bar'], { foo: { bar: 1 } }) // 1 
+pluck(['foo', 'bar'], { foo: { bar: 1 } }) // 1
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L42">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L42"><img src="./images/external.png" /></a></p>
 </section>
 <section id="propEq">
-<h2><a href="#propEq" >* propEq :: string ➞ a ➞ object ➞ boolean </a></h2>
-<h2><a href="#propEq" >* propEq :: [string] ➞ a ➞ object ➞ boolean </a></h2>
+<h2><a href="#propEq">* propEq :: string ➞ a ➞ object ➞ boolean </a></h2>
+<h2><a href="#propEq">* propEq :: [string] ➞ a ➞ object ➞ boolean </a></h2>
 <p>Object</p>
 <p>Checks equality of a object property and x</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { propEq } from '@northbrook/util' 
+import { propEq } from '@northbrook/util'
 
-propEq('foo', 'bar', { foo: 'bar' }) // true 
+propEq('foo', 'bar', { foo: 'bar' }) // true
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L77">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L77"><img src="./images/external.png" /></a></p>
 </section>
 <section id="propOr">
-<h2><a href="#propOr" >* propOr :: string ➞ ⭑ ➞ ⭑ </a></h2>
-<h2><a href="#propOr" >* propOr :: [string] ➞ ⭑ ➞ ⭑ </a></h2>
+<h2><a href="#propOr">* propOr :: string ➞ ⭑ ➞ ⭑ </a></h2>
+<h2><a href="#propOr">* propOr :: [string] ➞ ⭑ ➞ ⭑ </a></h2>
 <p>Object</p>
 <p>Finds a property on an object or returns a defined value.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { propOr } from '@northbrook/util' 
+import { propOr } from '@northbrook/util'
 
-propOr('foo', 3, { foo: 'bar'})  // 'bar' 
+propOr('foo', 3, { foo: 'bar'})  // 'bar'
 
-propOr('foo', 3, {}) // 3 
+propOr('foo', 3, {}) // 3
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L100">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L100"><img src="./images/external.png" /></a></p>
 </section>
 <section id="readFile">
-<h2><a href="#readFile" >readFile :: string ➞ Stream&lt;string&gt; </a></h2>
+<h2><a href="#readFile">readFile :: string ➞ Stream&lt;string&gt; </a></h2>
 <p>Node FS</p>
 <p>Reads a file if it exists and returns the contents inside of a Stream</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { readFile } from '@northbrook/util' 
+import { readFile } from '@northbrook/util'
 
-readFile('package.json').map(contents =&gt; { ... }) 
+readFile('package.json').map(contents =&gt; { ... })
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L148">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L148"><img src="./images/external.png" /></a></p>
 </section>
 <section id="reduce">
-<h2><a href="#reduce" >* reduce :: (b ➞ a ➞ b) ➞ b ➞ [a] </a></h2>
+<h2><a href="#reduce">* reduce :: (b ➞ a ➞ b) ➞ b ➞ [a] </a></h2>
 <p>Array</p>
 <p>Creates a value by iterating over the values of an array</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { reduce } from '@northbrook/util' 
+import { reduce } from '@northbrook/util'
 
-const sum = (x, y) ⇒ x + y 
+const sum = (x, y) ⇒ x + y
 
-const sumReduce = reduce(sum, 0) 
+const sumReduce = reduce(sum, 0)
 
-sumReduce([1, 2, 3, 4]) // 10 
+sumReduce([1, 2, 3, 4]) // 10
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L183">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L183"><img src="./images/external.png" /></a></p>
 </section>
 <section id="remove">
-<h2><a href="#remove" >* remove :: number ➞ [a] ➞ [a] </a></h2>
+<h2><a href="#remove">* remove :: number ➞ [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Remove an element at a given index</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { remove } from '@northbrook/util' 
+import { remove } from '@northbrook/util'
 
-remove(1, [1, 2, 3]) // [1, 3] 
+remove(1, [1, 2, 3]) // [1, 3]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L238">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L238"><img src="./images/external.png" /></a></p>
 </section>
 <section id="removeAll">
-<h2><a href="#removeAll" >* removeAll :: (a ➞ boolean) ➞ [a] ➞ [a] </a></h2>
+<h2><a href="#removeAll">* removeAll :: (a ➞ boolean) ➞ [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Removes all elements matching a predicate</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { removeAll } from '@northbrook/util' 
+import { removeAll } from '@northbrook/util'
 
-removeAll(x ⇒ x % 2 === 0, [1, 2, 3, 4]) // [1, 3] 
+removeAll(x ⇒ x % 2 === 0, [1, 2, 3, 4]) // [1, 3]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L285">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L285"><img src="./images/external.png" /></a></p>
 </section>
 <section id="replace">
-<h2><a href="#replace" >* replace :: a ➞ number ➞ [a] </a></h2>
+<h2><a href="#replace">* replace :: a ➞ number ➞ [a] </a></h2>
 <p>Array / String</p>
 <p>Replace an element at a given index</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { replace } from '@northbrook/util' 
+import { replace } from '@northbrook/util'
 
-replace(100, 3, [1, 2, 3]) // [1, 2, 100] 
+replace(100, 3, [1, 2, 3]) // [1, 2, 100]
 
-reaplce('*', '', '*hello*') // hello 
+reaplce('*', '', '*hello*') // hello
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L207">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L207"><img src="./images/external.png" /></a></p>
 </section>
 <section id="resolveExtends">
-<h2><a href="#resolveExtends" >* resolveExtends :: string ➞ object ➞ Stream&lt;object&gt; </a></h2>
+<h2><a href="#resolveExtends">* resolveExtends :: string ➞ object ➞ Stream&lt;object&gt; </a></h2>
 <p>Northbrook</p>
 <p>Taking the directory in which to look from, and an existing northbrook.json object, it will find any packages from the <code>extends</code> field, if it exists.</p>
 <p>If it exists, it then return a Stream of the merged configurations, with the user defined configuration overriding an overlapping declarations.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { resolveExtends } from '@northbrook/util' 
+import { resolveExtends } from '@northbrook/util'
 
-resolveExtends('/path/to/dir', northbrookConfig).map(({ packages }) =&gt; {...}) 
+resolveExtends('/path/to/dir', northbrookConfig).map(({ packages }) =&gt; {...})
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/config.js#L65">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/config.js#L65"><img src="./images/external.png" /></a></p>
 </section>
 <section id="resolvePackage">
-<h2><a href="#resolvePackage" >resolvePackage :: string ➞ Stream&lt;Object&gt; </a></h2>
-<h2><a href="#resolvePackage" >resolvePackage :: string ➞ (object ➞ boolean) ➞ Stream&lt;Object&gt; </a></h2>
+<h2><a href="#resolvePackage">resolvePackage :: string ➞ Stream&lt;Object&gt; </a></h2>
+<h2><a href="#resolvePackage">resolvePackage :: string ➞ (object ➞ boolean) ➞ Stream&lt;Object&gt; </a></h2>
 <p>Northbrook</p>
 <p>Trys to require a package that is related to northbrook. First trying to require the package prefixed by <code>@nortbrook</code>, secondly by requiring the package prefixed by <code>northbrook-</code> and, lastly by requiring the package name directory. This will return a stream of the required package if it is found.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { resolvePackage } from '@northbrook/util' 
+import { resolvePackage } from '@northbrook/util'
 
-resolvePackage('util')  // Stream&lt;@northbrook/util&gt; 
+resolvePackage('util')  // Stream&lt;@northbrook/util&gt;
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/config.js#L32">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/config.js#L32"><img src="./images/external.png" /></a></p>
 </section>
 <section id="resolvePackages ::">
-<h2><a href="#resolvePackages ::" >* resolvePackages :: string ➞ object ➞ Stream&lt;Object&gt; </a></h2>
+<h2><a href="#resolvePackages ::">* resolvePackages :: string ➞ object ➞ Stream&lt;Object&gt; </a></h2>
 <p>Northbrook</p>
 <p>Taking a directory to work from and a northbrook config object returns a new config file with <code>packages: [&quot;.&quot;]</code> if no packages are present in the config, or finds all packages that are in the config object if there is a <code>/**</code> wildcard folder present. Retuns a stream of the new config object.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { resolvePackages } from '@northbrook/util' 
+import { resolvePackages } from '@northbrook/util'
 
-resolvePackages('/path/to/dir', northbrookConfig).map(config =&gt; {...}) 
+resolvePackages('/path/to/dir', northbrookConfig).map(config =&gt; {...})
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/packages.js#L25">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/packages.js#L25"><img src="./images/external.png" /></a></p>
 </section>
 <section id="resolvePlugins ::">
-<h2><a href="#resolvePlugins ::" >* resolvePlugins :: string ➞ object ➞ Stream&lt;Object&gt; </a></h2>
+<h2><a href="#resolvePlugins ::">* resolvePlugins :: string ➞ object ➞ Stream&lt;Object&gt; </a></h2>
 <p>Northbrook</p>
 <p>Taking a directory to work from and a northbrook config object returning a new config file with all the plugins it could find.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { resolvePlugins } from '@northbrook/util' 
+import { resolvePlugins } from '@northbrook/util'
 
-resolvePlugins('/path/to/dir', northbrookConfig).map(config =&gt; {...}) 
+resolvePlugins('/path/to/dir', northbrookConfig).map(config =&gt; {...})
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/plugins.js#L70">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/northbrook/plugins.js#L70"><img src="./images/external.png" /></a></p>
 </section>
 <section id="reverse">
-<h2><a href="#reverse" >reverse :: [a] ➞ [a] </a></h2>
+<h2><a href="#reverse">reverse :: [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Returns an array in the opposite order of which it was given</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { reverse } from '@northbrook/util' 
+import { reverse } from '@northbrook/util'
 
-reverse([1, 2, 3])  // [3, 2, 1] 
+reverse([1, 2, 3])  // [3, 2, 1]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L424">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L424"><img src="./images/external.png" /></a></p>
 </section>
 <section id="separator">
-<h2><a href="#separator" >separator :: () ➞ string </a></h2>
+<h2><a href="#separator">separator :: () ➞ string </a></h2>
 <p>String / Console</p>
-<h2><a href="#separator" >separator :: string ➞ string </a></h2>
+<h2><a href="#separator">separator :: string ➞ string </a></h2>
 <p>Returns 80 character wide string used to log a separation between outputs</p>
 <h4>Example:</h4>
 <pre><code class="language-js">
-log(separator('hello')) 
+log(separator('hello'))
 
-// '##----------------------------------hello------------------------------------##' 
+// '##----------------------------------hello------------------------------------##'
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L81">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/console.js#L81"><img src="./images/external.png" /></a></p>
 </section>
 <section id="set">
-<h2><a href="#set" >* set :: string ➞ ⭑ ➞ object ➞ object </a></h2>
-<h2><a href="#set" >* set :: [string] ➞ ⭑ ➞ object ➞ object </a></h2>
+<h2><a href="#set">* set :: string ➞ ⭑ ➞ object ➞ object </a></h2>
+<h2><a href="#set">* set :: [string] ➞ ⭑ ➞ object ➞ object </a></h2>
 <p>Object</p>
 <p>Sets a property on an object</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { set } from '@northbrook/util' 
+import { set } from '@northbrook/util'
 
-set('foo', 'bar', {})  // { foo: 'bar' } 
+set('foo', 'bar', {})  // { foo: 'bar' }
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L137">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L137"><img src="./images/external.png" /></a></p>
 </section>
-<section id="some - Array">
-<h2><a href="#some - Array" >* some :: (a ➞ boolean) ➞ [a] ➞ boolean </a></h2>
+<section id="some">
+<h2><a href="#some">* some :: (a ➞ boolean) ➞ [a] ➞ boolean </a></h2>
 <p>Array</p>
 <p>Checks the values of an array and returns true if at least 1 item matches the given predicate</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { some } from '@northbrook/util' 
+import { some } from '@northbrook/util'
 
-some(isEven, [1, 3, 5, 6])  // true 
+some(isEven, [1, 3, 5, 6])  // true
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L528">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L528"><img src="./images/external.png" /></a></p>
 </section>
 <section id="split">
-<h2><a href="#split" >* split :: string ➞ string ➞ [string] </a></h2>
+<h2><a href="#split">* split :: string ➞ string ➞ [string] </a></h2>
 <p>String</p>
 <p>Splits a string at a given point</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { split } from '@northbrook/util' 
+import { split } from '@northbrook/util'
 
-split('x', 'helxlo')  // ['hel', 'lo'] 
+split('x', 'helxlo')  // ['hel', 'lo']
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/string.js#L18">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/string.js#L18"><img src="./images/external.png" /></a></p>
 </section>
 <section id="splitVersion">
-<p>splitVersion ➞ string ➞ [number]</p>
+<h2><a href="#splitVersion">splitVersion :: string ➞ [number] </a></h2>
 <p>Node Packages</p>
 <p>Splits a semvar number in an array of 3 parts</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { splitVersion } from '@northbrook/util' 
+import { splitVersion } from '@northbrook/util'
 
-splitVersion('1.2.3') // [1, 2, 3] 
+splitVersion('1.2.3') // [1, 2, 3]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/packages.js#L80">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/packages.js#L80"><img src="./images/external.png" /></a></p>
 </section>
 <section id="symlink">
-<h2><a href="#symlink" >* symlink :: string ➞ string ➞ Stream&lt;Object&gt; </a></h2>
+<h2><a href="#symlink">* symlink :: string ➞ string ➞ Stream&lt;Object&gt; </a></h2>
 <p>Node FS</p>
 <p>Creates a symlink from a given source to a given destination</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { symlink } from '@northbrook/util' 
+import { symlink } from '@northbrook/util'
 
-symlink(source, destination).map(({ src, dest }) ⇒ { ... }) 
+symlink(source, destination).map(({ src, dest }) ⇒ { ... })
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L202">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L202"><img src="./images/external.png" /></a></p>
 </section>
 <section id="tail">
-<h2><a href="#tail" >tail :: [a] ➞ [a] </a></h2>
+<h2><a href="#tail">tail :: [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Retuns an array without it's first item</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { tail } from '@northbrook/util' 
+import { tail } from '@northbrook/util'
 
-tail([1, 2, 3])  // [2, 3] 
+tail([1, 2, 3])  // [2, 3]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L113">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L113"><img src="./images/external.png" /></a></p>
 </section>
 <section id="trim">
-<h2><a href="#trim" >trim :: string ➞ string </a></h2>
+<h2><a href="#trim">trim :: string ➞ string </a></h2>
 <p>String</p>
 <p>Trims any trailing whitespaces of a string</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { trim } from '@northbrook/util' 
+import { trim } from '@northbrook/util'
 
-trim('  hello  ') // 'hello' 
+trim('  hello  ') // 'hello'
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/string.js#L37">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/string.js#L37"><img src="./images/external.png" /></a></p>
 </section>
 <section id="tryRequire">
-<h2><a href="#tryRequire" >tryRequire :: string ➞ Stream&lt;Object&gt; </a></h2>
-<h2><a href="#tryRequire" >tryRequire :: string ➞ (object ➞ boolean) ➞ Stream&lt;Object&gt; </a></h2>
+<h2><a href="#tryRequire">tryRequire :: string ➞ Stream&lt;Object&gt; </a></h2>
+<h2><a href="#tryRequire">tryRequire :: string ➞ (object ➞ boolean) ➞ Stream&lt;Object&gt; </a></h2>
 <p>Node Packages</p>
 <p>Trys to require a package returning a stream of the required package. Optionally taking a predicate function to check if a property matches what you need to require.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { tryRequire } from '@northbrook/util' 
+import { tryRequire } from '@northbrook/util'
 
-tryRequire('northbrook').map(pkg ⇒ {...}) 
+tryRequire('northbrook').map(pkg ⇒ {...})
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/packages.js#L110">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/packages.js#L110"><img src="./images/external.png" /></a></p>
 </section>
 <section id="uniq">
-<h2><a href="#uniq" >uniq :: [a] ➞ [a] </a></h2>
+<h2><a href="#uniq">uniq :: [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Removes repeated values from an array using a basic <code>===</code> equality check.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { uniq } from '@northbrook/util' 
+import { uniq } from '@northbrook/util'
 
-uniq([1, 1, 2, 2, 3, 4])  // [1, 2, 3, 4] 
+uniq([1, 1, 2, 2, 3, 4])  // [1, 2, 3, 4]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L597">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L597"><img src="./images/external.png" /></a></p>
 </section>
 <section id="uniqWith">
-<h2><a href="#uniqWith" >* uniqWith :: (a ➞ ⭑) ➞ [a] ➞ [a] </a></h2>
+<h2><a href="#uniqWith">* uniqWith :: (a ➞ ⭑) ➞ [a] ➞ [a] </a></h2>
 <p>Array</p>
 <p>Removes a repeated value using a user-defined equality check</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { uniqWith } from '@northbrook/util' 
+import { uniqWith } from '@northbrook/util'
 
-uniqWith(JSON.stringify, [{a : 1}, {a : 1}])  // [{a : 1}] 
+uniqWith(JSON.stringify, [{a : 1}, {a : 1}])  // [{a : 1}]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L628">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/array.js#L628"><img src="./images/external.png" /></a></p>
 </section>
 <section id="values">
-<h2><a href="#values" >values :: object ➞ [string] </a></h2>
+<h2><a href="#values">values :: object ➞ [string] </a></h2>
 <p>Object</p>
 <p>Returns an array of values from a given object</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { values } from '@northbrook/util' 
+import { values } from '@northbrook/util'
 
-values({ x: 1, y: 2 })  // [1, 2] 
+values({ x: 1, y: 2 })  // [1, 2]
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L282">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/object.js#L282"><img src="./images/external.png" /></a></p>
 </section>
 <section id="writeFile">
-<h2><a href="#writeFile" >* writeFile :: string ➞ string ➞ Stream&lt;string&gt; </a></h2>
+<h2><a href="#writeFile">* writeFile :: string ➞ string ➞ Stream&lt;string&gt; </a></h2>
 <p>Node FS</p>
 <p>Write contents to a file returning a stream of the written contents if successful.</p>
 <h4>Example</h4>
 <pre><code class="language-js">
-import { writeFile } from '@northbrook/util' 
+import { writeFile } from '@northbrook/util'
 
-writeFile('path/to/file', data).map(contents ⇒ { ... }) // file has been written 
+writeFile('path/to/file', data).map(contents ⇒ { ... }) // file has been written
 
 </code></pre>
-<p><a target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L177">click here to see the implementation</a></p>
+<p><a class="codeLink" target="_blank" href="https://github.com/northbrookjs/northbrookjs/tree/master/util/src/node/fs.js#L177"><img src="./images/external.png" /></a></p>
 </section>
-<h3>Notes about function signatures</h3>
-<ul>
-<li>
-<p>All functions with <code>⭑</code> preceding their name are curried by default. It will
-always be curried by its function length, unless it has an optional argument.
-In which case a function has an optional argument, it will be curried to <code>n - 1</code>
-meaning that if you need to use the optional argument it <em>must</em> be passed in as
-as second argument to the last function call.</p>
-</li>
-<li>
-<p>All functions that have optional arugments are displayed with 2 function
-signatures.</p>
-</li>
-<li>
-<p>All overloaded functions will display multiple function signatures as needed.</p>
-</li>
-<li>
-<p><code>[...*]</code> is a representation of a spread operator that takes any type.</p>
-</li>
-</ul>
+<section id="no-match">
+<h2>No matches could be found</h2>
+</section>
+<div id="footer">
+<p>Notes about function signatures - All functions with `⭑` preceding their name are curried by default. It will always be curried by its function length, unless it has an optional argument. In which case a function has an optional argument, it will
+be curried to `n - 1` meaning that if you need to use the optional argument it *must* be passed in as as second argument to the last function call. - All functions that have optional arugments are displayed with 2 function signatures. - All
+overloaded functions will display multiple function signatures as needed. - `[...*]` is a representation of a spread operator that takes any type.</p>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
