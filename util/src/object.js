@@ -3,15 +3,37 @@ import jsonbeautify from 'json-beautify'
 import { reduce, map, isArrayLike, each, contains, concat } from './array'
 import { is } from './function'
 
-/**
- * Takes a JS Object and returns a beautified string
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * beautify :: object ➞ string - Object
+ *
+ * Taks a JavaScript Object and returns a beautified string representation.
+ *
+ * #### Example
+ * ```js
+ * import { beautify } from '@northbrook/util'
+ *
+ * beautify({ a: 1}) // '{ "a": "1"}'
+ * ```
+ * @name beautify
  */
 export const beautify = obj => jsonbeautify(obj, null, 2, 80)
 
 /**
- * pluck :: string -> {} -> a
- * pluck :: [string] -> {} -> a
+ * * pluck :: string ➞ object ➞ ⭑ - Object
+ * * pluck :: [string] ➞ object ➞ ⭑
+ *
  * Find a property in an object
+ *
+ * #### Example
+ *```js
+ * import { pluck } from '@nortbrook/util'
+ *
+ * pluck('foo', { foo: 'bar' }) // 'bar'
+ * pluck(['foo', 'bar'], { foo: { bar: 1 } }) // 1
+ *```
+ * @name pluck
  */
 export function pluck (props, obj) {
   if (!obj) return null
@@ -33,14 +55,40 @@ export function pluck (props, obj) {
 }
 
 /**
- * propEq :: string -> a -> {} -> boolean
- * propEq :: [string] -> a -> {} -> boolean
+ * * propEq :: string ➞ a ➞ object ➞ boolean - Object
+ * * propEq :: [string] ➞ a ➞ object ➞ boolean
+ *
  * Checks equality of a object property and x
+ *
+ * #### Example
+ * ```js
+ * import { propEq } from '@northbrook/util'
+ *
+ * propEq('foo', 'bar', { foo: 'bar' }) // true
+ * ```
+ * @name propEq
  */
 export function propEq (props, x, obj) {
   return is(x, pluck(props, obj))
 }
 
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * * propOr :: string ➞ ⭑ ➞ ⭑ - Object
+ * * propOr :: [string] ➞ ⭑ ➞ ⭑
+ *
+ * Finds a property on an object or returns a defined value.
+ *
+ * #### Example
+ * ```js
+ * import { propOr } from '@northbrook/util'
+ *
+ * propOr('foo', 3, { foo: 'bar'})  // 'bar'
+ * propOr('foo', 3, {}) // 3
+ * ```
+ * @name propOr
+ */
 export function propOr (props, or, obj) {
   if (!obj) return or
 
@@ -60,6 +108,22 @@ export function propOr (props, or, obj) {
   return r
 }
 
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * * set :: string ➞ ⭑ ➞ object ➞ object - Object
+ * * set :: [string] ➞ ⭑ ➞ object ➞ object
+ *
+ * Sets a property on an object
+ *
+ * #### Example
+ * ```js
+ * import { set } from '@northbrook/util'
+ *
+ * set('foo', 'bar', {})  // { foo: 'bar' }
+ * ```
+ * @name set
+ */
 export function set (props, value, obj) {
   const x = {}
 
@@ -86,8 +150,20 @@ export function set (props, value, obj) {
   return merge(obj, x)
 }
 
-/**
- * performes a depp copy of all object properties
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * * merge :: object ➞ object ➞ object - Object
+ *
+ * Performs a deep merge of 2 objects
+ *
+ * #### Example
+ * ```js
+ * import { merge } from '@northbrook/util'
+ *
+ * merge({ x: 1 }, { y: 2 })  // { x: 1, y: 2 }
+ * ```
+ * @name merge
  */
 export function merge (target, src) {
   const array = isArrayLike(src)
@@ -132,14 +208,59 @@ export function merge (target, src) {
   return destination
 }
 
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * mergeMany :: [...object] ➞ object - Object
+ *
+ * Performs a deep merge of `n` number of objects
+ *
+ * #### Example
+ * ```js
+ * import { merge } from '@northbrook/util'
+ *
+ * merge({ x: 1 }, { y: 2 })  // { x: 1, y: 2 }
+ * ```
+ * @name mergeMany
+ */
 export function mergeMany (...objects) {
   return reduce((destination, obj) => merge(destination, obj), {}, objects)
 }
 
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * keys :: object ➞ [string] - Object
+ *
+ * Returns an array of keys from a given object
+ *
+ * #### Example
+ * ```js
+ * import { keys } from '@northbrook/util'
+ *
+ * keys({ x: 1, y: 2 })  // ['x', 'y']
+ * ```
+ * @name keys
+ */
 export function keys (object) {
   return Object.keys(object)
 }
 
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * values :: object ➞ [string] - Object
+ *
+ * Returns an array of values from a given object
+ *
+ * #### Example
+ * ```js
+ * import { values } from '@northbrook/util'
+ *
+ * values({ x: 1, y: 2 })  // [1, 2]
+ * ```
+ * @name values
+ */
 export function values (object) {
   return map((key) => object[key], Object.keys(object))
 }

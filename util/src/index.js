@@ -59,10 +59,10 @@ import * as str from './string'
 export const split = f.curry(str.split, 2)
 export const trim = str.trim
 
-/* functions to help with node stuff */
+// functions to help with node stuff
 
 export * from './node'
 
-/* functions to help with northbrook specific things */
+// functions to help with northbrook specific things
 
 export * from './northbrook'

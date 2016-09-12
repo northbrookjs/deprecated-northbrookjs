@@ -1,13 +1,39 @@
 import { EOL } from 'os'
 import chalk from 'chalk'
 
-/* export these as they're useful */
 import figures from 'figures'
+
+/**
+ * figures :: Object - Console
+ *
+ * An object containing unicode charaters for common symbols.
+ * Visit [figures github page](https://github.com/sindresorhus/figures#figures) to see what figures are present
+ *
+ * @name figures
+ */
 export { figures }
+
+/**
+ * colors :: Object - Console
+ *
+ * An object containing many funtions to create colors inside of the console.
+ * Visit [chalk's github for more info](https://github.com/chalk/chalk) on what is present.
+ *
+ * @name colors
+ */
 export { chalk as colors }
 
 /**
- * console.log but prepend new lines with 4 spaces
+ * log :: [...string] ➞ void - Console
+ *
+ * Prints to stdout with UTF-8 encoding and adds 4 space indentation to all newlines
+ *
+ * #### Example
+ * ```js
+ * log('Hello', 'world')
+ * // console will output 'Hello world'
+ * ```
+ * @name log
  */
 export function log (...args) {
   if (args.length > 0) {
@@ -18,15 +44,34 @@ export function log (...args) {
 }
 
 /**
- *  add 4 spaces to all new lines
+ * modOutput :: string ➞ string - String / Console
+ *
+ * Adds an indent of 4 spaces to all new lines
+ *
+ * #### Example
+ * ```js
+ * const x = modOutput('\nhi')
+ * // x = '\n    hi'
+ * ```
+ * @name modOutput
+ * @type Node - Console
  */
 export function modOutput (output) {
   return output && output.replace && output.replace(EOL, EOL + '    ') || output
 }
 
 /**
- * returns 80 character wide string used to log a separation between
- * outputs
+ * separator :: () ➞ string - String / Console
+ * separator :: string ➞ string
+ *
+ * Returns 80 character wide string used to log a separation between outputs
+ *
+ * #### Example:
+ * ```js
+ * log(separator('hello'))
+ * // '##----------------------------------hello------------------------------------##'
+ *```
+ * @name separator
  */
 export function separator (packageName) {
   let length = typeof packageName === 'string'
@@ -50,7 +95,16 @@ export function separator (packageName) {
 }
 
 /**
- * clears the console
+ * clear :: () ➞ void - Console
+ *
+ * Clears the console
+ *
+ * #### Example
+ * ```js
+ * import { clear } from '@northbrook/util'
+ * clear()
+ * ```
+ * @name clear
  */
 export function clear () {
   console.log('\x1Bc')

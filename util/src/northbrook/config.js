@@ -11,8 +11,21 @@ const NBCONFIG = 'northbrook.json'
 const NBPREFIX = 'northbrook-'
 const NBSCOPEPREFIX = '@northbrook/'
 
-/**
- * Base function for resolving different packages and plugins
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * resolvePackage :: string ➞ Stream<Object> - Northbrook
+ * resolvePackage :: string ➞ (object ➞ boolean) ➞ Stream<Object>
+ *
+ * Trys to require a package that is related to northbrook. First trying to require the package prefixed by `@nortbrook`, secondly by requiring the package prefixed by `northbrook-` and, lastly by requiring the package name directory. This will return a stream of the required package if it is found.
+ *
+ * #### Example
+ * ```js
+ * import { resolvePackage } from '@northbrook/util'
+ *
+ * resolvePackage('util')  // Stream<@northbrook/util>
+ * ```
+ * @name resolvePackage
  */
 export function resolvePackage (directory, predicate) {
   function get (name) {
@@ -29,9 +42,21 @@ export function resolvePackage (directory, predicate) {
   }
 }
 
-/**
- * Resolves the extends field of a northbrook.json
- * And merges configurations together
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * * resolveExtends :: string ➞ object ➞ Stream<object> - Northbrook
+ *
+ * Taking the directory in which to look from, and an existing northbrook.json object, it will find any packages from the `extends` field, if it exists.
+ * If it exists, it then return a Stream of the merged configurations, with the user defined configuration overriding an overlapping declarations.
+ *
+ * #### Example
+ * ```js
+ * import { resolveExtends } from '@northbrook/util'
+ *
+ * resolveExtends('/path/to/dir', northbrookConfig).map(({ packages }) => {...})
+ * ```
+ * @name resolveExtends
  */
 export function resolveExtends (directory, config) {
   const extension = pluck('extends', config)
@@ -41,8 +66,7 @@ export function resolveExtends (directory, config) {
 
   if (is('string', extension)) {
     return resolve(extension, isConfig)
-      .tap(x => console.log(x))
-      .map((pkg) => merge(config, pkg.config))
+      .map((pkg) => merge(pkg.config, config))
       .recoverWith(() => just(config))
   } else if (Array.isArray(extension)) {
     return combineArray(Array, map(resolve, extension))
@@ -52,16 +76,32 @@ export function resolveExtends (directory, config) {
           return merge(config, ext)
         }, config, extensions)
       })
+      .map(extendedConfig => merge(extendedConfig, config))
   }
 
   return just(config)
 }
 const isConfig = x => x && x.config || false
 
-/**
- * Finds and modifiess a configuration file
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * * modifyConfig :: string ➞ object ➞ (object ➞ object) ➞ Stream<string> - Northbrook
+ *
+ * Finds and modifies a configuration file.
+ *
+ * #### Example
+ * ```js
+ * import { modifyConfig } from '@northbrook/util'
+ *
+ * modifyConfig('northbrook.json', {}, (config => {
+ *   ...
+ *   return newConfig
+ * })).map(newConfigContent => { ... })
+ * ```
+ * @name modifyConfig
  */
-export function modifyConfig (configFile, options = { home: false }, callback) {
+export function modifyConfig (configFile, options, callback) {
   return findConfig(configFile, options).map(function ({ path, directory, config }) {
     const newConfig = callback(config)
 
@@ -74,8 +114,20 @@ export function modifyConfig (configFile, options = { home: false }, callback) {
   .switch()
 }
 
-/**
- * Finds and adds a plugin to the plugins field in a northbrook.json
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * * addPlugin :: string ➞ object ➞ Stream<object> - Northbrook
+ *
+ * Adds a plugin to a northbrook.json.
+ *
+ * #### Example
+ * ```js
+ * import { addPlugin } from '@northbrook/util'
+ *
+ * addPlugin('pluginName', {}).map(newConfigContents => {...})
+ * ```
+ * @name addPlugin ::
  */
 export function addPlugin (pluginName, options) {
   return modifyConfig(NBCONFIG, options, function (config) {
@@ -99,8 +151,20 @@ export function addPlugin (pluginName, options) {
   })
 }
 
-/**
- * Finds and adds a pacage to the packages field in a northbrook.json
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * * addPackage :: string ➞ object ➞ Stream<object> - Northbrook
+ *
+ * Adds a package to a northbrook.json.
+ *
+ * #### Example
+ * ```js
+ * import { addPackage } from '@northbrook/util'
+ *
+ * addPackage('packageName', {}).map(newConfigContents => {...})
+ * ```
+ * @name addPackage
  */
 export function addPackage (pathToPackage, options) {
   return modifyConfig(NBCONFIG, options, function (config) {

@@ -7,8 +7,21 @@ import Listr from 'listr'
 import { apply, always } from '../function'
 import { tail, map } from '../array'
 
-/**
- * returns most.js stream of executed commmand
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * exec :: string ➞ Stream<string> - Shell
+ * exec :: string ➞ Object ➞ Stream<string>
+ *
+ * Executes a command returning a stream of the result.
+ *
+ * #### Example
+ * ```js
+ * import { exec } from '@northbrook/util'
+ *
+ * exec('echo hello').map(result ⇒ {...})
+ * ```
+ * @name exec
  */
 function exec (cmd, options) {
   const args = cmd.split(' ')
@@ -28,16 +41,67 @@ function exec (cmd, options) {
   }).multicast()
 }
 
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ * exec.many :: [string] ➞ Stream<string> - Shell
+ *
+ * Executes many commands in succession to each other returning a Stream of the last commands output.
+ *
+ * #### Example
+ * ```js
+ * import { exec } from '@northbrook/util'
+ *
+ * exec.many(cmd1, cmd2).map(cmd2Result ⇒ {...})
+ * ```
+ * @name exec.many
+ */
 exec.many = function execMany (...commands) {
   return apply(concat, map(exec, commands)).multicast()
 }
 
 export { exec }
 
+/** <!--
+ * small arrow ➞ fat arrow ⇒ star ⭑
+ * -->
+ *
+ * list :: [Object] ➞ TaskList - Shell
+ * list :: [Object] ➞ object -> TaskList
+ *
+ * Creates a task list used for showing progress of tasks for the user.
+ *
+ * #### Example
+ * ```js
+ * import { list, exec } from '@northbrook/util'
+ *
+ * const tasks = list([{
+ *   title: 'Foo',
+ *   task: () => exec('echo "foo"')
+ * }])
+ *
+ * tasks.run()
+ * ```
+ * @name list
+ */
 export function list (items, options) {
   return new Listr(items, options)
 }
 
+/**
+ * * listItem :: string ➞ (() ➞ Stream<⭑> | Promise<⭑>) ➞ object - Shell
+ * * listItem :: string ➞ (() ➞ Stream<⭑> | Promise<⭑>) ➞ (() ➞ boolean) ➞ object
+ *
+ * Creates a listItem to be used inside of a list.
+ *
+ * #### Example
+ * ```js
+ * import { listItem } from '@northbrook/util'
+ *
+ * listItem('Foo', () => exec('echo "foo"')) // { title: 'Foo', task: () => exec('echo "foo"'), skip: () => false }
+ * ```
+ * @name listItem
+ */
 export function listItem (title, task, skip = always(false)) {
   return { title, task, skip }
 }
