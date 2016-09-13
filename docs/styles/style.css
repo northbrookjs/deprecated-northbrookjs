@@ -408,6 +408,11 @@ section h4::before {
   margin-right: auto;
 }
 
+#footer {
+  margin: auto;
+  max-width: 90%;
+}
+
 @media screen and (max-width: 860px) {
   html {
     font-size: 14px

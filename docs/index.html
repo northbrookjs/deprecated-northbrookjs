@@ -128,38 +128,53 @@
       }
 
       #logo {
-        margin-left: 10vw;
+        margin: 0 auto;
         flex-grow: 1;
       }
 
       #logo img {
-        margin: 3em auto;
+        display: block;
+        margin: 0 auto;
       }
 
       #features {
-        text-align: center;
+        margin: auto;
+        text-align: justify;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
 
+      #features .heading {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #features .features {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+
       #features h3 {
-        margin 0 auto;
+        text-align: center;
       }
 
       #features ul {
-        padding: 0em;
         list-style: none;
+        padding: 0;
       }
 
       #features li {
-        text-align: center;
+        margin: auto;
+        text-align: left;
       }
 
       #description {
-        max-width: 600px;
-        text-align: center;
+        max-width: 60vw;
+        text-align: left;
         flex-grow: 1;
         display: flex;
         margin: 0 auto;
@@ -172,14 +187,21 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        max-width: 400px;
+        max-width: 40vw
         margin: 0 auto;
-        text-align: center;
+        text-align: justify;
+        vertical-align: middle;
+      }
+
+      #packages h4 {
+        text-decoration: none;
+        border-bottom: none;
       }
 
       #packages span {
-        padding: 0.25em;
-        text-align: center;
+        font-size: 1.2em;
+        margin: auto;
+        text-align: justify;
       }
 
       #packages img {
@@ -198,10 +220,11 @@
         text-align: center;
         width: 150px;
         margin: 0 auto;
-        border-bottom: 1px solid #eeeeee;
+        margin-bottom: 1em;
       }
 
       h5 {
+        margin: 0 auto;
         text-align: center;
       }
 
@@ -212,21 +235,41 @@
       .break {
         height: 5px;
         margin: 2em auto;
-        max-width: 55vw ;
+        max-width: 70vw ;
         border-bottom: 1px solid #eeeeee;
+      }
+
+      #tagline {
+        padding-bottom: 2em;
+      }
+
+      @media screen and (min-width: 1200px) {
+        body {
+          max-width: 90vw;
+        }
+
+        #logo {
+          margin-left: 10vw;
+        }
+
+        #features {
+          margin-right: 10%
+        }
+
+        #packages {
+          max-width: 20vw;
+        }
+      }
+
+      @media screen and (min-width: 1440px) {
+        body {
+          max-width: 70vw;
+        }
       }
 
       @media screen and (min-width: 800px) {
         html {
           font-size: 16px;
-        }
-        #logo {
-          display: inline-block;
-          margin-left: 15vw;
-        }
-
-        #features {
-          margin-right: 10vw;
         }
       }
 
@@ -236,25 +279,29 @@
 
     <h1>Northbrook</h1>
 
-    <h5>Manage your projects with all the power of NPM</h5>
+    <h5 id="tagline">Manage your projects with all the power of NPM</h5>
 
     <div class="container">
 
       <div id="logo">
-        <img src="./images/northbrook.svg" />
+        <img src="./images/northbrook_centered.png" />
       </div>
 
       <div id="features">
-        <h3>&nbsp;Core Features</h3>
-        <ul>
-          <li>- Manage rojects with ease&nbsp;&nbsp;</li>
-          <li>- Useful out-of-box&nbsp;&nbsp;</li>
-          <li>- Create meaningful commits&nbsp;&nbsp;</li>
-          <li>- Automatic semantic versioning&nbsp;&nbsp;</li>
-          <li>- Automated changelog generation&nbsp;&nbsp;</li>
-          <li>- Simple automated deployment&nbsp;&nbsp;</li>
-          <li>- Powerful plugin system&nbsp;&nbsp;</li>
-        </ul>
+        <div class="heading">
+          <h3>Core Features</h3>
+        </div>
+        <div class="features">
+          <ul>
+            <li>- Manage projects with ease&nbsp;&nbsp;</li>
+            <li>- Useful out-of-box&nbsp;&nbsp;</li>
+            <li>- Create meaningful commits&nbsp;&nbsp;</li>
+            <li>- Semantic versioning&nbsp;&nbsp;</li>
+            <li>- Changelog generation&nbsp;&nbsp;</li>
+            <li>- Automated deployment&nbsp;&nbsp;</li>
+            <li>- Powerful plugin system&nbsp;&nbsp;</li>
+          </ul>
+        </div>
       </div>
 
     </div>
@@ -262,8 +309,6 @@
     <div class="break"></div>
 
     <div class="container">
-      <div></div>
-
       <div id="description">
         <p>Northbrook is designed to ease javascript fatigue, promote best-practices, reduce the time needed for new project setup, and introduce a means of creating reproducible, shareable and <b>versionable</b> configurations.
         </p>
