@@ -87,7 +87,9 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   })
 
-  document.querySelector('.container .right').addEventListener('click', function (ev) {
+  var right = document.querySelector('.container .right')
+
+  right.addEventListener('click', function (ev) {
     if (container.classList.contains('open')) {
       container.classList.remove('open')
     }

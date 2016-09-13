@@ -13,7 +13,8 @@ body {
   margin: auto;
   background: #282c34;
   position: relative;
-  overflow: hidden;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 p,ul,ol,dl,table,pre { margin-bottom: 1em; }
@@ -87,7 +88,6 @@ pre {
   border-radius: 0.4em;
   -moz-border-radius: 0.4em;
   -webkit-border-radius: 0.4em;
-  overflow-x: hidden;
 }
 
 pre code {
@@ -188,6 +188,10 @@ section h4::before {
 .container .left {
   width: 17.5vw;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
   -ms-flex: 0 100px;
   -webkit-box-flex:  0;
   -moz-box-flex:  0;
@@ -201,7 +205,8 @@ section h4::before {
 }
 
 .container.open .left {
-  position: absolute;
+  transition: all 0s linear;
+  position: fixed;
   top: 52.5px;
   bottom: 0;
   left: 0;
@@ -244,18 +249,6 @@ section h4::before {
   width: auto;
 }
 
-.container .left ul {
-  flex-grow: 5;
-  overflow: hidden;
-  overflow-y: auto;
-  margin-top: 2em;
-  order: 3;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-right: 1px solid rgba(152, 195, 121, 0.4);
-}
-
 .container .left ul::-webkit-scrollbar {
   width: 0.2em;
   transition: all 0.1s linear;
@@ -266,8 +259,21 @@ section h4::before {
   background-color: #d19a66;
   margin-bottom: 2em;
 }
-.container .left ul::-webkit-scrollbar-corner       { /* 6 */ }
-.container .left ul::-webkit-resizer                { /* 7 */ }
+.container .left ul::-webkit-scrollbar-corner {  }
+.container .left ul::-webkit-resizer { }
+
+
+.container .left ul {
+  flex-grow: 5;
+  overflow: scroll;
+  overflow-x: hidden;
+  margin-top: 2em;
+  order: 3;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-right: 1px solid rgba(152, 195, 121, 0.4);
+}
 
 .container .left ul li {
   flex-grow: 1;
@@ -349,6 +355,7 @@ section h4::before {
   color: #98c379;
   padding: 0.55em;
   text-align: center;
+  border-right: 1px solid rgba(152, 195, 121, 0.4);
   background-color: #282c34;
 }
 
@@ -363,7 +370,10 @@ section h4::before {
   -moz-box-flex: 1;
   -ms-box-flex: 1;
   box-flex: 1;
-
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
   max-width: 82.5vw;
 
   display: flex;
@@ -392,9 +402,6 @@ section h4::before {
 }
 
 #docs {
-  overflow-x: hidden;
-  overflow-y: auto;
-
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -429,6 +436,10 @@ section h4::before {
 
   .container .right {
     max-width: 100vw;
+  }
+
+  .container .right .topbar {
+    height: 36px;
   }
 
   #docs section, .description {
@@ -474,8 +485,7 @@ section h4::before {
 
   #northbrook {
     position: fixed;
-    top:0;
-    left: 0;
+    top: 0;
     right: 0;
     height: 36px;
     padding-top: 8px;
@@ -483,6 +493,10 @@ section h4::before {
     border-bottom: 1px dashed rgba(152, 195, 121, 0.4);
     width: 100vw;
     text-align: center;
+  }
+
+  .container.open #northbrook {
+    top: 0;
   }
 }
 
