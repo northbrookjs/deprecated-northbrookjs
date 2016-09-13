@@ -83,7 +83,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   sidenav.addEventListener('click', function (ev) {
     if (ev.target.matches('a')) {
-      container.classList.toggle('open')
+      container.classList.remove('open')
     }
   })
 

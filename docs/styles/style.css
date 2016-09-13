@@ -6,7 +6,7 @@ body * {
 }
 
 body {
-  font-family: "Fira Code", Arial, sans-serif !important;
+  font-family: "Fira Code" !important;
   font-size: 1.6em;
   line-height: 1.3;
   color: #ffffff;
@@ -25,28 +25,33 @@ a:hover, a:focus { color: #282c34; background-color: #d19a66; text-decoration: n
 a *, button * { cursor: pointer; }
 hr { display: none; }
 small { font-size: 90%; }
-input, select, button, textarea, option { font-family: Arial, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif; font-size: 100%; }
+input, select, button, textarea, option { font-family: "Fira Code"; font-size: 100%; }
 button, label, select, option, input[type=submit] { cursor: pointer; }
 .group:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; } .group {display: inline-block;}
 /* Hides from IE-mac \*/ * html .group {height: 1%;} .group {display: block;} /* End hide from IE-mac */
 sup { font-size: 80%; line-height: 1; vertical-align: super; }
 button::-moz-focus-inner { border: 0; padding: 1px; }
-span.amp { font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif; font-weight: normal; font-style: italic; font-size: 1.2em; line-height: 0.8; }
+span.amp { font-family: "Fira Code", serif; font-weight: normal; font-style: italic; font-size: 1.2em; line-height: 0.8; }
+
+h1 {
+  font-size: 1.2em;
+}
 
 h1,h2,h3,h4,h5,h6 {
     line-height: 1.1;
-    font-family: "Fira Code", "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+    font-family: "Fira Code";
 }
 
-h2 { font-size: 2em; }
-h3 { font-size: 1.8em; }
+h2 { font-size: 1.0em; }
+h3 { font-size: 0.8em; }
 h4 {
-  font-size: 1.2em;
+  font-size: 0.7em;
   color: #eeeeff;
   border-bottom: 1px solid white;
 }
-h5 { font-size: 1.4em; }
-h6 { font-size: 1.2em; }
+h5 { font-size: 0.6em; }
+h6 { font-size: 0.5em; }
+p { font-size: 0.5em; }
 
 ::selection { background: #d19a66; }
 ::-moz-selection { background: #d19a66; }
@@ -63,7 +68,7 @@ h2 a {
   font-weight: bolder;
   font-size: .5em;
   margin: 0.3em;
-  padding: 0.2em;
+  padding: 0.5em;
   background-color: rgba(152, 195, 121, 0.6);
 }
 
@@ -78,6 +83,7 @@ pre {
   background: rgba(0,0,0,0.3);
   color: #fff;
   padding: .75em .8em;
+  border-width: thin;
   border-radius: 0.4em;
   -moz-border-radius: 0.4em;
   -webkit-border-radius: 0.4em;
@@ -85,7 +91,7 @@ pre {
 }
 
 pre code {
-  font-size: .8em;
+  font-size: .5em;
   font-family: "Fira Code";
 }
 
@@ -156,6 +162,10 @@ section h4::before {
   margin: 0 auto;
 }
 
+.description p {
+  font-size: .9em
+}
+
 .container {
   height: 100vh;
   width: 100vw;
@@ -176,7 +186,7 @@ section h4::before {
 }
 
 .container .left {
-  width: 25vw;
+  width: 17.5vw;
   height: 100vh;
   -ms-flex: 0 100px;
   -webkit-box-flex:  0;
@@ -191,7 +201,8 @@ section h4::before {
 }
 
 .container.open .left {
-  postion: absolute;
+  position: absolute;
+  top: 52.5px;
   bottom: 0;
   left: 0;
   background-color: #282c34;
@@ -212,7 +223,12 @@ section h4::before {
 }
 
 .container.open .left .search, .container .left.open ul {
+  z-index: 2000;
   font-size: 120%;
+}
+
+.container.open .left ul li a {
+  font-size: 2.0em
 }
 
 .container.open .left ul li a p:last-of-type {
@@ -257,8 +273,8 @@ section h4::before {
   flex-grow: 1;
   display: flex;
   width: 100%;
-  min-height: 5em;
-  font-size: 0.5em;
+  min-height: 4em;
+  font-size: 0.65em;
 }
 
 .container .left ul li a {
@@ -329,9 +345,9 @@ section h4::before {
 #northbrook {
   z-index: 100;
   order: 0;
-  font-size: 1.3em;
+  font-size: 1.175em;
   color: #98c379;
-  padding: 1.15em;
+  padding: 0.55em;
   text-align: center;
   background-color: #282c34;
 }
@@ -348,7 +364,7 @@ section h4::before {
   -ms-box-flex: 1;
   box-flex: 1;
 
-  max-width: 75vw;
+  max-width: 82.5vw;
 
   display: flex;
   flex-direction: column;
@@ -357,13 +373,14 @@ section h4::before {
 
 .container .right .topbar {
   flex-order: 0;
+  height: 3em;
   z-index: 5;
   background-color: #98c379;
   color: #282c34;
   border-bottom: 1px dashed rgba(152, 195, 121, 0.4);
   font-size: 0.95em;
   text-align: center;
-  font-family: "Fira Code", "Palatino", "Book Antiqua", serif;
+  font-family: "Fira Code"
 }
 
 .cotainer .right .docs {
@@ -393,11 +410,11 @@ section h4::before {
 
 @media screen and (max-width: 860px) {
   html {
-    font-size: 10px
+    font-size: 14px
   }
 
   h2 {
-    font-size: 1.4em;
+    font-size: 1em;
   }
 
   .container .left {
@@ -421,25 +438,24 @@ section h4::before {
     max-width: 100vw;
   }
 
-  h1 {
+  .topbar, h1 {
     border-bottom: 1px dashed rgba(152, 195, 121, 0.4);
   }
 
   #menu {
     z-index: 100;
     order: 0;
-    font-size: 1.9em;
+    font-size: 1.175em;
     color: #98c379;
-    padding: 1.15em;
+    height: 52.5px;
+    width: 52.5px;
     text-align: center;
     background-color: #282c34;
-    padding: .62em;
     display: block;
     z-index: 2000;
     position: fixed;
     top:0;
     left: 0;
-    width: 10vw;
     text-align: center;
     outline: none;
     border: 0px;
@@ -456,6 +472,9 @@ section h4::before {
     top:0;
     left: 0;
     right: 0;
+    height: 36px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-bottom: 1px dashed rgba(152, 195, 121, 0.4);
     width: 100vw;
     text-align: center;
@@ -463,8 +482,8 @@ section h4::before {
 }
 
 @media screen and (max-width: 730px) {
-  html {
-    font-size: 8px;
+  html, boy {
+    font-size: 14px;
   }
 
   #docs {
@@ -473,13 +492,13 @@ section h4::before {
 }
 
 @media screen and (max-width: 590px) {
-  html {
-    font-size: 6px;
+  html, body {
+    font-size: 16px;
   }
 }
 
 @@media screen and (max-wdith 480px) {
-  html {
-    font-size: 4px;
+  html, body {
+    font-size: 18px;
   }
 }
