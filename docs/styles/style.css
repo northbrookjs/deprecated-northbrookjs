@@ -1,4 +1,4 @@
-html { font-size: 12px; }
+html { font-size: 1vw; }
 html, body { height: 100%; }
 
 body * {
@@ -152,7 +152,7 @@ section h4::before {
 }
 
 .description {
-  max-width: 50vw;
+  max-width: 70vw;
   margin: 0 auto;
 }
 
@@ -188,6 +188,39 @@ section h4::before {
   flex-wrap: nowrap;
   flex-direction: column;
   text-align: center;
+}
+
+.container.open .left {
+  postion: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #282c34;
+  width: 40vw;
+  height: 100vh;
+  -ms-flex: 0 100px;
+  -webkit-box-flex:  0;
+  -moz-box-flex:  0;
+  -ms-box-flex:  0;
+  box-flex:  0;
+
+  z-index: 100000;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  text-align: center;
+}
+
+.container.open .left .search, .container .left.open ul {
+  font-size: 120%;
+}
+
+.container.open .left ul li a p:last-of-type {
+  display: none;
+}
+
+.container.open .right h2 {
+  font-size: 80%;
 }
 
 .container .left .label {
@@ -289,6 +322,10 @@ section h4::before {
   border-radius: 0.3em;
 }
 
+#menu {
+  display: none;
+}
+
 #northbrook {
   z-index: 100;
   order: 0;
@@ -347,7 +384,7 @@ section h4::before {
 }
 
 #docs section {
-  min-width: 80%;
+  width: 90%;
   margin-top: 0;
   margin-bottom: 4em;
   margin-left: auto;
@@ -359,11 +396,66 @@ section h4::before {
     font-size: 10px
   }
 
+  h2 {
+    font-size: 1.4em;
+  }
+
+  .container .left {
+    position: absolute;
+    left: -25vw;
+  }
+
+  .container .right {
+    max-width: 100vw;
+  }
+
+  #docs section, .description {
+    width: 90%;
+    margin-top: 0;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .description {
+    max-width: 100vw;
+  }
+
   h1 {
     border-bottom: 1px dashed rgba(152, 195, 121, 0.4);
   }
 
+  #menu {
+    z-index: 100;
+    order: 0;
+    font-size: 1.9em;
+    color: #98c379;
+    padding: 1.15em;
+    text-align: center;
+    background-color: #282c34;
+    padding: .62em;
+    display: block;
+    z-index: 2000;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 10vw;
+    text-align: center;
+    outline: none;
+    border: 0px;
+    border-bottom: 1px dashed rgba(152, 195, 121, 0.4);
+  }
+
+  #menu:hover {
+    color: #282c34;
+    background-color: #98c379;
+  }
+
   #northbrook {
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
     border-bottom: 1px dashed rgba(152, 195, 121, 0.4);
     width: 100vw;
     text-align: center;
@@ -389,9 +481,5 @@ section h4::before {
 @@media screen and (max-wdith 480px) {
   html {
     font-size: 4px;
-  }
-
-  section h2 {
-    font-size: 1.5em;
   }
 }

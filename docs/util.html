@@ -12,6 +12,7 @@
 <body >
 <div class="container">
 <div class="left">
+<button id="menu">&#9776;</button>
 <a id="northbrook" href="./">Northbrook</a>
 <div class="search">
 <input id="search" type="input" placeholder="filter"/>
@@ -1757,9 +1758,12 @@ writeFile('path/to/file', data).map(contents ⇒ { ... }) // file has been writt
 <h2>No matches could be found</h2>
 </section>
 <div id="footer">
-<p>Notes about function signatures - All functions with `⭑` preceding their name are curried by default. It will always be curried by its function length, unless it has an optional argument. In which case a function has an optional argument, it will
-be curried to `n - 1` meaning that if you need to use the optional argument it *must* be passed in as as second argument to the last function call. - All functions that have optional arugments are displayed with 2 function signatures. - All
-overloaded functions will display multiple function signatures as needed. - `[...*]` is a representation of a spread operator that takes any type.</p>
+<p>Notes about function signatures</p>
+<ul>
+<li>All functions with <code>⭑</code> preceding their name are curried by default. It will always be curried by its function length, unless it has an optional argument. In which case a function has an optional argument, it will be curried to <code>n - 1</code> meaning that if you need to use the optional argument it <em>must</em> be passed in as as second argument to the last function call.</li>
+<li>All functions that have optional arugments are displayed with 2 function signatures.</li>
+<li>All overloaded functions will display multiple function signatures as needed. - <code>[...*]</code> is a representation of a spread operator that takes any type.</li>
+</ul>
 </div>
 </div>
 </div>

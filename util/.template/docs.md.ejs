@@ -13,7 +13,8 @@
         <div class="container">
 
             <div class="left">
-                <a id="northbrook" href="./">Northbrook</a>
+              <button id="menu">&#9776;</button>
+              <a id="northbrook" href="./">Northbrook</a>
 
                 <div class="search">
                   <input id="search" type="input" placeholder="filter"/>
@@ -92,10 +93,12 @@
                     </section>
 
                     <div id="footer">
-                    <p>Notes about function signatures - All functions with `⭑` preceding their name are curried by default. It will always be curried by its function length, unless it has an optional argument. In which case a function has an optional argument, it will
-                    be curried to `n - 1` meaning that if you need to use the optional argument it *must* be passed in as as second argument to the last function call. - All functions that have optional arugments are displayed with 2 function signatures. - All
-                    overloaded functions will display multiple function signatures as needed. - `[...*]` is a representation of a spread operator that takes any type.</p>
-                  </div>
+                      <p>Notes about function signatures</p>
+
+                      - All functions with `⭑` preceding their name are curried by default. It will always be curried by its function length, unless it has an optional argument. In which case a function has an optional argument, it will be curried to `n - 1` meaning that if you need to use the optional argument it *must* be passed in as as second argument to the last function call.
+                      - All functions that have optional arugments are displayed with 2 function signatures.
+                      - All overloaded functions will display multiple function signatures as needed. - `[...*]` is a representation of a spread operator that takes any type.
+                    </div>
                 </div>
 
             </div>

@@ -72,6 +72,26 @@ window.addEventListener('DOMContentLoaded', function () {
 
     filterElements(input)
   })
+
+  var menu = document.querySelector('#menu')
+  var container = document.querySelector('.container')
+  var sidenav = document.querySelector('.container .left')
+
+  menu.addEventListener('click', function () {
+    container.classList.toggle('open')
+  })
+
+  sidenav.addEventListener('click', function (ev) {
+    if (ev.target.matches('a')) {
+      container.classList.toggle('open')
+    }
+  })
+
+  document.querySelector('.container .right').addEventListener('click', function (ev) {
+    if (container.classList.contains('open')) {
+      container.classList.remove('open')
+    }
+  }, true)
 })
 
 function hideElement (element) {
