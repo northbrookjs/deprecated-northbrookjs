@@ -1,3 +1,12 @@
+# v1.0.2 (2016-09-19)
+---
+
+
+## Bug Fixes
+
+- fix(util): export keys and values [f967c292](https://github.com/northbrookjs/northbrookjs/commits/f967c29284822210de8f8ce4cd0cb8df986d7e81)
+
+
 # v1.0.1 (2016-09-19)
 ---
 
