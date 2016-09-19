@@ -17,6 +17,7 @@
   "devDependencies": {
     "@northbrook/eslint": "^1.2.1",
     "@northbrook/mocha": "^1.0.0",
+    "babel-eslint": "^6.1.2",
     "buba": "^2.0.4",
     "ejs": "^2.5.2",
     "ghooks": "^1.3.2",
