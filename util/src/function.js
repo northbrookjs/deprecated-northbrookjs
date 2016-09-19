@@ -144,7 +144,6 @@ const PLACEHOLDER = {}
  */
 export const __ = PLACEHOLDER
 
-
 /** <!--
  * small arrow ➞ fat arrow ⇒ star ⭑
  * -->
