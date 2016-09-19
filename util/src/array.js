@@ -314,8 +314,6 @@ export function removeAll (f, a) {
  * @name findIndex
  */
 export function findIndex (x, a) {
-  if (Array.isArray(a)) return a.findIndex(b => b === x)
-
   for (let i = 0, l = a.length; i < l; ++i) {
     if (x === a[i]) {
       return i
@@ -390,8 +388,6 @@ export function each (f, a) {
  * @name filter
  */
 export function filter (f, a) {
-  if (Array.isArray(a)) return a.filter(f)
-
   let l = a.length
   let b = []
 
@@ -422,8 +418,6 @@ export function filter (f, a) {
  * @name reverse
  */
 export function reverse (a) {
-  if (Array.isArray(a)) return a.slice().reverse()
-
   const l = a.length
   const b = Array(l)
 
@@ -453,10 +447,6 @@ export function reverse (a) {
  * @name concat
  */
 export function concat (a, b) {
-  if (Array.isArray(a) && Array.isArray(b)) {
-    return a.concat(b)
-  }
-
   const al = a.length
   const bl = b.length
 
