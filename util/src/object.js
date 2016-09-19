@@ -74,7 +74,7 @@ export function pluck (props, obj) {
  * ```
  * @name propEq
  */
-export function propEq (props, x, obj) {
+export function propEq (x, props, obj) {
   return is(x, pluck(props, obj))
 }
 
@@ -97,7 +97,7 @@ export function propEq (props, x, obj) {
  * ```
  * @name propOr
  */
-export function propOr (props, or, obj) {
+export function propOr (or, props, obj) {
   if (!obj) return or
 
   if (typeof props === 'string') {
@@ -134,7 +134,7 @@ export function propOr (props, or, obj) {
  * ```
  * @name set
  */
-export function set (props, value, obj) {
+export function set (value, props, obj) {
   const x = {}
 
   if (typeof props === 'string') {
