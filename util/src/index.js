@@ -53,6 +53,8 @@ export const propEq = f.curry(obj.propEq, 3)
 export const propOr = f.curry(obj.propOr, 3)
 export const set = f.curry(obj.set, 3)
 export const merge = obj.merge
+export const keys = obj.keys
+export const values = obj.values
 
 import * as str from './string'
 
