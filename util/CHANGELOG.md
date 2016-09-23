@@ -1,3 +1,12 @@
+# v1.0.3 (2016-09-23)
+---
+
+
+## Bug Fixes
+
+- fix(util): get relative path of recursed folders [7e04dd64](https://github.com/northbrookjs/northbrookjs/commits/7e04dd642ac0d1c2727f215ebee5bbe73afc0b94)
+
+
 # v1.0.2 (2016-09-19)
 ---
 

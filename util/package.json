@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@northbrook/util",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility functions for Northbrook",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
