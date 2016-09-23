@@ -1,4 +1,4 @@
-import { join, dirname } from 'path'
+import { join, dirname, relative } from 'path'
 import fs from 'fs'
 
 import { sync as symlinkSync } from 'symlink-or-copy'
@@ -273,7 +273,7 @@ export function getAllInDirectory (directory, recursive = true) {
     }
 
     if (recursive && fs.statSync(abspath).isDirectory()) {
-      return concat(files, getAllInDirectory(abspath, recursive))
+      return concat(files, getAllInDirectory(abspath, recursive).map(f => join(relative(directory, abspath), f)))
     }
 
     return files
