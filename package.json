@@ -1,48 +1,65 @@
 {
-  "name": "northbrookjs",
-  "description": "Monorepo for Northbrook Core and Default plugins",
-  "version": "1.0.0",
-  "author": "Tylor Steinberger <tlsteinberger167@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/northbrookjs/northbrookjs/issues"
+  "name": "northbrook",
+  "version": "3.2.1",
+  "description": "Manage your projects with the power of NPM",
+  "main": "lib/commonjs",
+  "scripts": {
+    "test:lint": "tslint src/**/*.ts src/*.ts",
+    "test:unit": "TS_NODE_PROJECT=test/tsconfig.json mocha -r ts-node/register test/*.ts",
+    "test": "npm run test:lint && npm run test:unit",
+    "commit": "git-cz",
+    "changelog": "conventional-changelog --infile CHANGELOG.md --same-file --release-count 0 --preset angular",
+    "postchangelog": "git add CHANGELOG.md && git commit -m 'docs(CHANGELOG): append to changelog'",
+    "build:es2015": "tsc -P tsconfig.json",
+    "build:commonjs": "tsc -P tsconfig.commonjs.json",
+    "build": "npm run build:es2015 && npm run build:commonjs",
+    "preversion": "npm run build",
+    "postversion": "npm run changelog && git push origin master --tags && npm publish",
+    "release:minor": "npm version minor -m 'chore(package): v%s'",
+    "release:major": "npm version major -m 'chore(package): v%s'"
   },
-  "config": {
-    "ghooks": {
-      "commit-msg": "node ./node_modules/.bin/validate-commit-msg"
-    },
-    "validate-commit-msg": {
-      "types": "@northbrook/commit-types"
-    }
-  },
-  "devDependencies": {
-    "@northbrook/eslint": "^1.2.1",
-    "@northbrook/mocha": "^1.0.0",
-    "babel-eslint": "^6.1.2",
-    "buba": "^2.0.4",
-    "ejs": "^2.5.2",
-    "ghooks": "^1.3.2",
-    "khaos": "^0.9.3",
-    "markdown-to-html": "0.0.11",
-    "markdox": "^0.1.10",
-    "mkdirp": "^0.5.1",
-    "northbrook": "^3.1.0",
-    "rimraf": "^2.5.4",
-    "validate-commit-msg": "^2.8.0"
-  },
-  "homepage": "https://github.com/northbrookjs/northbrookjs#readme",
-  "license": "MIT",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/northbrookjs/northbrookjs.git"
   },
-  "scripts": {
-    "build": "bash ./.scripts/pretest.sh",
-    "commit": "northbrook commit",
-    "documentation": "northbrook documentation",
-    "release": "northbrook release",
-    "report": "northbrook exec -- ../node_modules/.bin/nyc report --reporter html --reporter text",
-    "pretest": "bash ./.scripts/pretest.sh",
-    "test": "northbrook eslint && northbrook exec -- npm test"
+  "keywords": [
+    "northbrook",
+    "lerna",
+    "monorepo",
+    "comver",
+    "semver",
+    "build",
+    "test",
+    "github",
+    "reginn",
+    "cli"
+  ],
+  "author": "Tylor Steinberger <tlsteinberger167@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/northbrookjs/northbrookjs/issues"
+  },
+  "homepage": "https://github.com/northbrookjs/northbrookjs#readme",
+  "config": {
+    "ghooks": {
+      "commit-msg": "node ./node_modules/.bin/validate-commit-msg"
+    }
+  },
+  "jsnext:main": "lib/es2015/index.js",
+  "module": "lib/es2015/index.js",
+  "typings": "lib/es2015/index.d.ts",
+  "devDependencies": {
+    "@motorcycle/tslint": "^1.2.0",
+    "@types/mocha": "^2.2.33",
+    "@types/node": "^6.0.49",
+    "commitizen": "^2.8.6",
+    "conventional-changelog-cli": "^1.2.0",
+    "cz-conventional-changelog": "^1.2.0",
+    "ghooks": "^1.3.2",
+    "mocha": "^3.1.2",
+    "ts-node": "^1.7.0",
+    "tslint": "^4.0.0-dev.2",
+    "typescript": "^2.2.0-dev.20161122",
+    "validate-commit-msg": "^2.8.2"
   }
 }
