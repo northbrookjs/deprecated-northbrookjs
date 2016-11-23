@@ -2,8 +2,8 @@
   "compilerOptions": {
     "declaration": true,
     "moduleResolution": "node",
-    "module": "es2015",
-    "target": "es2015",
+    "module": "commonjs",
+    "target": "es5",
     "lib": [
       "es5",
       "es2015"
@@ -12,8 +12,12 @@
     "sourceMap": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
-    "outDir": "lib/es2015",
+    "outDir": "lib",
     "types": [
+      "minimist",
+      "node",
+      "findup-sync",
+      "ramda"
     ]
   },
   "files": [
