@@ -1,3 +1,4 @@
+
 # Logs
 logs
 *.log
@@ -36,5 +37,6 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-lib/
+# generated files
+lib
 .tmp
