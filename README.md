@@ -36,6 +36,11 @@ it if your project needs consistent builds, or more control over dependencies.
 
 ## Project Goals
 
+ These are continuing to evolve. To stay more up to date take a look at the issue
+ tracking forward progress [here](https://github.com/northbrookjs/northbrookjs/issues/4)
+ or any of the issues currently open that are tracking work that need to be done for the
+ next major release.
+
 - Manage projects with ease, including multi-package repositories (monorepos)
 - Useful out of box with no configuration
 - Automated [compatible versioning](https://github.com/staltz/comver)
