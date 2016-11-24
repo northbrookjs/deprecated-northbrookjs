@@ -3,7 +3,7 @@ import { NorthbrookConfig, STDIO, Plugin } from './types';
 import { resolvePlugins } from './resolvePlugins';
 import { resolvePackages } from './resolvePackages';
 import { northrookRun } from './run';
-import { prop } from 'ramda';
+import { prop, clone } from 'ramda';
 
 const defaultStdio: STDIO =
   {
@@ -33,7 +33,7 @@ export function northbrook(
 
   config.packages = packages;
 
-  const run = northrookRun(config, stdio);
+  const run = northrookRun(clone(config), stdio);
 
   const only =
     flag('string',
@@ -41,12 +41,21 @@ export function northbrook(
       description('Execute plugins in only specific packages'),
     );
 
+  const configPath =
+    flag('string',
+      alias('config', 'c'),
+      description('Relative path to your northbrook config'),
+    );
+
+  // for display in help menu
+  const nb = command(only, configPath);
+
   return {
     plugins,
     packages,
     start (argv?: Array<string>) {
       argv = argv || process.argv.slice(2);
-      run(argv, app(only, ...plugins.map<Command | App>(prop('plugin'))));
+      run(argv, app(nb, ...plugins.map<Command | App>(prop('plugin'))));
     },
   };
 }

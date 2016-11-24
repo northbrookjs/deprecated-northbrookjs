@@ -9,7 +9,7 @@ import { forEach, ifElse, mergeWith, is, concat } from 'ramda';
 import { red, white, yellow, green, bold } from 'typed-colors';
 import { cross } from 'typed-figures';
 import { deepMerge } from './deepMerge';
-import { display } from './display';
+import { display, displayFlags } from './display';
 import { callCommand } from './callCommand';
 import { NorthbrookConfig, STDIO } from '../types';
 
@@ -19,13 +19,14 @@ export function northrookRun(config: NorthbrookConfig, stdio: STDIO) {
   {
     const { stdout = process.stdout } = stdio;
 
+    const parsedArguments: any = parseArguments(argv, app.flags);
+
     // show help if no arguments are passed in
     if (argv.length === 0) {
       stdout.write(bold(`No commands were expressed...` + EOL + EOL));
-      argv = ['--help'];
+      parsedArguments.help = true;
     }
 
-    const parsedArguments = parseArguments(argv, app.flags);
     const matchedCommands = matchCommands(app, parsedArguments);
 
     // fail early if no commands have been matched
@@ -57,8 +58,8 @@ function execute(
   const commandCall = callCommand(argv, args, commandFlags, filterCommandOptions, config);
 
   if ((parsedArguments as any).help === true) {
-    stdout.write(green(bold(`Northbrook`)) + EOL +
-      `${EOL}${app.commands.map(display)}`.replace(`${EOL},`, `${EOL}`) + EOL);
+    stdout.write(green(bold(`Northbrook`)) + EOL + EOL +
+      `${app.commands.map(display)}`.replace(new RegExp(`${EOL},`, 'g'), EOL).trim() + EOL);
   } else {
     // call all matched commands
     forEach(ifElse(hasHandlerFn, commandCall, logWarning(stdout)), matchedCommands);
