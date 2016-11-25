@@ -8,7 +8,6 @@ import { resolvePackages } from './resolvePackages';
 import { northrookRun } from './run';
 import { prop, clone } from 'ramda';
 
-
 const defaultStdio: Stdio =
   {
     stdin: process.stdin,

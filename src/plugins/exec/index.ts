@@ -7,7 +7,7 @@ import { Plugin, command, Command, alias, each, description } from '../../northb
 
 const m: {
   addPath: (dir: string) => void,
-  removePath: (dir: string) => void
+  removePath: (dir: string) => void,
 } = require('app-module-path');
 
 export const plugin: Command =
@@ -26,7 +26,7 @@ each(plugin, function ({ pkg, args }, { stdout, stderr }) {
     .catch(logError(stderr))
     .then(() => {
       m.removePath(path);
-      m.removePath(join(path, 'node_modules'))
+      m.removePath(join(path, 'node_modules'));
     });
 });
 

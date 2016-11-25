@@ -39,7 +39,7 @@ function resolve(name: string, stdio: Stdio, debug: boolean) {
     return name;
   };
 
-  stdio.stderr.write(yellow(`WARNING`) + `: Could not resolve package: ${name}` + EOL);
+  stdio.stdout.write(yellow(`WARNING`) + `: Could not resolve package: ${name}` + EOL);
 
   return null;
 }

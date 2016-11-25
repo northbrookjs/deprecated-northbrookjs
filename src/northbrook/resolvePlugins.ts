@@ -36,11 +36,7 @@ function resolvePlugin(cwd: string, stdio: Stdio, debug: boolean) {
       }
     }
 
-    stdio.stderr.write(yellow(`WARNING`) + `:Could not resolve plugin: ${pluginName}` + EOL);
-
-    if (debug) {
-      stdio.stderr.write(red('ERROR') + `:  ${plugin.message}` + EOL);
-    }
+    stdio.stdout.write(yellow(`WARNING`) + `: Could not resolve plugin: ${pluginName}` + EOL);
 
     return null;
   };

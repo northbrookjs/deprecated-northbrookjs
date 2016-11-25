@@ -3,6 +3,7 @@ import { join } from 'path';
 import * as assert from 'assert';
 import { stdio } from 'stdio-mock';
 import { resolvePlugins } from '../src/northbrook/resolvePlugins';
+import { strip } from 'typed-colors';
 
 const pluginPath = join(__dirname, 'testPlugins');
 
@@ -12,11 +13,11 @@ describe('resolvePlugins', () => {
     assert.strictEqual(plugins.length, 2);
   });
 
-  it('should write to stderr which plugins failed to load', (done) => {
+  it('should write to stdout which plugins failed to load', (done) => {
     const io = stdio();
 
-    io.stderr.on('data', (data: string) => {
-      assert.equal(data.toString(), 'Could not resolve plugin: c' + EOL);
+    io.stdout.on('data', (data: string) => {
+      assert.equal(strip(data.toString()), 'WARNING: Could not resolve plugin: c' + EOL);
       done();
     });
 

@@ -13,14 +13,14 @@ describe('resolvePackages', () => {
     assert.strictEqual(packages.length, 2);
   });
 
-  it('writes to stderr if for packages not found', (done) => {
+  it('writes warning to stdout if no packages not found', (done) => {
     const io = stdio();
 
-    io.stderr.on('data', (data: Buffer | string) => {
-      assert.ok(data.toString().indexOf('Could not resolve package:') === 0);
+    io.stdout.on('data', (data: Buffer | string) => {
+      assert.ok(data.toString().indexOf('Could not resolve package:') > -1);
       done();
     });
 
-    resolvePackages(['./testPackages/**'], __dirname, io);
+    resolvePackages(['./testPackages/c'], __dirname, io);
   });
 });
