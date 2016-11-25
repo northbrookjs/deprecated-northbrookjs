@@ -1,3 +1,11 @@
 {
-  "name": "b-testpackage"
+  "name": "b-testpackage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "jsnext:main": "index.js",
+  "module": "index.js",
+  "typings": "index.js",
+  "dependencies": {
+    "a-testpackage": "*"
+  }
 }
