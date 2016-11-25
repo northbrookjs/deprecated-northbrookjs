@@ -12,7 +12,7 @@
     "sourceMap": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
-    "outDir": "lib",
+    "outDir": "./",
     "types": [
       "minimist",
       "node",
@@ -20,7 +20,8 @@
       "ramda"
     ]
   },
-  "files": [
-    "src/index.ts"
-  ]
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": []
 }

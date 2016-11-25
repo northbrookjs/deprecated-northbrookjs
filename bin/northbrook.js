@@ -31,4 +31,4 @@ var dirname = require('path').dirname;
   var start = northbrook.northbrook(nbConfig, [], path).start;
 
   start(process.argv.slice(2));
-})(require('../lib'));
+})(require('../northbrook'));

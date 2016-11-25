@@ -1,4 +1,4 @@
-import { Command, App } from 'reginn';
+import { Command, App } from './';
 
 export interface NorthbrookConfig extends Object<any> {
   plugins: Array<string>;
@@ -17,4 +17,10 @@ export interface STDIO {
   stdout?: NodeJS.WritableStream;
   stderr?: NodeJS.WritableStream;
   stdin?: NodeJS.ReadableStream;
+}
+
+export interface Stdio {
+  stdout: NodeJS.WritableStream;
+  stderr: NodeJS.WritableStream;
+  stdin: NodeJS.ReadableStream;
 }

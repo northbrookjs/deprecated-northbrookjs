@@ -1,5 +1,5 @@
 import * as assert from 'assert';
-import { tryRequire } from '../src/tryRequire';
+import { tryRequire } from '../src/northbrook/tryRequire';
 import * as mocha from 'mocha';
 
 describe('tryRequire', () => {

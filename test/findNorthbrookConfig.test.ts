@@ -1,7 +1,7 @@
 import * as assert from 'assert';
 import { dirname, join } from 'path';
 import { stdio } from 'stdio-mock';
-import { findNorthbrookConfig } from '../src/findNorthbrookConfig';
+import { findNorthbrookConfig } from '../src/northbrook/findNorthbrookConfig';
 
 describe('findNorthbrookConfig', () => {
   // @TODO: write a test for this that creates a file somewhere to look for it

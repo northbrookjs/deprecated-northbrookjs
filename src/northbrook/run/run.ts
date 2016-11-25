@@ -11,13 +11,13 @@ import { cross } from 'typed-figures';
 import { deepMerge } from './deepMerge';
 import { display, displayFlags } from './display';
 import { callCommand } from './callCommand';
-import { NorthbrookConfig, STDIO } from '../types';
+import { NorthbrookConfig, Stdio } from '../types';
 
-export function northrookRun(config: NorthbrookConfig, stdio: STDIO) {
+export function northrookRun(config: NorthbrookConfig, stdio: Stdio) {
   return function run(
     argv: Array<string>, app: App): Promise<HandlerApp>
   {
-    const { stdout = process.stdout } = stdio;
+    const { stdout } = stdio;
 
     const parsedArguments: any = parseArguments(argv, app.flags);
 
@@ -27,7 +27,7 @@ export function northrookRun(config: NorthbrookConfig, stdio: STDIO) {
       parsedArguments.help = true;
     }
 
-    const matchedCommands = matchCommands(app, parsedArguments);
+    const matchedCommands = matchCommands(app as any, parsedArguments);
 
     // fail early if no commands have been matched
     if (matchedCommands.length === 0 && !(parsedArguments as any).help) {
@@ -44,18 +44,18 @@ function execute(
   argv: string[],
   app: App,
   config: NorthbrookConfig,
-  stdio: STDIO,
+  stdio: Stdio,
   matchedCommands: Array<Command>,
   parsedArguments: any,
 ): Promise<HandlerApp>
 {
   const { stdout = process.stdout } = stdio;
 
-  const commandFlags = deepMerge(app.flags, getCommandFlags(matchedCommands));
+  const commandFlags = deepMerge(app.flags, getCommandFlags(matchedCommands as any));
   const [args, options] = splitArguments(parseArguments(argv, commandFlags));
 
   const filterCommandOptions = filterOptions(options, app.flags, argv);
-  const commandCall = callCommand(argv, args, commandFlags, filterCommandOptions, config);
+  const commandCall = callCommand(argv, args, commandFlags, filterCommandOptions, config, stdio);
 
   if ((parsedArguments as any).help === true) {
     stdout.write(green(bold(`Northbrook`)) + EOL + EOL +

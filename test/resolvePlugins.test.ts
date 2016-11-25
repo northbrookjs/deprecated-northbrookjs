@@ -2,7 +2,7 @@ import { EOL } from 'os';
 import { join } from 'path';
 import * as assert from 'assert';
 import { stdio } from 'stdio-mock';
-import { resolvePlugins } from '../src/resolvePlugins';
+import { resolvePlugins } from '../src/northbrook/resolvePlugins';
 
 const pluginPath = join(__dirname, 'testPlugins');
 

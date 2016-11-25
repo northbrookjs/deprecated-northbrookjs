@@ -40,3 +40,9 @@ jspm_packages
 # generated files
 lib
 .tmp
+
+northbrook/
+plugins/
+
+!src/northbrook
+!src/plugins

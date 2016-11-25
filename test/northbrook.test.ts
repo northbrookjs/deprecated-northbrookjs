@@ -1,5 +1,5 @@
 import * as assert from 'assert';
-import { northbrook, NorthbrookConfig, command, alias, withPromise } from '../src';
+import { northbrook, NorthbrookConfig, command, alias, withPromise } from '../src/northbrook';
 import { stdio } from 'stdio-mock';
 
 const config: NorthbrookConfig =

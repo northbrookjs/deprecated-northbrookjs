@@ -1,11 +1,11 @@
+import { NorthbrookConfig, STDIO, Stdio, Plugin } from './types';
 import { app, command, Command, App, description, flag, alias } from 'reginn';
-import { NorthbrookConfig, STDIO, Plugin } from './types';
 import { resolvePlugins } from './resolvePlugins';
 import { resolvePackages } from './resolvePackages';
 import { northrookRun } from './run';
 import { prop, clone } from 'ramda';
 
-const defaultStdio: STDIO =
+const defaultStdio: Stdio =
   {
     stdin: process.stdin,
     stderr: process.stderr,
@@ -33,7 +33,7 @@ export function northbrook(
 
   config.packages = packages;
 
-  const run = northrookRun(clone(config), stdio);
+  const run = northrookRun(clone(config), stdio as Stdio);
 
   const only =
     flag('string',
@@ -55,7 +55,7 @@ export function northbrook(
     packages,
     start (argv?: Array<string>) {
       argv = argv || process.argv.slice(2);
-      run(argv, app(nb, ...plugins.map<Command | App>(prop('plugin'))));
+      run(argv, app(nb, ...plugins.map<any>(prop('plugin'))));
     },
   };
 }

@@ -1,32 +1,8 @@
-import { Command, CommandFlags, App, HandlerApp, HandlerOptions, Alias } from 'reginn';
+import { Command, CommandFlags, HandlerApp } from 'reginn';
 import { getCommandFlags } from 'reginn/lib/commonjs/run/getCommandFlags';
 import { tail, union } from 'ramda';
 import { deepMerge } from './deepMerge';
-import { NorthbrookConfig } from '../types';
-
-// extend types
-declare module 'reginn' {
-  export interface HandlerApp extends App, HandlerOptions { }
-
-  export interface HandlerOptions {
-    args: Array<string>;
-    options: any;
-    config: NorthbrookConfig;
-  }
-
-  export interface Handler {
-    (input: HandlerOptions | HandlerApp): any;
-  }
-
-  export interface Command {
-    type: 'command';
-    flags: CommandFlags;
-    aliases: Array<Alias>;
-    commands: Array<Command>;
-    description?: string;
-    handler?: Handler;
-  }
-}
+import { NorthbrookConfig, Stdio } from '../types';
 
 export function callCommand(
   argv: string[],
@@ -34,26 +10,27 @@ export function callCommand(
   flags: CommandFlags,
   filter: (command: Command) => CommandFlags,
   config: NorthbrookConfig,
+  stdio: Stdio,
 ) {
   return function (command: Command) {
     if (!command.handler) return;
 
     if (command.commands.length > 0) {
-      const commandFlags = deepMerge(flags, getCommandFlags(command.commands));
+      const commandFlags = deepMerge(flags, getCommandFlags(command.commands as any));
       command.handler(
-        createSubApplication(argv, parsedArgs, commandFlags, command, filter, config));
+        createSubApplication(argv, parsedArgs, commandFlags, command, filter, config), stdio);
     } else if (command.aliases && command.aliases.length > 0) {
       command.handler({
         config,
         args: tail(parsedArgs),
         options: optionsToCamelCase(filter(command)),
-      });
+      }, stdio);
     } else {
       command.handler({
         config,
         args: parsedArgs,
         options: optionsToCamelCase(filter(command)),
-      });
+      }, stdio);
     }
   };
 }
