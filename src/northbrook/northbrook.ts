@@ -1,9 +1,14 @@
+import { EOL } from 'os';
+import { join, delimiter } from 'path';
 import { NorthbrookConfig, STDIO, Stdio, Plugin } from './types';
-import { app, command, Command, App, description, flag, alias } from 'reginn';
+import { app, command, Command, App, description, flag, alias, HandlerApp } from 'reginn';
+import { cyan } from 'typed-colors';
 import { resolvePlugins } from './resolvePlugins';
 import { resolvePackages } from './resolvePackages';
 import { northrookRun } from './run';
 import { prop, clone } from 'ramda';
+
+const addPath: (dir: string) => void = require('app-module-path').addPath;
 
 const defaultStdio: Stdio =
   {
@@ -17,16 +22,21 @@ export function northbrook(
   additionalPlugins: Array<Plugin> = [],
   cwd: string = process.cwd(),
   stdio?: STDIO,
+  debugMode = false,
 ) {
   process.chdir(cwd);
+
+  addPath(join(cwd, 'node_modules/.bin'));
+  process.env.PATH = join(cwd, 'node_modules/.bin/') + delimiter + process.env.PATH;
+
   stdio = { ...defaultStdio, ...stdio || {} };
 
   const plugins: Array<Plugin> =
-    resolvePlugins(config.plugins || [], cwd, stdio.stderr)
+    resolvePlugins(config.plugins || [], cwd, stdio as Stdio, debugMode)
       .concat(additionalPlugins);
 
   let packages: Array<string> =
-    resolvePackages(config.packages || [], cwd, stdio.stderr);
+    resolvePackages(config.packages || [], cwd, stdio as Stdio, debugMode);
 
   if (packages.length === 0)
     packages = ['.'];
@@ -47,15 +57,25 @@ export function northbrook(
       description('Relative path to your northbrook config'),
     );
 
+  const debug =
+    flag('boolean',
+      alias('debug', 'd'),
+      description('Log more information for debugging'),
+    );
+
   // for display in help menu
-  const nb = command(only, configPath);
+  const nb = command(only, configPath, debug);
 
   return {
-    plugins,
-    packages,
-    start (argv?: Array<string>) {
+    plugins: plugins.slice(0),
+    packages: packages.slice(0),
+    start (argv?: Array<string>): Promise<HandlerApp> {
       argv = argv || process.argv.slice(2);
-      run(argv, app(nb, ...plugins.map<any>(prop('plugin'))));
+      if (debugMode) {
+        (stdio as Stdio).stdout.write(cyan(`DEBUG`) +
+          `: Starting northbrook with args ${argv.join(' ')}` + EOL + EOL);
+      }
+      return run(argv, app(nb, ...plugins.map<App | Command>(prop('plugin'))));
     },
   };
 }

@@ -15,7 +15,7 @@ describe('tryRequire', () => {
   });
 
   it('should return null if a package cannot be found', () => {
-    const pkg = tryRequire<null>('asddfasdfasdfasdfasdfadf');
-    assert.strictEqual(pkg, null);
+    const pkg = tryRequire('asddfasdfasdfasdfasdfadf');
+    assert.strictEqual(pkg instanceof Error, true);
   });
 });

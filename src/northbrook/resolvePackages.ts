@@ -2,35 +2,44 @@ import { EOL } from 'os';
 import { join, relative } from 'path';
 import { statSync, readdirSync, Stats } from 'fs';
 import { map, filter, flatten, reduce, concat, append } from 'ramda';
+import { cyan, yellow } from 'typed-colors';
 import { tryRequire } from './tryRequire';
+import { Stdio } from './types';
 
 // finds all require()-able packages
 export function resolvePackages(
   packages: Array<string>,
   cwd: string = process.cwd(),
-  stderr: NodeJS.WritableStream = process.stdout): Array<string>
+  stdio: Stdio,
+  debug = false,
+): Array<string>
 {
-  return filter(Boolean, flatten(map(resolvePackage(cwd, stderr), packages)));
+  return filter(Boolean, flatten(map(resolvePackage(cwd, stdio, debug), packages)));
 }
 
-function resolvePackage(cwd: string, stderr: NodeJS.WritableStream) {
+function resolvePackage(cwd: string, stdio: Stdio, debug: boolean) {
   return function (packagePath: string) {
     // allow shorthand for directories with lots of packages
     if (packagePath.endsWith('*') || packagePath.endsWith('**')) {
       const packagesPath = join(cwd, packagePath.replace(/(\*)+$/, ''));
       const packages = getAllInDirectory(packagesPath);
-      return map(name => resolve(join(packagesPath, name), stderr), packages);
+      return map(name => resolve(join(packagesPath, name), stdio, debug), packages);
     }
 
-    return resolve(join(cwd, packagePath), stderr);
+    return resolve(join(cwd, packagePath), stdio, debug);
   };
 }
 
 // if a directory contains a package.json
-function resolve(name: string, stderr: NodeJS.WritableStream) {
-  if (hasPkg(name)) return name;
+function resolve(name: string, stdio: Stdio, debug: boolean) {
+  if (hasPkg(name)) {
+    if (debug)
+      stdio.stdout.write(`${cyan('DEBUG')}: Resolved package: ${name}` + EOL);
 
-  stderr.write(`Could not resolve package: ${name}` + EOL);
+    return name;
+  };
+
+  stdio.stderr.write(yellow(`WARNING`) + `: Could not resolve package: ${name}` + EOL);
 
   return null;
 }

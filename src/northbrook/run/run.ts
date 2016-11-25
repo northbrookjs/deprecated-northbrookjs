@@ -59,7 +59,10 @@ function execute(
 
   if ((parsedArguments as any).help === true) {
     stdout.write(green(bold(`Northbrook`)) + EOL + EOL +
-      `${app.commands.map(display)}`.replace(new RegExp(`${EOL},`, 'g'), EOL).trim() + EOL);
+      `${app.commands.map(display)}`
+        .replace(new RegExp(`${EOL},`, 'g'), EOL)
+        .replace(new RegExp(`${EOL}{2,}`, 'g'), EOL)
+        .trim() + EOL + EOL);
   } else {
     // call all matched commands
     forEach(ifElse(hasHandlerFn, commandCall, logWarning(stdout)), matchedCommands);

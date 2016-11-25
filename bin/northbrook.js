@@ -4,15 +4,15 @@ var EOL = require('os').EOL;
 var join = require('path').join;
 var dirname = require('path').dirname;
 
-(function (northbrook) {
+(function (northbrook, argv) {
   var config;
-  var index = process.argv.indexOf('--config');
+  var index = argv.indexOf('--config');
 
   if (index === -1)
-    index = process.argv.indexOf('-c');
+    index = argv.indexOf('-c');
 
-  if (index > 0) {
-    var configPath = join(process.cwd(), process.argv[index + 1]);
+  if (index >= 0) {
+    var configPath = join(process.cwd(), argv[index + 1]);
 
     if (configPath.endsWith('.ts'))
       require('ts-node/register');
@@ -28,7 +28,9 @@ var dirname = require('path').dirname;
   if (!path || !nbConfig)
     return;
 
-  var start = northbrook.northbrook(nbConfig, [], path).start;
+  const debug = (argv.indexOf('--debug') || argv.indexOf('-d')) > -1;
 
-  start(process.argv.slice(2));
-})(require('../northbrook'));
+  var start = northbrook.northbrook(nbConfig, [], path, {}, debug).start;
+
+  start(argv);
+})(require('../northbrook'), process.argv.slice(2));

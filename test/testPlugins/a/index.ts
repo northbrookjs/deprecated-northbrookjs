@@ -1,5 +1,5 @@
-import { Plugin } from '../../../src/types';
-import { each } from '../../../src/each';
+import { Plugin } from '../../../src/northbrook/types';
+import { each } from '../../../src/northbrook/each';
 
 import { command, Command, flag, alias, description } from 'reginn';
 

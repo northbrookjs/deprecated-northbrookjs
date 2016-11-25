@@ -1,6 +1,7 @@
 const config =
   {
-    packages: ['testPackages/**'],
+    plugins: ['plugins'],
+    packages: ['test/testPackages/**'],
   };
 
 export = config;
