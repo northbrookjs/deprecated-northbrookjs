@@ -8,7 +8,6 @@ import { resolvePackages } from './resolvePackages';
 import { northrookRun } from './run';
 import { prop, clone } from 'ramda';
 
-const addPath: (dir: string) => void = require('app-module-path').addPath;
 
 const defaultStdio: Stdio =
   {
@@ -26,7 +25,6 @@ export function northbrook(
 ) {
   process.chdir(cwd);
 
-  addPath(join(cwd, 'node_modules/.bin'));
   process.env.PATH = join(cwd, 'node_modules/.bin/') + delimiter + process.env.PATH;
 
   stdio = { ...defaultStdio, ...stdio || {} };

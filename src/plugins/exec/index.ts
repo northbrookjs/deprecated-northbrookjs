@@ -1,10 +1,14 @@
 import { EOL } from 'os';
+import { join } from 'path';
 import { spawn } from 'child_process';
 import { pointer } from 'typed-figures';
 import { bold, cyan, italic, red } from 'typed-colors';
 import { Plugin, command, Command, alias, each, description } from '../../northbrook';
 
-const m: any = require('mississippi');
+const m: {
+  addPath: (dir: string) => void,
+  removePath: (dir: string) => void
+} = require('app-module-path');
 
 export const plugin: Command =
   command(alias('exec'), description('Execute commands in all managed packgaes'));
@@ -15,8 +19,15 @@ each(plugin, function ({ pkg, args }, { stdout, stderr }) {
   const cmd = args.shift() as string;
   const stdio = ['inherit', 'pipe', 'pipe'];
 
+  m.addPath(path);
+  m.addPath(join(path, 'node_modules'));
+
   return new Promise(execute(name, path, stdout, stderr, cmd, args, stdio))
-    .catch(logError(stderr));
+    .catch(logError(stderr))
+    .then(() => {
+      m.removePath(path);
+      m.removePath(join(path, 'node_modules'))
+    });
 });
 
 const logError = (stderr: NodeJS.WritableStream) => (e: Error) =>
