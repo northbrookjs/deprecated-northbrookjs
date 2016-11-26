@@ -1,6 +1,6 @@
 import { Command, CommandFlags, HandlerApp } from 'reginn';
 import { getCommandFlags } from 'reginn/lib/commonjs/run/getCommandFlags';
-import { tail, union } from 'ramda';
+import { tail } from 'ramda';
 import { deepMerge } from './deepMerge';
 import { NorthbrookConfig, Stdio } from '../types';
 

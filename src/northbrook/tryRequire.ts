@@ -1,5 +1,3 @@
-import { Stdio } from './types';
-
 export function tryRequire(pkgName: any): any {
   try {
     return require(pkgName);

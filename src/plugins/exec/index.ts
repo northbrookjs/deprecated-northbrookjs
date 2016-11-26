@@ -3,7 +3,7 @@ import { join } from 'path';
 import { spawn } from 'child_process';
 import { pointer } from 'typed-figures';
 import { bold, cyan, italic, red } from 'typed-colors';
-import { Plugin, command, Command, alias, each, description } from '../../northbrook';
+import { command, Command, alias, each, description } from '../../northbrook';
 
 const m: {
   addPath: (dir: string) => void,

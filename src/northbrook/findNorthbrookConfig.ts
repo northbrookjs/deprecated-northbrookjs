@@ -3,7 +3,6 @@ import { dirname } from 'path';
 import { cross } from 'typed-figures';
 import { red, bold } from 'typed-colors';
 import findup = require('findup-sync');
-import { tryCatch } from 'ramda';
 
 import { STDIO, NorthbrookConfig } from './types';
 

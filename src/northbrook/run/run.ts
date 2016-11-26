@@ -1,15 +1,15 @@
 import { EOL } from 'os';
-import { App, Command, HandlerApp, Handler, Alias, CommandFlags } from 'reginn';
+import { App, Command, HandlerApp } from 'reginn';
 // avoid reimplementing everything
 import { parseArguments, splitArguments } from 'reginn/lib/commonjs/run/parseArguments';
 import { matchCommands } from 'reginn/lib/commonjs/run/matchCommands';
 import { getCommandFlags } from 'reginn/lib/commonjs/run/getCommandFlags';
 import { filterOptions } from 'reginn/lib/commonjs/run/filterOptions';
-import { forEach, ifElse, mergeWith, is, concat } from 'ramda';
+import { forEach, ifElse } from 'ramda';
 import { red, white, yellow, green, bold } from 'typed-colors';
 import { cross } from 'typed-figures';
 import { deepMerge } from './deepMerge';
-import { display, displayFlags } from './display';
+import { display } from './display';
 import { callCommand } from './callCommand';
 import { NorthbrookConfig, Stdio } from '../types';
 

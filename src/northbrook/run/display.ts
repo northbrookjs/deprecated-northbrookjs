@@ -1,7 +1,7 @@
 import { EOL } from 'os';
 import { Command, Alias, CommandFlags } from 'reginn';
 import { green, white, underline, bold } from 'typed-colors';
-import { union, trim } from 'ramda';
+import { union } from 'ramda';
 
 export function display (command: Command) {
   return `${command.aliases.map(displayAlias)}` +

@@ -1,9 +1,8 @@
 import { EOL } from 'os';
 import { join, relative } from 'path';
 import { statSync, readdirSync, Stats } from 'fs';
-import { map, filter, flatten, reduce, concat, append } from 'ramda';
+import { map, filter, flatten, reduce, concat } from 'ramda';
 import { cyan, yellow } from 'typed-colors';
-import { tryRequire } from './tryRequire';
 import { Stdio } from './types';
 
 // finds all require()-able packages

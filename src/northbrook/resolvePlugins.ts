@@ -1,8 +1,7 @@
 import { EOL } from 'os';
-import { join, relative } from 'path';
-import { readdirSync, statSync, Stats } from 'fs';
-import { filter, flatten, map, reduce, concat } from 'ramda';
-import { cyan, yellow, red } from 'typed-colors';
+import { join } from 'path';
+import { filter, flatten, map } from 'ramda';
+import { cyan, yellow } from 'typed-colors';
 import { Plugin, Stdio } from './types';
 import { tryRequire } from './tryRequire';
 

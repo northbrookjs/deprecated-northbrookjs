@@ -1,7 +1,6 @@
 import { join } from 'path';
-import { Command, withCallback, HandlerApp, HandlerOptions } from 'reginn';
-import { NorthbrookConfig, Stdio } from './types';
-import { tryRequire } from './tryRequire';
+import { Command, HandlerApp, HandlerOptions } from 'reginn';
+import { Stdio } from './types';
 
 export function each(command: Command, callback: EachCallback): Promise<void> {
   return new Promise<void>((resolve, reject) => {
