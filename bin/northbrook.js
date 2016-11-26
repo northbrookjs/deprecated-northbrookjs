@@ -28,7 +28,7 @@ var dirname = require('path').dirname;
   if (!path || !nbConfig)
     return;
 
-  const debug = (argv.indexOf('--debug') || argv.indexOf('-d')) > -1;
+  const debug = argv.indexOf('--debug') > -1 || argv.indexOf('-d') > -1;
 
   var start = northbrook.northbrook(nbConfig, [], path, {}, debug).start;
 
