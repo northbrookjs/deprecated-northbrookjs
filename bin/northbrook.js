@@ -3,6 +3,7 @@
 var EOL = require('os').EOL;
 var join = require('path').join;
 var dirname = require('path').dirname;
+var isAbosolute = require('path').isAbsolute;
 
 (function (northbrook, argv) {
   var config;
@@ -12,7 +13,11 @@ var dirname = require('path').dirname;
     index = argv.indexOf('-c');
 
   if (index >= 0) {
-    var configPath = join(process.cwd(), argv[index + 1]);
+    var path = argv[index + 1];
+
+    var configPath = isAbosolute(path)
+      ? path
+      : join(process.cwd(), argv[index + 1]);
 
     if (configPath.endsWith('.ts'))
       require('ts-node/register');
@@ -26,7 +31,7 @@ var dirname = require('path').dirname;
   var nbConfig = config.config;
 
   if (!path || !nbConfig)
-    return;
+    return console.error('Could not successfully find your Northbrook configuration');
 
   const debug = argv.indexOf('--debug') > -1 || argv.indexOf('-d') > -1;
 

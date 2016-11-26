@@ -18,6 +18,7 @@ describe('Exec Plugin', () => {
 
     let called = 0;
     io.stdout.on('data', function () {
+      // twice for each command
       if (++called === 4) {
         setTimeout(done, 100);
       }
