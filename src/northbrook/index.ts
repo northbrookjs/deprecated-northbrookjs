@@ -44,6 +44,7 @@ declare module 'reginn' {
 
 export * from './types';
 export * from './northbrook';
+export * from './changedPackages';
 export * from './findNorthbrookConfig';
 export * from './each';
 export * from 'reginn';
