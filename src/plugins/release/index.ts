@@ -1,5 +1,4 @@
-import { Plugin, command, Command } from '../../northbrook';
+import { command, Command, alias, description } from '../../northbrook';
 
-const exec: Command = command();
-
-export = { plugin: exec } as Plugin;
+export const plugin: Command =
+  command(alias('release'), description('Automate package release'));

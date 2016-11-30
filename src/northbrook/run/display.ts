@@ -25,7 +25,7 @@ export function displayFlags(flags: CommandFlags) {
   /* tslint:disable max-line-length */
   const strings = union(_strings, []).filter(Boolean)
     .map(x => `--${x}${aliases && aliases[x] ? ' -' + aliases[x] : ''}` +
-      `${(flags as any).description && (flags as any).description[x] ? '  :  ' + (flags as any).description[x] : ''}`);
+      `${(flags as any).description && (flags as any).description[x] ? '  :  ' + (flags as any).description[x] : ''}` + EOL);
 
   const booleanFlags = flags.boolean
     ? typeof flags.boolean === 'string' ? [flags.boolean] : flags.boolean
@@ -36,5 +36,5 @@ export function displayFlags(flags: CommandFlags) {
       `${(flags as any).description && (flags as any).description[x] ? '  :  ' + (flags as any).description[x] : ''}`);
   /* tslint:enable max-line-length */
 
-  return strings.join(EOL) + booleans.join(EOL);
+  return strings.join() + booleans.join(EOL);
 }

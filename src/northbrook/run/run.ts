@@ -63,7 +63,7 @@ function execute(
     stdout.write(green(bold(`Northbrook`)) + EOL + EOL +
       `${app.commands.map(display)}`
         .replace(new RegExp(`${EOL},`, 'g'), EOL)
-        .replace(new RegExp(`${EOL}{2,}`, 'g'), EOL)
+        .replace(new RegExp(`${EOL}{3,}`, 'g'), EOL)
         .trim() + EOL + EOL);
   } else {
     // call all matched commands

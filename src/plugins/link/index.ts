@@ -1,9 +1,10 @@
-import { command, Command, each, alias } from '../../northbrook';
+import { command, Command, each, alias, description } from '../../northbrook';
 
 import { getAllDependencies } from './getAllDependencies';
 import { createPackages } from './createPackages';
 
-export const plugin: Command = command(alias('link'));
+export const plugin: Command =
+  command(alias('link'), description('Link together dependent packages'));
 
 each(plugin, function ({ config, pkg }, io) {
   const { packages, allDependencies } = getAllDependencies(config, pkg.config);
