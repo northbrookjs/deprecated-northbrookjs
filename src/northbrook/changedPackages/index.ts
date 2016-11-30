@@ -21,7 +21,6 @@ function getAffectedPackages(commits: Array<Commit>) {
     .forEach(function (commit: Commit) {
       const affects = commit.message.affects;
 
-
       if (!affects) return;
 
       affects.forEach(name => {
