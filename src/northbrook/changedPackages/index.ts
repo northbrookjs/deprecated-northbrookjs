@@ -4,7 +4,10 @@ import { Commit } from './types';
 
 export * from './types';
 
-export function changedPackages(): Promise<any> {
+export type AffectedPackages =
+  { [key: string]: { name: string, commits: Array<Commit> } };
+
+export function changedPackages(): Promise<AffectedPackages> {
   const rawCommits: Promise<Array<Commit>> =
     gitLatestTag().then(gitRawCommits);
 
@@ -12,7 +15,7 @@ export function changedPackages(): Promise<any> {
 }
 
 function getAffectedPackages(commits: Array<Commit>) {
-  const affectedCommits: { [key: string]: { name: string, commits: Array<Commit> } } = {};
+  const affectedCommits: AffectedPackages = {};
 
   commits
     .forEach(function (commit: Commit) {
