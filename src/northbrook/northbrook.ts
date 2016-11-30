@@ -36,13 +36,31 @@ export function northbrook(
     resolvePackages(config.packages || [], cwd, stdio as Stdio, debugMode);
 
   if (packages.length === 0)
-    packages = ['.'];
+    packages = [cwd];
 
   config.packages = packages;
 
-  const run = northrookRun(clone(config), stdio as Stdio);
+  const run = northrookRun(clone(config), cwd, stdio as Stdio);
 
-  const only =
+  return {
+    plugins: plugins.slice(0),
+
+    packages: packages.slice(0),
+
+    start (argv?: Array<string>): Promise<HandlerApp> {
+      argv = argv || process.argv.slice(2);
+
+      if (debugMode) {
+        (stdio as Stdio).stdout.write(cyan(`DEBUG`) +
+          `: Starting northbrook with args ${argv.join(' ')}` + EOL + EOL);
+      }
+
+      return run(argv, app(nb, ...plugins.map<App | Command>(prop('plugin'))));
+    },
+  };
+}
+
+const only =
     flag('string',
       alias('only', 'o'),
       description('Execute plugins in only specific packages'),
@@ -62,17 +80,3 @@ export function northbrook(
 
   // for display in help menu
   const nb = command(only, configPath, debug);
-
-  return {
-    plugins: plugins.slice(0),
-    packages: packages.slice(0),
-    start (argv?: Array<string>): Promise<HandlerApp> {
-      argv = argv || process.argv.slice(2);
-      if (debugMode) {
-        (stdio as Stdio).stdout.write(cyan(`DEBUG`) +
-          `: Starting northbrook with args ${argv.join(' ')}` + EOL + EOL);
-      }
-      return run(argv, app(nb, ...plugins.map<App | Command>(prop('plugin'))));
-    },
-  };
-}

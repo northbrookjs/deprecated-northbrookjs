@@ -1,5 +1,6 @@
 import { EOL } from 'os';
 import { join } from 'path';
+import { App, Command } from 'reginn';
 import { filter, flatten, map } from 'ramda';
 import { cyan, yellow } from 'typed-colors';
 import { Plugin, Stdio } from './types';
@@ -7,7 +8,7 @@ import { tryRequire } from './tryRequire';
 
 // finds all require()-able plugins
 export function resolvePlugins(
-  plugins: Array<string>,
+  plugins: Array<string | App | Command>,
   cwd: string = process.cwd(),
   stdio: Stdio,
   debug = false): Array<Plugin>
@@ -19,7 +20,9 @@ export function resolvePlugins(
 const NORTHBROOK_PREFIXES = ['', '@northbrook/', 'northbrook-'];
 
 function resolvePlugin(cwd: string, stdio: Stdio, debug: boolean) {
-  return function (pluginName: string) {
+  return function (pluginName: string | App | Command) {
+    if (isCommandOrApp(pluginName)) return pluginName;
+
     let plugin = tryRequire(join(cwd, pluginName));
 
     if (isPlugin(plugin)) return plugin;
@@ -44,9 +47,11 @@ function resolvePlugin(cwd: string, stdio: Stdio, debug: boolean) {
 function isPlugin(plugin: any): boolean {
   if (!plugin || !plugin.plugin) return false;
 
-  const { type } = plugin.plugin;
+  return isCommandOrApp(plugin.plugin);
+}
 
-  if (type === 'command' || type === 'app') return true;
+function isCommandOrApp(x: any) {
+  if (x.type === 'command' || x.type === 'app') return true;
 
   return false;
 }

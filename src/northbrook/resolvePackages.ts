@@ -1,7 +1,7 @@
 import { EOL } from 'os';
-import { join, relative } from 'path';
+import { join } from 'path';
 import { statSync, readdirSync, Stats } from 'fs';
-import { map, filter, flatten, reduce, concat } from 'ramda';
+import { map, filter, flatten } from 'ramda';
 import { cyan, yellow } from 'typed-colors';
 import { Stdio } from './types';
 
@@ -21,7 +21,7 @@ function resolvePackage(cwd: string, stdio: Stdio, debug: boolean) {
     // allow shorthand for directories with lots of packages
     if (packagePath.endsWith('*') || packagePath.endsWith('**')) {
       const packagesPath = join(cwd, packagePath.replace(/(\*)+$/, ''));
-      const packages = getAllInDirectory(packagesPath);
+      const packages = getAllDirectories(packagesPath);
       return map(name => resolve(join(packagesPath, name), stdio, debug), packages);
     }
 
@@ -47,20 +47,8 @@ function hasPkg(path: string): boolean {
   return isFile(join(path, 'package.json'));
 }
 
-function getAllInDirectory(rootDirectory: string): Array<string> {
-  return reduce((directories: Array<string>, directory: string) => {
-    const absolutePath = join(rootDirectory, directory);
-
-    const toRelative = (path: string) =>
-      join((relative(rootDirectory, absolutePath), path));
-
-    if (isDirectory(absolutePath))
-      return concat(
-        concat(directories, [directory]),
-        map(toRelative, getAllInDirectory(absolutePath)));
-
-    return directories;
-  }, [], readdirSync(rootDirectory));
+function getAllDirectories(rootDirectory: string): Array<string> {
+  return readdirSync(rootDirectory).filter(isDirectory);
 }
 
 function exists (pathname: string): Stats | false {

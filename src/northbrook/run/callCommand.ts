@@ -10,6 +10,7 @@ export function callCommand(
   flags: CommandFlags,
   filter: (command: Command) => CommandFlags,
   config: NorthbrookConfig,
+  directory: string,
   stdio: Stdio,
 ) {
   return function (command: Command) {
@@ -18,16 +19,28 @@ export function callCommand(
     if (command.commands.length > 0) {
       const commandFlags = deepMerge(flags, getCommandFlags(command.commands as any));
       command.handler(
-        createSubApplication(argv, parsedArgs, commandFlags, command, filter, config), stdio);
+        createSubApplication(
+          argv,
+          parsedArgs,
+          commandFlags,
+          command,
+          filter,
+          config,
+          directory,
+        ),
+        stdio,
+      );
     } else if (command.aliases && command.aliases.length > 0) {
       command.handler({
         config,
+        directory,
         args: tail(parsedArgs),
         options: optionsToCamelCase(filter(command)),
       }, stdio);
     } else {
       command.handler({
         config,
+        directory,
         args: parsedArgs,
         options: optionsToCamelCase(filter(command)),
       }, stdio);
@@ -54,7 +67,8 @@ function createSubApplication(
   parsedArgs: string[],
   commandFlags: CommandFlags, command: Command,
   filter: (command: Command) => CommandFlags,
-  config: NorthbrookConfig): HandlerApp
+  config: NorthbrookConfig,
+  directory: string): HandlerApp
 {
   const flags = argv.filter(arg => parsedArgs.indexOf(arg) === -1);
   const args = tail(parsedArgs).concat(flags);
@@ -66,5 +80,6 @@ function createSubApplication(
     commands: command.commands,
     flags: commandFlags,
     config,
+    directory,
   };
 }

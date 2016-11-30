@@ -12,6 +12,7 @@ declare module 'reginn' {
     args: Array<string>;
     options: any;
     config: NorthbrookConfig;
+    directory: string;
   }
 
   export interface Handler {

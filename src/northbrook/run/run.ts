@@ -13,7 +13,7 @@ import { display } from './display';
 import { callCommand } from './callCommand';
 import { NorthbrookConfig, Stdio } from '../types';
 
-export function northrookRun(config: NorthbrookConfig, stdio: Stdio) {
+export function northrookRun(config: NorthbrookConfig, directory: string, stdio: Stdio) {
   return function run(
     argv: Array<string>, app: App): Promise<HandlerApp>
   {
@@ -36,7 +36,7 @@ export function northrookRun(config: NorthbrookConfig, stdio: Stdio) {
         (parsedArguments._[0] ? red(bold(`${parsedArguments._[0]}`)) : ''));
     }
 
-    return execute(argv, app, config, stdio, matchedCommands, parsedArguments);
+    return execute(argv, app, config, directory, stdio, matchedCommands, parsedArguments);
   };
 }
 
@@ -44,6 +44,7 @@ function execute(
   argv: string[],
   app: App,
   config: NorthbrookConfig,
+  directory: string,
   stdio: Stdio,
   matchedCommands: Array<Command>,
   parsedArguments: any,
@@ -55,7 +56,8 @@ function execute(
   const [args, options] = splitArguments(parseArguments(argv, commandFlags));
 
   const filterCommandOptions = filterOptions(options, app.flags, argv);
-  const commandCall = callCommand(argv, args, commandFlags, filterCommandOptions, config, stdio);
+  const commandCall =
+    callCommand(argv, args, commandFlags, filterCommandOptions, config, directory, stdio);
 
   if ((parsedArguments as any).help === true) {
     stdout.write(green(bold(`Northbrook`)) + EOL + EOL +
@@ -70,6 +72,7 @@ function execute(
 
   return Promise.resolve<HandlerApp>({
     config,
+    directory,
     type: 'app',
     flags: commandFlags,
     commands: matchedCommands,
