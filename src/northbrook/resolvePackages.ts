@@ -1,8 +1,9 @@
 import { EOL } from 'os';
 import { join } from 'path';
-import { statSync, readdirSync, Stats } from 'fs';
+import { readdirSync } from 'fs';
 import { map, filter, flatten } from 'ramda';
 import { cyan, yellow } from 'typed-colors';
+import { isFile } from './helpers';
 import { Stdio } from './types';
 
 // finds all require()-able packages
@@ -31,6 +32,8 @@ function resolvePackage(cwd: string, stdio: Stdio, debug: boolean) {
 
 // if a directory contains a package.json
 function resolve(name: string, stdio: Stdio, debug: boolean) {
+  if (isFile(name)) return null;
+
   if (hasPkg(name)) {
     if (debug)
       stdio.stdout.write(`${cyan('DEBUG')}: Resolved package: ${name}` + EOL);
@@ -48,23 +51,5 @@ function hasPkg(path: string): boolean {
 }
 
 function getAllDirectories(rootDirectory: string): Array<string> {
-  return readdirSync(rootDirectory).filter(isDirectory);
-}
-
-function exists (pathname: string): Stats | false {
-  try {
-    return statSync(pathname);
-  } catch (e) {
-    return false;
-  }
-}
-
-function isDirectory (pathname: string): boolean {
-  const stats = exists(pathname);
-  return stats ? stats.isDirectory() : false;
-}
-
-function isFile(pathname: string): boolean {
-  const stats = exists(pathname);
-  return stats ? stats.isFile() : false;
+  return readdirSync(rootDirectory);
 }

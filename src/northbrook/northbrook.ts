@@ -1,12 +1,13 @@
 import { EOL } from 'os';
 import { join, delimiter } from 'path';
-import { NorthbrookConfig, STDIO, Stdio, Plugin } from './types';
 import { app, command, Command, App, description, flag, alias, HandlerApp } from 'reginn';
+import { prop, clone } from 'ramda';
 import { cyan } from 'typed-colors';
 import { resolvePlugins } from './resolvePlugins';
 import { resolvePackages } from './resolvePackages';
 import { northrookRun } from './run';
-import { prop, clone } from 'ramda';
+import { isFile } from './helpers';
+import { NorthbrookConfig, STDIO, Stdio, Plugin } from './types';
 
 const defaultStdio: Stdio =
   {
@@ -36,7 +37,7 @@ export function northbrook(
     resolvePackages(config.packages || [], cwd, stdio as Stdio, debugMode);
 
   if (packages.length === 0)
-    packages = [cwd];
+    packages = isFile(join(cwd, 'package.json')) ? [cwd] : [];
 
   config.packages = packages;
 
