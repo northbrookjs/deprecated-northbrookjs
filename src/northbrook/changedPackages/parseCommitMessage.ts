@@ -83,7 +83,7 @@ function getIssuesClosed(messageBody: string) {
 function getSuggestedUpdate(type: string, breakingChanges: string | null) {
   if (breakingChanges !== null) return 3;
   if (type === 'feat') return 2;
-  if (type === 'fix') return 1;
+  if (type === 'fix' || type === 'perf') return 1;
 
   return 0;
 }

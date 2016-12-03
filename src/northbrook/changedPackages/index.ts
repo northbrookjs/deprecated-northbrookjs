@@ -4,8 +4,11 @@ import { Commit } from './types';
 
 export * from './types';
 
+export type AffectedPackage =
+  { name: string, commits: Array<Commit> };
+
 export type AffectedPackages =
-  { [key: string]: { name: string, commits: Array<Commit> } };
+  { [key: string]: AffectedPackage };
 
 export function changedPackages(): Promise<AffectedPackages> {
   const rawCommits: Promise<Array<Commit>> =
