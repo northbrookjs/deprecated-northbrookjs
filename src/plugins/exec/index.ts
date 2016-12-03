@@ -3,7 +3,7 @@ import { join } from 'path';
 import { spawn } from 'child_process';
 import { pointer } from 'typed-figures';
 import { bold, cyan, italic, red } from 'typed-colors';
-import { command, Command, alias, each, description } from '../../northbrook';
+import { command, Command, alias, each, description, Stdio } from '../../northbrook';
 
 const m: {
   addPath: (dir: string) => void,
@@ -13,17 +13,22 @@ const m: {
 export const plugin: Command =
   command(alias('exec'), description('Execute commands in all managed packgaes'));
 
-each(plugin, function ({ pkg, args }, { stdout, stderr }) {
+each(plugin, function ({ pkg, args }, io) {
   const { name, path } = pkg;
 
   const cmd = args.shift() as string;
-  const stdio = ['inherit', 'pipe', 'pipe'];
+
+  const stdio = [
+    io.stdin === process.stdin ? 'inherit' : 'pipe',
+    io.stdout === process.stdout ? 'inherit' : 'pipe',
+    io.stderr === process.stderr ? 'inherit' : 'pipe',
+  ];
 
   m.addPath(path);
   m.addPath(join(path, 'node_modules'));
 
-  return new Promise(execute(name, path, stdout, stderr, cmd, args, stdio))
-    .catch(logError(stderr))
+  return new Promise(execute(name, path, io, cmd, args, stdio))
+    .catch(logError(io.stderr))
     .then(() => {
       m.removePath(path);
       m.removePath(join(path, 'node_modules'));
@@ -36,30 +41,37 @@ const logError = (stderr: NodeJS.WritableStream) => (e: Error) =>
 function execute(
   name: string,
   path: string,
-  stdout: NodeJS.WritableStream,
-  stderr: NodeJS.WritableStream,
+  io: Stdio,
   cmd: string,
   args: Array<string>,
-  stdio: Array<string>)
+  stdio: any)
 {
   return function (resolve: Function, reject: Function) {
-    stdout.write(bold(pointer +
+    io.stdout.write(bold(pointer +
       ` ${cyan(name)} - ` + italic(`${cmd as string} ${args.join(' ')}`)
       + EOL + EOL,
     ));
 
-    const cp = spawn(cmd as string, args.map(String), { cwd: path, stdio });
+    const cp = spawn(cmd, args, { cwd: path, stdio });
 
-    cp.stdout.on('data', d =>
-      stdout.write(`  ` + d.toString().replace(new RegExp(EOL, 'g'), '  ' + EOL)));
+    if (stdio[0] === 'pipe')
+      io.stdin.pipe(cp.stdin);
 
-    cp.stderr.on('error', e => stderr.write(red(e.name + ' ' + e.message)));
+    if (stdio[1] === 'pipe')
+      cp.stdout.on('data', d => io.stdout.write(d));
 
-    const printAndClose = (x: any) =>
-      stdout.write(EOL) && resolve(x);
+    if (stdio[2] === 'pipe')
+      cp.stderr.on('data', d => io.stderr.write(d));
 
-    cp.on('close', printAndClose);
-    cp.on('end', printAndClose);
-    cp.on('error', stderr.write && reject);
+    cp.on('close', writeAndEnd(io.stdout, resolve));
+    cp.on('end', writeAndEnd(io.stdout, resolve));
+    cp.on('error', writeAndEnd(io.stderr, reject));
+  };
+}
+
+function writeAndEnd(writable: NodeJS.WritableStream, end: Function) {
+  return function (x: any) {
+    writable.write(EOL);
+    end(x);
   };
 }
