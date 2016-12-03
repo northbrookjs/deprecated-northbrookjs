@@ -5,8 +5,13 @@ var join = require('path').join;
 var dirname = require('path').dirname;
 var isAbosolute = require('path').isAbsolute;
 
+var defaultPlugins = join(__dirname, '../plugins');
+
 (function (northbrook, argv) {
   var config;
+  var path;
+  var nbConfig;
+
   var index = argv.indexOf('--config');
 
   if (index === -1)
@@ -30,8 +35,14 @@ var isAbosolute = require('path').isAbsolute;
   var path = config.path;
   var nbConfig = config.config;
 
-  if (!path || !nbConfig)
-    return console.error('Could not successfully find your Northbrook configuration');
+  if (!path || !nbConfig) {
+    path = process.cwd();
+
+    nbConfig = {
+      packages: ['.'],
+      plugins: [defaultPlugins]
+    };
+  }
 
   var debug = argv.indexOf('--debug') > -1 || argv.indexOf('-d') > -1;
 
