@@ -33,7 +33,7 @@ var isAbosolute = require('path').isAbsolute;
   if (!path || !nbConfig)
     return console.error('Could not successfully find your Northbrook configuration');
 
-  const debug = argv.indexOf('--debug') > -1 || argv.indexOf('-d') > -1;
+  var debug = argv.indexOf('--debug') > -1 || argv.indexOf('-d') > -1;
 
   var start = northbrook.northbrook(nbConfig, [], path, {}, debug).start;
 
