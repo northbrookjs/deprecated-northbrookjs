@@ -1,7 +1,6 @@
 import { EOL } from 'os';
 import { dirname } from 'path';
-import { cross } from 'typed-figures';
-import { red, bold } from 'typed-colors';
+import { yellow, bold } from 'typed-colors';
 import findup = require('findup-sync');
 
 import { STDIO, NorthbrookConfig } from './types';
@@ -26,15 +25,15 @@ export function findNorthbrookConfig(
   // require ts-node to be able to load `northbrook.ts`
   require('ts-node/register');
 
-  const { stderr = process.stderr } = stdio;
+  const { stdout = process.stdout } = stdio;
 
   const northbrookFilePath: string = findup(NORTHBROOK_CONFIG, options);
 
   if (!northbrookFilePath) {
-    stderr.write(EOL + bold(`${red(cross)} `
-      + bold(`Failed to find your Northbrook configuration file`)
-      + EOL + EOL,
-    ));
+    stdout.write(yellow(bold(`WARNING`)) + `: `
+      + bold(`Failed to find a Northbrook configuration file`)
+      + EOL,
+    );
 
     return { path: null, config: null };
   }
