@@ -13,12 +13,13 @@ export function parseCommitMessage(rawCommit: string): CommitMessage {
       affects: null,
       breakingChanges: null,
       issuesClosed: null,
+      suggestedUpdate: 0,
       raw: rawCommit,
     };
   }
 
-  const type = rawCommit.split('(')[0];
-  const scope = rawCommit.split('(')[1].split('):')[0];
+  const type = rawCommit.split('(')[0].trim();
+  const scope = rawCommit.split('(')[1].split('):')[0].trim();
   const subject = rawCommit.split('):')[1].split(EOL)[0];
 
   const messageBody = rawCommit.split(subject)[1];
@@ -33,14 +34,17 @@ export function parseCommitMessage(rawCommit: string): CommitMessage {
   const breakingChanges = getBreakingChanges(messageBody);
   const issuesClosed = getIssuesClosed(messageBody);
 
+  const suggestedUpdate = getSuggestedUpdate(type, breakingChanges);
+
   return {
-    type: type.trim(),
-    scope: scope.trim(),
+    type,
+    scope,
     subject: subject.trim(),
     body,
     affects,
     breakingChanges,
     issuesClosed,
+    suggestedUpdate,
     raw: rawCommit,
   };
 }
@@ -67,4 +71,19 @@ function getIssuesClosed(messageBody: string) {
   if (!issuesClosed) return null;
 
   return issuesClosed.trim().split(',');
+}
+
+/*
+ * Suggested Updates Using Semver
+ * 0: none
+ * 1: patch
+ * 2: minor
+ * 3: major
+ */
+function getSuggestedUpdate(type: string, breakingChanges: string | null) {
+  if (breakingChanges !== null) return 3;
+  if (type === 'feat') return 2;
+  if (type === 'fix') return 1;
+
+  return 0;
 }
