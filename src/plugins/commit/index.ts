@@ -58,6 +58,5 @@ function checkForStagedChanges(): Promise<boolean> {
 }
 
 function toPkgName(path: string) {
-  console.log(path);
   return require(join(path, 'package.json')).name;
 }
