@@ -1,8 +1,8 @@
 import { Command, App } from './';
 
 export interface NorthbrookConfig extends Object<any> {
-  plugins: Array<string | App | Command>;
-  packages: Array<string>;
+  plugins?: Array<string | App | Command>;
+  packages?: Array<string>;
 }
 
 export interface Plugin {

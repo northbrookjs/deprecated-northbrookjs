@@ -31,17 +31,17 @@ function resolvePackage(cwd: string, stdio: Stdio, debug: boolean) {
 }
 
 // if a directory contains a package.json
-function resolve(name: string, stdio: Stdio, debug: boolean) {
-  if (isFile(name)) return null;
+function resolve(path: string, stdio: Stdio, debug: boolean) {
+  if (isFile(path)) return null;
 
-  if (hasPkg(name)) {
+  if (hasPkg(path)) {
     if (debug)
-      stdio.stdout.write(`${cyan('DEBUG')}: Resolved package: ${name}` + EOL);
+      stdio.stdout.write(`${cyan('DEBUG')}: Resolved package: ${path}` + EOL);
 
-    return name;
+    return path;
   };
 
-  stdio.stdout.write(yellow(`WARNING`) + `: Could not resolve package: ${name}` + EOL);
+  stdio.stdout.write(yellow(`WARNING`) + `: Could not resolve package: ${path}` + EOL);
 
   return null;
 }
