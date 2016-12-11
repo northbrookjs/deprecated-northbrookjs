@@ -91,7 +91,7 @@ If you need to tweak some things, add or configure new plugins, this is where th
 can be done. By default this configuration file should be named either
 `northbrook.js` or `northbrook.ts` if TypeScript is for you. Throughout the
 documentation these two files will used interchangably but rules or
-guidelines that apply to one apply to all Northbrook confurations.
+guidelines that apply to one apply to all Northbrook configurations.
 
 ```typescript
 // as a TypeScript interface
@@ -166,3 +166,30 @@ Plugins can either be a `require()`-able string or in the form of a Reginn
 By default `northbrook/plugins` will be used if no configuration is applied.
 For information about the default plugins or creating plugins please see
 [PLUGINS.md](https://github.com/northbrookjs/northbrookjs/tree/master/PLUGINS.md).
+
+
+## Packages for monorepos
+
+When developing a monorepo, you will need to interact with a `northbrook.js`
+configuration file to setup where to look for each packages. Each package is
+to be defined as a relative path to it.
+
+```js
+//northbrook.js
+// commonjs
+module.exports = {
+  packages: ['relative/path/to/packageA', 'relative/path/to/packageB']
+}
+```
+
+Additionally, if you have many packages co-located in a specific folder, it is
+possible to use a short-hand syntax `/**` to automatically find all packages in a directory.
+
+```js
+module.exports = {
+  packages: ['relativePath/**']
+}
+```
+
+It is important to note that this syntax is not recursive and will only look for
+packages at the top-level of the relative path.
