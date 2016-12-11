@@ -5,7 +5,7 @@ import { NorthbrookConfig } from '../../northbrook';
 export function getAllDependencies(nbConfig: NorthbrookConfig, packageJson: any) {
   const packages = new Map<string, any>();
 
-  forEach(getPackageName(packages), nbConfig.packages);
+  forEach(getPackageName(packages), nbConfig.packages as Array<string>);
 
   const packageNames: Array<string> =
     Array.from(packages.keys());
