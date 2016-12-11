@@ -10,6 +10,9 @@ plugin API used for creating plugins.
   - [`commit`](#commit)
   - [`release`](#release)
 - [Plugin API](#plugin-api)
+  - [Basic Example](#example)
+  - [Each Handler](#each-handler)
+  - [Changed Packages](#changed-packages)
 
 ## Default Plugins
 
@@ -113,6 +116,7 @@ property of `plugin`.
 
 ```js
 // commonjs
+// note that all Reginn functions are re-exported by northbrook for convenience
 const { command, alias } = require('northbrook');
 
 module.exports = {
@@ -129,3 +133,20 @@ export const plugin = command(alias('awesome'));
 
 If for any reason you choose not to provide this option, make sure this is documented
 in your README of your plugin to help anyone trying to get started with your plugin!
+
+Okay, know that Northbrook plugins are just Reginn commands, it can be very helpful
+to step through the [walkthrough](https://github.com/TylorS/reginn#basic-usage-and-tutorial) that Reginn has
+documented.
+
+In addition to all that Reginn has to offer, Northbrook provides two APIs that are especially
+useful for writing plugins.
+
+#### Each Handler
+
+Wait just a while longer for this to be documented, [see it in action](https://github.com/northbrookjs/northbrookjs/blob/master/src/plugins/exec/index.ts#L16),
+or submit a pull request to help us better document this feature!
+
+#### Changed Packages
+
+Wait just a while longer for this to be documented, or submit a pull request to
+help us better document this feature!
