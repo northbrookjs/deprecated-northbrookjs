@@ -3,7 +3,7 @@
 var EOL = require('os').EOL;
 var join = require('path').join;
 var dirname = require('path').dirname;
-var isAbosolute = require('path').isAbsolute;
+var isAbsolute = require('path').isAbsolute;
 
 var defaultPlugins = join(__dirname, '../plugins');
 
@@ -20,7 +20,7 @@ var defaultPlugins = join(__dirname, '../plugins');
   if (index >= 0) {
     var path = argv[index + 1];
 
-    var configPath = isAbosolute(path)
+    var configPath = isAbsolute(path)
       ? path
       : join(process.cwd(), argv[index + 1]);
 
