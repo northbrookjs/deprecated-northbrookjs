@@ -11,7 +11,7 @@ const m: {
 } = require('app-module-path');
 
 export const plugin: Command =
-  command(alias('exec'), description('Execute commands in all managed packgaes'));
+  command(alias('exec'), description('Execute commands in all managed packages'));
 
 each(plugin, function ({ pkg, args }, io) {
   const { name, path } = pkg;
