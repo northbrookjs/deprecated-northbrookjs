@@ -3,6 +3,14 @@
 This is a living document for the default plugins provided by Northbrook and the
 plugin API used for creating plugins.
 
+# Table of Contents
+- [Default Plugins](#default-plugins)
+  - [`exec`](#exec)
+  - [`link`](#link)
+  - [`commit`](#commit)
+  - [`release`](#release)
+- [Plugin API](#plugin-api)
+
 ## Default Plugins
 
 #### `exec`

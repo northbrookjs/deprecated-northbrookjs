@@ -25,6 +25,24 @@ yarn add --dev northbrook
 
 ---
 
+## Table of Contents
+
+- [Project Goals](#general-project-goals)
+- [Documentation Goals](#documentation-goals)
+- [Community Goals](#community-goals)
+- [Northbrook CLI Options](#northbrook-command-line-options)
+- [Northbrook Configuration](#northbrook-configuration)
+- [Plugins](#plugins)
+- [Additional Feature for Monorepos](#additional-features-for-monorepos)
+- [Packages for monorepos](#packages-for-monorepos)
+
+## Additional Documentation
+
+- [Default Plugins and Plugin API](https://github.com/northbrookjs/northbrookjs/tree/master/PLUGINS.md)
+- [Using Northbrook Programatically](https://github.com/northbrookjs/northbrookjs/tree/master/NORTHBROOK_API.md)
+
+---
+
 ## General Project Goals
 
 - Manage projects with ease, including multi-package repositories (monorepos)
@@ -77,34 +95,6 @@ northbrook --config .config/northbrook.production.js
 **`--debug, -d`** Turn on a debug mode, where Northbrook will print to the console more
 information about what it is doing to orchestrate your plugins. Useful to find out
 how Northbrook operates, and for debugging errors that may be occuring.
-
----
-
-## Additional Features for Monorepos
-
-The design of Northbrook is agnostic to the number of packages that you need to
-manage. This means, that you can just as easily use it to manage a single
-package or a monorepo with 100+ packages and share the same benefits.
-
-### Single installation of dependencies
-
-Northbrook has been designed to allow plugins to move your devDependencies to
-the top-level. Allowing for a dependency like TypeScript to be installed 1 time
-and used for all managed packages. This could help cut the build time for your
-projects to focus on the important stuff, tests!
-
-Benefits:
-
-- All packages use the same version of a given dependency
-- Dependency installation time is reduced
-- Less storage is needed
-
-### Single configuration
-
-Just like dependencies, configurations are now allowed to exist at the top-level
-to only be configured once when it makes sense. Configurations such as a
-`tsconfig.json` can be declared once at the root level, and reused across all
-of your package. These leads to less duplication and configuration.
 
 ---
 
@@ -191,6 +181,36 @@ Plugins can either be a `require()`-able string or in the form of a Reginn
 By default `northbrook/plugins` will be used if no configuration is applied.
 For information about the default plugins or creating plugins please see
 [PLUGINS.md](https://github.com/northbrookjs/northbrookjs/tree/master/PLUGINS.md).
+
+---
+
+## Additional Features for Monorepos
+
+The design of Northbrook is agnostic to the number of packages that you need to
+manage. This means, that you can just as easily use it to manage a single
+package or a monorepo with 100+ packages and share the same benefits.
+
+### Single installation of dependencies
+
+Northbrook has been designed to allow plugins to move your devDependencies to
+the top-level. Allowing for a dependency like TypeScript to be installed 1 time
+and used for all managed packages. This could help cut the build time for your
+projects to focus on the important stuff, tests!
+
+Benefits:
+
+- All packages use the same version of a given dependency
+- Dependency installation time is reduced
+- Less storage is needed
+
+### Single configuration
+
+Just like dependencies, configurations are now allowed to exist at the top-level
+to only be configured once when it makes sense. Configurations such as a
+`tsconfig.json` can be declared once at the root level, and reused across all
+of your package. These leads to less duplication and configuration.
+
+---
 
 ## Packages for monorepos
 
