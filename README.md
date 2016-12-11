@@ -55,6 +55,31 @@ be understanding and sensitive to these types of circumstances.
 
 ---
 
+## Northbrook Command Line Options
+
+Northbrook does not do very much out of the box other than orchestrate plugins,
+but it does have some configurable CLI flags that make using Northbrook just a
+bit easier.
+
+**`--only, -o`** Execute plugins only in specific packages
+
+```sh
+# run northbrook exec only in packageA
+northbrook --only packageA exec -- npm install
+```
+
+**`--config, -c`** Explicitly define where to look for a northbrook configuration file.
+
+```sh
+northbrook --config .config/northbrook.production.js
+```
+
+**`--debug, -d`** Turn on a debug mode, where Northbrook will print to the console more
+information about what it is doing to orchestrate your plugins. Useful to find out
+how Northbrook operates, and for debugging errors that may be occuring.
+
+---
+
 ## Additional Features for Monorepos
 
 The design of Northbrook is agnostic to the number of packages that you need to
@@ -166,7 +191,6 @@ Plugins can either be a `require()`-able string or in the form of a Reginn
 By default `northbrook/plugins` will be used if no configuration is applied.
 For information about the default plugins or creating plugins please see
 [PLUGINS.md](https://github.com/northbrookjs/northbrookjs/tree/master/PLUGINS.md).
-
 
 ## Packages for monorepos
 
