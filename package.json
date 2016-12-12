@@ -1,7 +1,7 @@
 {
   "name": "northbrook",
   "description": "Manage your projects with the power of NPM",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "author": "Tylor Steinberger <tlsteinberger167@gmail.com>",
   "bin": {
     "nb": "bin/northbrook.js",
