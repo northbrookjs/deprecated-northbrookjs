@@ -20,10 +20,9 @@ describe('Exec Plugin', () => {
     io.stdout.on('data', function (data: Buffer | string) {
       if (data.toString().trim() === 'hello') {
         ++called;
-      }
-
-      if (called === 2) {
-        setTimeout(done, 100);
+        if (called === 2) {
+          setTimeout(done, 100);
+        }
       }
     });
 
