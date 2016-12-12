@@ -74,13 +74,14 @@ In conjunction with well-organized commit messages from `northbrook commit`,
 of your packages to NPM using git.
 
 1. Check if you have a clean git history (avoid accidental releases)
-2. Find all packages that have not previously been released
-3. Bump the version number of all packages (using compatible or semantic versioning)
-4. Ask for you to login to NPM (`npm login`)
-5. Publish the packages to NPM
-6. Generate git tags for each package
-7. Generate a changelog for each package
-8. Push changes back to your `master` branch
+2. Run `npm test`
+3. Find all packages that have not previously been released
+4. Bump the version number of all packages (using compatible or semantic versioning)
+5. Ask for you to login to NPM (`npm login`)
+6. Publish the packages to NPM
+7. Generate git tags for each package
+8. Generate a changelog for each package
+9. Push changes back to your `master` branch
 
 ```
 # used as
@@ -91,6 +92,7 @@ Options
 
 #### Boolean Flags
 
+- **`--check`** Check to see what releases are currently required without performing steps 4-9.
 - **`--comver`** Use compatible versioning for package release (default)
 - **`--semver`** Use semantic versioning for your package release
 - **`--skip-login`** Skip the `npm login` step
@@ -98,7 +100,6 @@ Options
 #### Flags with values
 - **`--release-branch branch_name`** Define the branch to push to, defaults to `master`.
 - **`--access (public | private)`** Define whether packages are public (default) or private.
-
 ---
 
 ## Plugin API
