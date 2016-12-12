@@ -27,14 +27,14 @@ yarn add --dev northbrook
 
 ## Table of Contents
 
-- [Project Goals](https://github.com/northbrookjs/northbrookjs/blob/master/README.md#general-project-goals)
-- [Documentation Goals](https://github.com/northbrookjs/northbrookjs/blob/master/README.md#documentation-goals)
-- [Community Goals](https://github.com/northbrookjs/northbrookjs/blob/master/README.md#community-goals)
-- [Northbrook CLI Options](https://github.com/northbrookjs/northbrookjs/blob/master/README.md#northbrook-command-line-options)
-- [Northbrook Configuration](https://github.com/northbrookjs/northbrookjs/blob/master/README.md#northbrook-configuration)
-- [Plugins](https://github.com/northbrookjs/northbrookjs/blob/master/README.md#plugins)
-- [Additional Feature for Monorepos](https://github.com/northbrookjs/northbrookjs/blob/master/README.md#additional-features-for-monorepos)
-- [Packages for monorepos](https://github.com/northbrookjs/northbrookjs/blob/master/README.md#packages-for-monorepos)
+- [Project Goals](#general-project-goals)
+- [Documentation Goals](#documentation-goals)
+- [Community Goals](#community-goals)
+- [Northbrook CLI Options](#northbrook-command-line-options)
+- [Northbrook Configuration](#northbrook-configuration)
+- [Plugins](#plugins)
+- [Additional Feature for Monorepos](#additional-features-for-monorepos)
+- [Packages for monorepos](#packages-for-monorepos)
 
 ## Additional Documentation
 
