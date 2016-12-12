@@ -9,7 +9,7 @@ export const plugin: Command =
   command(alias('commit'), description('Powerful git commit messages'));
 
 withCallback(plugin, ({ config }, io) => {
-  const packageNames = config.packages.map(toPkgName);
+  const packageNames = (config.packages as Array<string>).map(toPkgName);
 
   checkForStagedChanges()
     .then(() => askQuestions(packageNames))
